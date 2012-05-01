@@ -1,0 +1,49 @@
+#labelText{
+	text-align: center;
+}
+
+label.error{
+	display:block; 
+	margin:10px 0px;
+	color:red;
+}
+
+#background{
+	text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
+}
+
+#formHeading{
+	text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
+}
+
+#logo{
+	text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+
+#coming .ui-grid-d .ui-bar{
+	padding-right:40px;
+}
+
+#errorLink{display:none;}
+
+#messageBlock{
+	display:none;
+	}
+	
+h3{
+	color: #FF6633;
+	text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
+	}
+h1{
+	color: #FF6633;
+}
