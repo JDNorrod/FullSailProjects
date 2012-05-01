@@ -1,0 +1,279 @@
+<!--App_A-->
+
+<!doctype html>  
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    
+    <title>Lamb's List Mobile</title>
+    
+    <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Mobile IE needs ClearType for smoothing fonts -->
+    <meta http-equiv="cleartype" content="on">
+    
+    <!-- StyleSheets under here -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+    <link rel="stylesheet" href="css/style.css"/>
+    <link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.css" rel="stylesheet" /> 
+	<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
+	<link type="text/css" href="http://dev.jtsage.com/jQM-DateBox/css/demos.css" rel="stylesheet" /> 
+    
+    <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+    <script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+<body>
+
+    <!-- This will be the home page-->
+    <div data-role="page" id="home" data-theme="a">
+    
+    <div data-role="header" data-position="inline" data-theme="a">
+        <div id="logo">
+            <img src="images/logo.png" />
+        </div>
+         
+        <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+    </div>
+    <div data-role="content">
+        <div id="background">
+            <img src="images/bkg.png"/>
+        </div>   
+    </div>
+        <ul data-role="listview" data-inset="true">
+            <li><div data-role="collapsible" data-collapsed="true" data-theme="c">
+                <h3>First Steps</h3> 
+                <a href="#infoForm"   data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right">Add a New Child</a>
+                <a href="#allergies" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Common Allergy Items</a></div></li>
+            <li><div data-role="collapsible" data-collapsed="true" data-theme="c"> 
+                <h3>Browse</h3>        
+                <a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse Infants</a>
+                <a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse 2-4 Year Olds</a>
+                <a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse 5-7 Year Olds</a>
+                <a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse 8-12 Year Olds</a>
+                <a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse All</a></div></li>
+        </ul>
+        
+        
+        <div data-role="footer" data-position="fixed" data-theme="a" data-id="browse">
+            <div data-role="navbar" style="text-align: center">
+                  <ul>
+                       <li><a href="https://github.com/JDNorrod/MIU-Projects/tree/master/App_A" class="ui-btn-active"></a>App A</li>
+                       <li><a href="https://github.com/JDNorrod/MIU-Projects/tree/master/App_B"></a>App B</li>
+                       <li><a href="http://JDNorrod.github.com/MIU-Projects/App_A/index.html"></a></a>GH A</li>
+                       <li><a href="http://JDNorrod.github.com/MIU-Projects/App_B/index.html"></a>GH B</li>
+                   </ul>
+             
+            </div>
+               
+        </div>
+        
+     </div>
+    <!--Infants page***************************************************-->
+    <div data-role="page" id="infants" data-add-back-btn="true" data-theme="a">
+    
+    <div data-role="header" data-position="inline" data-theme="a">
+        <div id="logo">
+            <img src="images/logo.png" />
+        </div>
+         <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
+        <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+    </div>
+        <div data-role="content">
+        <div id="background">
+            <img src="images/bkg.png"/>
+        </div>
+    </div>
+        <h3>Coming Soon!  Please be patient...</h3>
+        
+        <div data-role="footer" data-position="fixed" data-theme="a" data-id="browse">
+            <div data-role="navbar" style="text-align: center">
+                  <ul>
+                       <li><a href="https://github.com/JDNorrod/MIU-Projects/tree/master/App_A" class="ui-btn-active"></a>App A</li>
+                       <li><a href="https://github.com/JDNorrod/MIU-Projects/tree/master/App_B"></a>App B</li>
+                       <li><a href="http://JDNorrod.github.com/MIU-Projects/App_A/index.html"></a></a>GH A</li>
+                       <li><a href="http://JDNorrod.github.com/MIU-Projects/App_B/index.html"></a>GH B</li>
+                   </ul>
+            </div>
+               
+        </div>
+    </div>
+    <!--Infants page***************************************************-->
+    <!--Allergy page***************************************************-->
+    <div data-role="page" id="allergies" data-theme="a">
+    
+    <div data-role="header" data-position="inline" data-theme="a">
+        <div id="logo">
+            <img src="images/logo.png" />
+        </div>
+         <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
+        <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+    </div><label><h3>These are some common items your children may encounter in class:</h3></label>
+        
+        <ul id = "allergyList" data-role="listview" data-filter="true" data-theme="a">
+            <li>
+                <img src= "images/peanut.png" />
+                <h3>Peanuts</h3>
+                <p>Children may be given snacks from<br /> time to time with Peanut Butter in it.</p>
+            </li>
+            <li>
+                <img src= "images/milk.png"/>
+                <h3>Milk</h3>
+                <p>Children may be given milk to drink.</p>
+            </li>
+            <li>
+                <img src= "images/fish.png" />
+                <h3>Fish</h3>
+                <p>Teachers sometimes bring in fish to<br /> illustrate certain lesson principles.</p>
+            </li>
+            <li>
+                <img src= "images/flower.png" />
+                <h3>Pollen</h3>
+                <p>Many times the classroom will be<br /> decorated with flowers and children will spend play time outside</p>
+            </li>
+         </ul>
+    
+            <div data-role="footer" data-position="fixed" data-theme="a" data-id="browse">
+                <div data-role="navbar" style="text-align: center">
+                  <ul>
+                       <li><a href="https://github.com/JDNorrod/MIU-Projects/tree/master/App_A" class="ui-btn-active"></a>App A</li>
+                       <li><a href="https://github.com/JDNorrod/MIU-Projects/tree/master/App_B"></a>App B</li>
+                       <li><a href="http://JDNorrod.github.com/MIU-Projects/App_A/index.html"></a></a>GH A</li>
+                       <li><a href="http://JDNorrod.github.com/MIU-Projects/App_B/index.html"></a>GH B</li>
+                   </ul>
+                </div>
+            </div>
+    </div>
+
+    <!--Browsing page***************************************************-->
+    <div data-role="page" id="coming">
+    
+    <div data-role="header" data-position="inline" data-theme="a">
+        <div id="logo">
+            <img src="images/logo.png" />
+        </div>
+         <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
+        <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+    </div>
+
+            This page is under construction!
+        <div data-role="footer" data-position="fixed" data-theme="a" data-id="browse">
+             <div data-role="navbar" style="text-align: center">
+                <ul>
+                       <li><a href="https://github.com/JDNorrod/MIU-Projects/tree/master/App_A" class="ui-btn-active"></a>App A</li>
+                       <li><a href="https://github.com/JDNorrod/MIU-Projects/tree/master/App_B"></a>App B</li>
+                       <li><a href="http://JDNorrod.github.com/MIU-Projects/App_A/index.html"></a></a>GH A</li>
+                       <li><a href="http://JDNorrod.github.com/MIU-Projects/App_B/index.html"></a>GH B</li>
+               </ul>
+            </div>
+         </div>
+    </div>
+   <!--Browsing page***************************************************-->
+   
+    <div data-role="page" id="infoForm" data-theme="a">
+            <div data-role="header" data-position="inline" data-theme="a">
+        <div id="logo">
+            <img src="images/logo.png" />
+        </div>
+                <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
+                <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+            </div>
+            <div data-role="content">
+                <div id="formHeading">
+                    <h1>Add A New Child</h1>
+            </div>
+                <form action="" method = "post" id="contactForm">
+                    <ul class="errors"id = "errorMessages"></ul>
+                    <br />
+            
+                    <fieldset>
+                    <legend>Please Fill out the Following info:</legend>
+                    <h4>* Indicates a required field</h4>
+                <div data-role="fieldcontain">
+                    <label>What age group is the child? </br> </label>
+                <select id ="select" data-theme="c">
+                        <label for ="group">
+                        </label><br>
+                </select><br>
+                    
+                </div>
+                <div id="childAge" data-role="fieldContain">   
+                    <label for="sliderBar">Please select the child's age:</label><br />
+                    <label for="sliderBar">0--------------------------------------------12</label><br />
+                    <input type="range" id="sliderBar" min="0" max="12" step="1" value="6" data-theme="c"><br>
+                </div>
+                    <label for="fName"> *First Name</label><input id = "fName" type="text" name="fName" placeholder="Joe" class="required"data-theme="c"/><br>
+                    <label for="lName"> *Last Name</label><input id = "lName" type="text" name="lName" placeholder="Burns" class="required"data-theme="c"/><br>
+                    
+                    <!--<label for="bday">*Birthday (YYYYMMDD)</label><input id = "bday" type="date" name="bday" class="required date()"  data-theme="c"/><br />-->
+                    <label for="bday">Birthday (YYYY-MM-DD)</label>
+
+                    <input name="mydate" id="bday" type="date" data-role="datebox" data-options='{"mode": "flipbox"}'>
+
+    
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <legend>Group?</legend>
+                        <input id="radios1" type="radio" name="lifeGroup" value="Yes" class="required" data-theme="c"/>
+                        <label for="radios1">Yes</label>
+                        <input id="radios2" type="radio" name="lifeGroup" value="No" data-theme="c"/>
+                        <label for="radios2">Not Yet</label>
+                    </fieldset>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label for="allergy">Does your child have allergies? <br />(Please specify below)</label>
+                    <input type="checkbox" name="allergy" id="allergy" value="Yes" data-theme="c"/>
+                    <div id="messageBlock">
+                        <label for="message"><br />Comments:<br /></label>
+                        <textarea name="message" id="message" data-theme="c">Allergic to...</textarea><br />
+                    </div>
+                </div>
+                    <input type="submit" id="send" value="Add Child" data-icon="arrow-r" data-iconpos="right" data-theme="b"/>
+                    <!--<a href="#" id="send" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Send</a>-->
+                    <a href="#infoForm" id="clear" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Clear</a>
+                    <a href='#infoList' id="show">See All Entries</a>
+                </fieldset>
+<!--                <a href="#errorListing" id="errorLink" data-rel="dialog">Open errors</a>-->
+            </form>
+            <form id="seeInfo">
+                
+            <div  class="showIt" id="previewInfo" data-role="fieldcontain"></div>
+            </form>
+        </div>
+    </div>
+    
+    <!--Error dailog-->
+   <div data-role="dialog" id="errorListing">
+        <div data-role="header" data-position="fixed">
+            <h1>Missing Info:</h1>
+        </div>
+        <div data-role="content">
+            <ul>
+                <li>Test Message</li>
+            </ul>
+        </div>
+    </div>
+    
+<!--    <div data-role="page" id="infoList">
+        <div data-role="content">
+            <div class="preview" id="previewInfo" data-role="fieldcontain">
+                code here
+            </div>
+        </div>
+    </div>-->
+        <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+        <script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
+		 <script type="text/javascript" src="js/libs/jquery.validate.min.js" ></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/JSON.js"></script> 
+
+</body>
+</html>

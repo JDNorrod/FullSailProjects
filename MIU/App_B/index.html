@@ -1,0 +1,143 @@
+<!doctype html>  
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    
+    <title>Lamb's List Mobile</title>
+    
+    <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Mobile IE needs ClearType for smoothing fonts -->
+    <meta http-equiv="cleartype" content="on">
+    
+    <!-- StyleSheets under here -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+    <link rel="stylesheet" href="css/style.css"/>
+    
+    <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+    <script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+<body>
+
+    <!-- This will be the home page-->
+    <div data-role="page" id="home">
+    
+    <div data-role="header" data-position="inline">
+        <h2>Lambs List</h2>
+        <a href="infoForm.html"  data-ajax="false" data-icon="plus" data-iconpos="notext" data-theme="a" class="ui-btn-right"></a>
+    </div>
+    <a href="infoForm.html"  data-ajax="false"><img src="images/bkg.png"/></a>
+        <ul data-role="listview">
+            <li data-role="list-divider">First Time Here?</li>
+            <li><p><a href="infoForm.html"  data-ajax="false" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Add a New Child</a></p></li>
+            <li><p><a href="#allergies" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Common Allergy Items</a></p></li>
+            <li data-role="list-divider">Looking for a Child?</li>       
+        <li><div data-role="collapsible" data-collapsed="true" data-theme="a">            
+                <h3>Browse Age Groups</h3>
+                <p><a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Browse Infants</a></p>
+                <p><a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Browse 2-4 Year Olds</a></p>
+                <p><a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Browse 5-7 Year Olds</a></p>
+                <p><a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Browse 8-12 Year Olds</a></p>
+                <p><a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Browse All</a></p>
+            </div></li>
+        </ul>
+        
+        
+        <div data-role="footer" data-position="fixed" data-theme="a" data-id="browse">
+            <div data-role="navbar" style="text-align: center">
+                  <ul>
+                       <li><a href="#coming" class="ui-btn-active"></a>Infants</li>
+                       <li><a href="#coming"></a>2-4</li>
+                       <li><a href="#coming"></a>5-7</li>
+                       <li><a href="http://JDNorrod.github.com/MIU-Projects/App_B/index.html"></a>Git Link</li>
+                   </ul>
+             
+            </div>
+               
+        </div>
+        
+     </div>
+    <!--Infants page***************************************************-->
+    <div data-role="page" id="infants" data-add-back-btn="true">
+        <div data-role="header" data-position="inline">
+            <a href="#home" data-icon="home" data-theme="a">home</a>
+            <h2>Lambs List</h2>
+            <a href="infoForm.html"  data-ajax="false" data-icon="plus" data-theme="a" class="ui-btn-right">Add</a>
+        </div>
+        <h3>Under Construction</h3>
+        
+        <div data-role="footer" data-position="fixed" data-theme="a" data-id="browse">
+            <div data-role="navbar" style="text-align: center">
+                  <ul>
+                       <li><a href="#coming" class="ui-btn-active"></a>Infants</li>
+                       <li><a href="#coming"></a>2-4</li>
+                       <li><a href="#coming"></a>5-7</li>
+                       <li><a href="http://JDNorrod.github.com/MIU-Projects/App_B/index.html"></a>Git Link</li>
+                   </ul>
+             
+            </div>
+               
+        </div>
+    </div>
+    <!--Infants page***************************************************-->
+    <!--Allergy page***************************************************-->
+    <div data-role="page" id="allergies">
+        <div data-role="header" data-position="inline">
+            <a href="#home" data-icon="home" data-theme="a">home</a>
+            <h2>Common Items</h2>
+            <a href="infoForm.html"  data-ajax="false" data-icon="plus" data-iconpos="notext" data-theme="a" class="ui-btn-right"></a>
+        </div>
+        <label><p>These are some common items your children may encounter in class:</p></label>
+        
+    <div class="ui-grid-a">
+            <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:120px"><img src="images/fish.png"/><br />Fish</div></div>
+            <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:120px"><img src="images/peanut.png"/><br />Peanuts</div></div>
+            <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:120px"><img src="images/milk.png"/><br />Milk</div></div>
+            <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:120px"><img src="images/flower.png"/><br />Pollen</div></div>
+        </div><!-- /grid-a -->
+    
+            <div data-role="footer" data-position="fixed" data-theme="a" data-id="browse">
+                <div data-role="navbar" style="text-align: center">
+                  <ul>
+                       <li><a href="#coming" class="ui-btn-active"></a>Infants</li>
+                       <li><a href="#coming"></a>2-4</li>
+                       <li><a href="#coming"></a>5-7</li>
+                       <li><a href="http://JDNorrod.github.com/MIU-Projects/App_B/index.html"></a>Git Link</li>
+                   </ul>
+                </div>
+            </div>
+    </div>
+
+    <!--Browsing page***************************************************-->
+    <div data-role="page" id="coming">
+        <div data-role="header" data-position="inline">
+            <a href="#home" data-icon="home" data-theme="a">home</a>
+            <h2>Coming Soon!</h2>
+            <a href="infoForm.html"  data-ajax="false" data-icon="plus" data-iconpos="notext" data-theme="a" class="ui-btn-right"></a>
+        </div>
+            This page is under construction!
+        <div data-role="footer" data-position="fixed" data-theme="a" data-id="browse">
+             <div data-role="navbar" style="text-align: center">
+                <ul>
+                    <li><a href="#coming" class="ui-btn-active"></a>Infants</li>
+                    <li><a href="#coming"></a>2-4</li>
+                    <li><a href="#coming"></a>5-7</li>
+                    <li><a href="http://JDNorrod.github.com/MIU-Projects/App_B/index.html"></a>Git Link</li>
+               </ul>
+            </div>
+         </div>
+    </div>
+        
+
+    <!-- JavaScript under here -->
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+<!--    <script type="text/javascript" src="js/main.js" ></script> -->
+    <script type="text/javascript" src="js/JSON.js" ></script>
+</body>
+</html>

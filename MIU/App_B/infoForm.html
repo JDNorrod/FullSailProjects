@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Jay-Mail Vlog Response"/>
+        <meta name = "keywords" content="kid, check-in, little-lambs" />
+        <meta name="robots" content="index, infoForm"/>
+        <meta name="viewport" content="user-scalable=no, width=device-width" />
+        <meta http-equiv="content-script-type" content="text/javascript">
+        <title>Little-Lamb, Add new</title>
+    </head>
+    <body>
+
+        <h1>Add A New Child</h1>
+            <a href="infoForm.html" id="addNew" style="display:none">Add Another Child</a>
+            <a href="index.html" id="addNew">Home</a>
+            <form action="#" method = "post" id="contactForm">
+            <ul class="errors"id = "errorMessages"></ul>
+            <a href="index.html" id="homePage">Home Page</a>
+            <fieldset>
+                <legend>Please Fill out the Following info:</legend>
+                <label>What age group is the child? </br> </label>
+                <select id ="select"><label for ="group"></label><br>
+                </select><br>
+        <div id="checkboxes">   
+                <label>Please select the childs age:</label>
+                <ul>
+                    <li> Far left  = Infant</li>
+                    <li> Far Right = 12 Years</li>
+                </ul>
+                <input type="range" id="sliderBar" min="0" max="12" step="1" value="0"><br>
+                <div id="sliderVal"></div>
+    
+                <label>Does your child have any allergies? (Please specify below)<br></label>
+                <input type="checkbox" name="allergy" id="allergy" value="Yes" /> Yes<br>
+                <br>
+        </div>
+                <label for="fName"> First Name</label><input id = "fName" type="text" name="fName" placeholder="Joe"/><br>
+                <label for="lName"> Last Name</label><input id = "lName" type="text" name="lName" placeholder="Burns"/><br>
+                <label for="bday">Date Added</label><input id = "bday" type="date" name="bday"/><br />
+    
+                <label><br />Attend a Life Group?</label><br/>            
+                <input type="radio" name="lifeGroup" value="Yes" /> Yes
+                <input type="radio" name="lifeGroup" value="No" /> Not Yet<br />
+
+                <br />Comments:<br />
+                <textarea name="message" id="message">Allergic to...</textarea><br />
+                <input id = "send" type="submit" value="Add Child" />
+                <input id = "clear" type="reset" value="Clear"/>
+                <!--<input id = "show" type="submit" value="Show"/>-->
+                <a href='#' id="show">See All Entries</a>
+            </fieldset>
+        </form>
+        <form id="seeInfo">
+        <div class="preview" id="previewInfo"></div>
+               <script type="text/javascript" src="js/main.js"></script>
+               <script type="text/javascript" src="js/JSON.js"></script>
+        </form>
+    </body>
+</html>
