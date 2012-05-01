@@ -6,7 +6,7 @@ var json = {
 		"bday": ["Birthday: ", "20070822"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergies: ", "No"],
-		"lifeGroup": ["Life Group:", "Yes"],
+		"trained": ["Is Trained?:", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 2":{ // this part must be different for each one
@@ -16,7 +16,7 @@ var json = {
 		"bday": ["Birthday: ", "20070821"],
 		"slider": ["Age: ", "3"],
 		"allergy": ["Has Allergy: ", "Yes"],
-		"lifeGroup": ["Life Group: ", "No"],
+		"trained": ["Is Trained?: ", "No"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 3":{
@@ -26,7 +26,7 @@ var json = {
 		"bday": ["Birthday: ", "20070820"],
 		"slider": ["Age: ", "1"],
 		"allergy": ["Has Allergies: ", "No"],
-		"lifeGroup": ["Life Group:", "No"],
+		"trained": ["Is Trained?:", "No"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 4":{
@@ -36,7 +36,7 @@ var json = {
 		"bday": ["Birthday: ", "20070819"],
 		"slider": ["Age: ", "0"],
 		"allergy": ["Has Allergy: ", "No"],
-		"lifeGroup": ["Life Group: ", "No"],
+		"trained": ["Is Trained?: ", "No"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},	
 	"entry 5":{
@@ -46,7 +46,7 @@ var json = {
 		"bday": ["Birthday: ", "20070818"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergies: ", "No"],
-		"lifeGroup": ["Life Group:", "Yes"],
+		"trained": ["Is Trained?:", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 6":{
@@ -56,7 +56,7 @@ var json = {
 		"bday": ["Birthday: ", "20070817"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergy: ", "No"],
-		"lifeGroup": ["Life Group: ", "Yes"],
+		"trained": ["Is Trained?: ", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 7":{
@@ -66,7 +66,7 @@ var json = {
 		"bday": ["Birthday: ", "20070816"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergies: ", "No"],
-		"lifeGroup": ["Life Group:", "Yes"],
+		"trained": ["Is Trained?:", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 8":{
@@ -76,7 +76,7 @@ var json = {
 		"bday": ["Birthday: ", "20070815"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergy: ", "No"],
-		"lifeGroup": ["Life Group: ", "Yes"],
+		"trained": ["Is Trained?: ", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},	
 	"entry 9":{
@@ -86,7 +86,7 @@ var json = {
 		"bday": ["Birthday: ", "20070814"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergies: ", "No"],
-		"lifeGroup": ["Life Group:", "Yes"],
+		"trained": ["Is Trained?:", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 10":{
@@ -96,7 +96,7 @@ var json = {
 		"bday": ["Birthday: ", "20070813"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergy: ", "No"],
-		"lifeGroup": ["Life Group: ", "Yes"],
+		"trained": ["Is Trained?: ", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 11":{
@@ -106,7 +106,7 @@ var json = {
 		"bday": ["Birthday: ", "20070812"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergies: ", "No"],
-		"lifeGroup": ["Life Group:", "Yes"],
+		"trained": ["Is Trained?:", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 12":{
@@ -116,7 +116,7 @@ var json = {
 		"bday": ["Birthday: ", "20070811"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergy: ", "No"],
-		"lifeGroup": ["Life Group: ", "Yes"],
+		"trained": ["Is Trained?: ", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},	
 	"entry 13":{
@@ -126,7 +126,7 @@ var json = {
 		"bday": ["Birthday: ", "20070810"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergies: ", "No"],
-		"lifeGroup": ["Life Group:", "Yes"],
+		"trained": ["Is Trained?:", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 14":{
@@ -136,7 +136,7 @@ var json = {
 		"bday": ["Birthday: ", "20070809"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergy: ", "No"],
-		"lifeGroup": ["Life Group: ", "Yes"],
+		"trained": ["Is Trained?: ", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 15":{
@@ -146,7 +146,7 @@ var json = {
 		"bday": ["Birthday: ", "20070808"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergies: ", "No"],
-		"lifeGroup": ["Life Group:", "Yes"],
+		"trained": ["Is Trained?:", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 16":{
@@ -156,7 +156,7 @@ var json = {
 		"bday": ["Birthday: ", "20070807"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergy: ", "No"],
-		"lifeGroup": ["Life Group: ", "Yes"],
+		"trained": ["Is Trained?: ", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},	
 	"entry 17":{
@@ -166,7 +166,7 @@ var json = {
 		"bday": ["Birthday: ", "20070806"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergies: ", "No"],
-		"lifeGroup": ["Life Group:", "Yes"],
+		"trained": ["Is Trained?:", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 18":{
@@ -176,7 +176,7 @@ var json = {
 		"bday": ["Birthday: ", "20070805"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergy: ", "No"],
-		"lifeGroup": ["Life Group: ", "Yes"],
+		"trained": ["Is Trained?: ", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 19":{
@@ -186,7 +186,7 @@ var json = {
 		"bday": ["Birthday: ", "20070804"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergies: ", "No"],
-		"lifeGroup": ["Life Group:", "Yes"],
+		"trained": ["Is Trained?:", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	},
 	"entry 20":{
@@ -196,7 +196,7 @@ var json = {
 		"bday": ["Birthday: ", "20070803"],
 		"slider": ["Age: ", "4"],
 		"allergy": ["Has Allergy: ", "No"],
-		"lifeGroup": ["Life Group: ", "Yes"],
+		"trained": ["Is Trained?: ", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	}			
 }

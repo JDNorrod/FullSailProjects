@@ -1,18 +1,10 @@
-/*	allergyBox.click(function toggleComment(){
-		//if(allergyBox.style.display == "none"){
-			allergyBox.style.display = "block";
-		//}
-		//else{
-		//	allergyBox.style.display = "none";
-		//}
-	})*/
 $(document).ready(function(){
 	
 	//***********some variables:
 	var vidList 			= ["**Please Select a Category**", "Infant", "2-4 Years", "5-7 Years", "8-12 Years"];
-	var lifeGroupVal, check1;
+	var trainedVal, check1;
  	var cForm 				= $('#contactForm'); 
- 	var iForm				=$('#infoForm');
+ 	var iForm				= $('#infoForm');
 
  	function SS(value){
  		var element = document.getElementById(value);
@@ -27,6 +19,7 @@ $(document).ready(function(){
 	var preview 			= SS('show');
 	var slideVal 			= SS('sliderBar');
 	var allergyBox 		    = SS('allergy');
+    var addItem             = SS('addItem');
 	
 //*************************Awwww Yeah!  Programming ninja right here (responsive disclosure)
 	$('#allergy').bind("change", function() {
@@ -97,10 +90,10 @@ $(document).ready(function(){
  	}
  	 
  	 function getRadio(){
- 		var radios = document.getElementById('contactForm').lifeGroup;
+ 		var radios = document.getElementById('contactForm').trained;
  		for(var i = 0; i < radios.length; i++){
  			if(radios[i].checked){
- 				lifeGroupVal = radios[i].value;
+ 				trainedVal = radios[i].value;
  				console.log("the radio is worth: " + radios[i].value);
  			}
  		}	
@@ -128,7 +121,7 @@ $(document).ready(function(){
  			SS('previewInfo').style.display = "inline";
  				break;
  			case "off":
- 			SS('items').style.display = "none";
+ 			SS('previewInfo').style.display = "none";
  			SS('contactForm').style.display = "block";
  			SS('send').style.display = "inline";
  			SS('clear').style.display = "block";
@@ -239,7 +232,7 @@ $(document).ready(function(){
  			  item.bday		= ["Birthday: ", SS('bday').value]; 						//birthday
  			  item.slider		= ["Age: ", SS('sliderBar').value]; 						//like scale (slider)
  			  item.allergy		= ["Has Allergy?: ", check1];								//checkbox/allergy
- 			  item.lifeGroup	= ["Attends Life Group: ", lifeGroupVal];			//radios/attends life group?
+ 			  item.trained	= ["Is Trained?: ", trainedVal];			//radios/attends life group?
  			  item.comment	= ["Message: ", SS('message').value];					//extra notes
 
  		//save to local storage: use stringify to convert our obj to string (only strings can be saved)
@@ -314,12 +307,13 @@ $(document).ready(function(){
  		SS('bday').value = item.bday[1];
  		SS('sliderBar').value = item.slider[1];
  		SS('message').value = item.comment[1];
- 		var radios = document.getElementById('contactForm').lifeGroup;
+
+         var radios = document.getElementById('contactForm').trained;
  		for (var i = 0; i < radios.length; i++){
- 			if(radios[i].value == "Yes" && item.lifeGroup[1] == "Yes"){
+ 			if(radios[i].value == "Yes" && item.trained[1] == "Yes"){
  				radios[i].setAttribute("checked", "checked");
  			}
- 			else if(radios[i].value == "No" && item.lifeGroup[1] == "No"){
+ 			else if(radios[i].value == "No" && item.trained[1] == "No"){
  				radios[i].setAttribute("checked", "checked");
  			}
  		}
@@ -328,7 +322,7 @@ $(document).ready(function(){
  				SS('allergy').setAttribute("checked", "checked");	
  			}
 
- 			
+ 			  
  		console.log("we're here");
  		//remove the listener from the submit button when in edit mode
  		submitInfo.removeEventListener("click", storeData);
@@ -367,5 +361,5 @@ $(document).ready(function(){
 	preview.addEventListener("click", showData);
     submitInfo.addEventListener("click", storeData);
 	cForm.validate();
-	
+	addItem.addEventListener("click", toggleControls("off"));
 });

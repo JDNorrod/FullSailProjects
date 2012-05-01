@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
     
-    <title>Lamb's List Mobile</title>
+    <title>Sister Care</title>
     
     <!--  Mobile viewport optimized: j.mp/bplateviewport -->
     <meta name="HandheldFriendly" content="True">
@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Mobile IE needs ClearType for smoothing fonts -->
-    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="clearType" content="on">
     
     <!-- StyleSheets under here -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
@@ -37,7 +37,7 @@
             <img src="images/logo.png" />
         </div>
          
-        <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+        <a href="#infoForm" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
     </div>
     <div data-role="content">
         <div id="background">
@@ -77,14 +77,14 @@
     <div data-role="page" id="infants" data-add-back-btn="true" data-theme="a">
     
     <div data-role="header" data-position="inline" data-theme="a">
-        <div id="logo">
+        <div id="logo2">
             <img src="images/logo.png" />
         </div>
          <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
         <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
     </div>
         <div data-role="content">
-        <div id="background">
+        <div id="background2">
             <img src="images/bkg.png"/>
         </div>
     </div>
@@ -107,11 +107,11 @@
     <div data-role="page" id="allergies" data-theme="a">
     
     <div data-role="header" data-position="inline" data-theme="a">
-        <div id="logo">
+        <div id="logo3">
             <img src="images/logo.png" />
         </div>
          <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
-        <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+        <a href="#infoForm" id="addItem" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
     </div><label><h3>These are some common items your children may encounter in class:</h3></label>
         
         <ul id = "allergyList" data-role="listview" data-filter="true" data-theme="a">
@@ -153,11 +153,11 @@
     <div data-role="page" id="coming">
     
     <div data-role="header" data-position="inline" data-theme="a">
-        <div id="logo">
+        <div id="logo4">
             <img src="images/logo.png" />
         </div>
          <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
-        <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+        <a href="#infoForm" id="addItem2" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
     </div>
 
             This page is under construction!
@@ -176,11 +176,11 @@
    
     <div data-role="page" id="infoForm" data-theme="a">
             <div data-role="header" data-position="inline" data-theme="a">
-        <div id="logo">
+        <div id="logo5">
             <img src="images/logo.png" />
         </div>
                 <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
-                <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+                <a href="#infoForm" id="addItem3"  data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
             </div>
             <div data-role="content">
                 <div id="formHeading">
@@ -213,10 +213,10 @@
     
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
-                        <legend>Group?</legend>
-                        <input id="radios1" type="radio" name="lifeGroup" value="Yes" class="required" data-theme="c"/>
+                        <legend>Potty Trained?</legend>
+                        <input id="radios1" type="radio" name="trained" value="Yes" class="required" data-theme="c"/>
                         <label for="radios1">Yes</label>
-                        <input id="radios2" type="radio" name="lifeGroup" value="No" data-theme="c"/>
+                        <input id="radios2" type="radio" name="trained" value="No" data-theme="c"/>
                         <label for="radios2">Not Yet</label>
                     </fieldset>
                 </div>
