@@ -1,0 +1,49 @@
+html {
+    background-color: #666666;
+    margin: -10px;
+    padding: 2px;
+}
+
+h1 + h2 {
+    margin-top: 2px;
+    padding-top: 0;
+    padding-right: 10px;
+
+}
+
+h1 {
+    background-color: #990000;
+    color: black;
+    font-size: 40px;
+    padding-bottom: 1px;
+    text-indent: -25px;
+}
+
+h2 {
+    background-color: #990000;
+    color: #000000;
+    font-size: 18px;
+}
+
+body {
+    font-family: "Arial";
+    background-color: white;
+    width: 320px;
+    border: 5px solid #333333;
+    text-align: center;
+}
+a:link{
+	color: blue;
+	text-decoration: blink;
+}
+a:hover{
+	background-color: gray;
+}
+a:visited{
+	color: red;
+	text-decoration: underline;
+}
+a:active{
+	background-color: gray;
+	color: black;
+}

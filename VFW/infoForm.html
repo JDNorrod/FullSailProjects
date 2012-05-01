@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--Jay Norrod, VFW - week 1 Project-->
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Jay-Mail Vlog Response"/>
+		<meta name = "keywords" content="jay-mail, jay, mail, jmail, j-mail, vlog, video, blog, email" />
+		<meta name="robots" content="index, infoForm"/>
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<meta http-equiv="content-script-type" content="text/javascript">
+		<link rel="stylesheet" href="style_infoForm.css" type="text/css" />
+		<title>Jay-Mail Add a Rating</title>
+	</head>
+	<body>
+
+		<form action="#" method = "post">
+			<h1>Thanks for watching Jay-Mail!</h1>
+			<ul class="errors"id = "errorMessages"></ul>
+			<fieldset>
+				<legend>Please let me know what you think!</legend>
+				<label>Which Jay-Mail are you rating? </br> </label>
+			  	<select id ="select"><label for ="group"></label><br>
+<!--					<optgroup label="Jay-Mail's">
+				  		<option value="mail1">1: TMNT</option>
+				  		<option value="mail2">2: New House</option>
+				  		<option value="mail3">3: Zombie Survival</option>
+				  		<option value="mail4">4: Alien Underwear</option>
+					</optgroup>
+					<optgroup label="Other"> 
+				  		<option value="boxInvasion">Box Invasion</option>
+				  		<option value="partTerm">Part Terminator</option>
+				  		<option value="other">Other</option>
+					</optgroup>
+					-->
+				</select><br>
+		<div id="checkboxes">	
+				<label>How did you like the Jay-Mail Vlog?</label>
+				<ul>
+					<li> Far left  = "Not at all"</li>
+				  	<li> Far Right = "Pretty awesome"</li>
+				</ul>
+				<input type="range" id="sliderBar" min="0" max="10" step="1" value="0"><br>
+				<div id="sliderVal"></div>
+	
+				<label for="checkbox">How did you come across Jay-Mail?<br></label>
+				<input type="checkbox" name="refer" id="friend" value="friend" /> Through a friend<br>
+				<input type="checkbox" name="refer" id="knowJay"value="knowJay" /> I know Jay<br>
+				<input type="checkbox" name="refer" id="browser"value="browsing" /> Just browsing...<br>
+			  	<br>
+		</div>
+			  	First name: <input id = "fName" type="text" name="fName" placeholder="Joe Bloe"/><br>
+			  	Birthday: <input id = "bday" type="date" name="bday"/><br />
+	
+			  	<label><br />Send a Jay-Mail?</label><br/>            
+				<input type="radio" name="sendMail" value="yes" /> Of Course!
+				<input type="radio" name="sendMail" value="no" /> Not Now<br />
+
+			  	<br />Comments:<br />
+			  	<textarea name="message" id="message">Hey Jay! ...</textarea><br />
+			  	<input id = "send" type="submit" value="Add Rating" />
+			  	<input id = "clear" type="reset" value="Clear"/>
+			  	<!--<input id = "show" type="submit" value="Show"/>-->
+			  	<a href='#' id="show">Preview Form</a>
+			</fieldset>
+		</form>
+		<div class="preview" id="previewInfo"></div>
+			   <script type="text/javascript" src="script.js"></script>
+			   <script type="text/javascript" src="JSON.js"></script>
+	</body>
+</html>
