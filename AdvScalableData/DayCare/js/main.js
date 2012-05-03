@@ -81,23 +81,23 @@ $(document).ready(function(){
  			localData();
  		}
  		else{
- 		//first get from local storage to browser
+ 		//first append an unordered List to our page
  		    var makeDiv = $('#seeInfo');
-            //oldDiv.appendChild(makeDiv);
-            makeDiv.append("<h2>All Children</h2>");
-            //makeDiv.setAttribute("data-role", "content");
-            var makeList = document.createElement('ul');		//create unordered list
-            makeList.setAttribute("data-role", "listview");
-            makeList.setAttribute("data-inset", "true");
-            makeList.setAttribute("data-filter", "true");
+            makeDiv.attr("data-role", "content");
+            makeDiv.append("<ul id=" + "dataList" + "></ul>");
+            var makeList = $('#dataList');
+            console.log(makeList);
+            makeList.attr({
+                dataRole: "listview",
+                dataInset: "true",
+                dataFilter: "true"
+            });
 
- 		 //makeDiv.appendChild(makeList);
- 		 $('#previewInfo').append(makeDiv);
+ 		    //$('#previewInfo').append(makeDiv);
+ 		    //$('#items').fadeIn('fast'); //show list
 
- 		    $('#items').fadeIn('fast'); //show list
+            for (var i = 0, len=localStorage.length; i < len; i++){
 
-
- 		 	for (var i = 0, len=localStorage.length; i < len; i++){
  		 		var makeLi = document.createElement('li');	//create a list item
  		 		var makeBR = document.createElement('br');
  		 		makeLi.appendChild(makeBR);
