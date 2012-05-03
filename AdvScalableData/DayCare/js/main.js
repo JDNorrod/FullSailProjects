@@ -235,7 +235,7 @@ $(document).ready(function(){
  	}
  	
 	function sortNumber(a,b){
-		
+
 		if(a[0] === "Birthday: "){
 			console.log("........................" + a[0]);
 			return a[1]-b[1];
