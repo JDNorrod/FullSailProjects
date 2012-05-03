@@ -231,37 +231,22 @@
                 </div>
                     <input type="submit" id="send" value="Add Child" data-icon="arrow-r" data-iconpos="right" data-theme="b"/>
                     <!--<a href="#" id="send" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Send</a>-->
-                    <a href="#infoForm" id="clear" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Clear</a>
-                    <a href='#seeInfo' id="show">See All Entries</a>
+                    <a href="#" id="clear" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Clear</a>
+                    <a href="#infoList" id="show">See All Entries</a>
                 </fieldset>
-<!--                <a href="#errorListing" id="errorLink" data-rel="dialog">Open errors</a>-->
-            </form>
-            <form id="seeInfo">
-                
-            <div  class="showIt" id="previewInfo" data-role="fieldcontain"></div>
             </form>
         </div>
     </div>
     
-    <!--Error dailog-->
-   <div data-role="dialog" id="errorListing">
-        <div data-role="header" data-position="fixed">
-            <h1>Missing Info:</h1>
-        </div>
+    <div data-role="page" id="infoList">
+        <form id="seeInfo">
         <div data-role="content">
-            <ul>
-                <li>Test Message</li>
-            </ul>
-        </div>
-    </div>
-    
-<!--    <div data-role="page" id="infoList">
-        <div data-role="content">
-            <div class="preview" id="previewInfo" data-role="fieldcontain">
-                code here
+            <div class="showIt" id="previewInfo" data-role="fieldcontain">
+
             </div>
         </div>
-    </div>-->
+        </form>
+    </div>
         <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
         <script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>

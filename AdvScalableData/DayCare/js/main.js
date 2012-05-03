@@ -1,85 +1,35 @@
+//*************************Global-ish Vars
+var trainedVal, check1;
+var cForm 				= $('#contactForm');
+
 $(document).ready(function(){
 	
-	//***********some variables:
-	var vidList 			= ["**Please Select a Category**", "Infant", "2-4 Years", "5-7 Years", "8-12 Years"];
-	var trainedVal, check1;
- 	var cForm 				= $('#contactForm'); 
- 	var iForm				= $('#infoForm');
+//*************************some variables:
+	var vidList 			= ["Infant", "2-4 Years", "5-7 Years", "8-12 Years"];
+//*************************link and submit events:
+	var preview 			= $('#show');
+	var slideVal 			= $('#sliderBar');
+	var allergyBox 		    = $('#allergy');
+    var addItem             = $('#addItem');
 
- 	function SS(value){
- 		var element = document.getElementById(value);
- 		return element;
- 	}
- 	
- 	//iForm.listview('refresh');
- 	
- //*************************link and submit events:
- 	var submitInfo 		    = SS('send');
-	var clearData 			= SS('clear');
-	var preview 			= SS('show');
-	var slideVal 			= SS('sliderBar');
-	var allergyBox 		    = SS('allergy');
-    var addItem             = SS('addItem');
-	
 //*************************Awwww Yeah!  Programming ninja right here (responsive disclosure)
 	$('#allergy').bind("change", function() {
 		var allergyBox = $('#messageBlock');
         console.log("box checked");
-        SS('messageBlock').style.display = 'block';
+        $('#messageBlock').style.display = 'block';
     });
-	
-	
-	
-	function saveData (info){
-	<!--console.log(info);  -->
-	};
 
-//	var	errorHandle		= $('#errorLink');
- 	 cForm.validate({
- 	 	//this is called in the event that the form isn't valid (form submitted, validated object)
- 	 	invalidHandler: function(form, validator){
- 	 		//errorHandle.click();
- 	 		var html 			= "";
- 	 		console.log(validator.submitted);
- 	 		for(var key in validator.submitted){
- 	 			var label 			= $('label[for^="' + key + '"]');
- 	 			var legend 			= label.closest('fieldset').find('.ui-controlgroup-label');
- 	 			var fieldName 	= label.length ? label.text() : legend.text();
- 	 			if(legend.length){
- 	 				fieldName =label.text(); 
- 	 				console.log("label: " + fieldName);
- 	 				console.log(legend.length);
- 	 			}
- 	 			// else if(label.text === ""){
- 	 				// var fieldName = legend.text();
- 	 				// console.log("label: " + fieldName);
- 	 				// console.log(legend.length);
- 	 			// }
- 	 			
- 	 			//console.log(fieldName);
- 	 			html += '<li>' + fieldName + '</li>';
- 	 		};
- 	 		//$('#errorListing ul').html(html); // populate the error list into the dialog
- 	 	},
- 	 	//this is called if the form submits successfully
- 	 	submitHandler: function(){
- 	 		var data = cForm.serializeArray();
- 	 		saveData(data);
- 	 }
- 	 
- 	 }); 
- 	
-//****************************************************************functions 
-	
- //create select field
+//****************************************************************functions
+
+ //*********************************create select field
  	function createDrop (){
  		var formTag = document.getElementsByTagName("form"); //creates an array of all forms
  		var selectVid = SS('select');
  	//var makeSelect = document.createElement('select');
  	//makeSelect.setAttribute("id", "groups");
  		selectVid.setAttribute("id", "groups");
- 	
- 	//populate  
+
+ 	//populate
  		for (var i = 0, j = vidList.length; i < j; i++){
  			var makeOpt = document.createElement('option');
  			var opText = vidList[i];
@@ -88,7 +38,7 @@ $(document).ready(function(){
  			selectVid.appendChild(makeOpt);
  		}
  	}
- 	 
+
  	 function getRadio(){
  		var radios = document.getElementById('contactForm').trained;
  		for(var i = 0; i < radios.length; i++){
@@ -96,22 +46,22 @@ $(document).ready(function(){
  				trainedVal = radios[i].value;
  				console.log("the radio is worth: " + radios[i].value);
  			}
- 		}	
+ 		}
  	}
- 	
+
  	function getCheckBoxes(){
 		var hasAllergy = SS('allergy');
 		if(hasAllergy.checked){
 			check1 = hasAllergy.value;
 		}
 		else{
-			
+
 		check1 = "No";
 		}
  	}
- 	
+
  	function toggleControls(n){
- 		
+
  		switch(n){
  			case "on":
  			SS('contactForm').style.display = "none";
@@ -130,16 +80,16 @@ $(document).ready(function(){
  			default: return false;
  		}
  	}
- 	
+
  	function showData (){
- 		toggleControls("on");
+<!-- 		toggleControls("on");     -->
  		if (localStorage.length === 0){
  			alert("Loading JSON.");
  			localData();
  		}
  		else{
  		//first get from local storage to browser
- 		 var makeDiv = document.getElementById('previewInfo');
+ 		 var makeDiv = $('#previewInfo');
  		 //oldDiv.appendChild(makeDiv);
  		 makeDiv.setAttribute("id", "items");
  		 makeDiv.setAttribute("data-role", "content");
@@ -147,25 +97,25 @@ $(document).ready(function(){
  		 makeList.setAttribute("data-role", "listview");
  		 makeList.setAttribute("data-inset", "true");
  		 makeList.setAttribute("data-filter", "true");
- 		 
+
  		 makeDiv.appendChild(makeList);
  		 $('#previewInfo').append(makeDiv);
- 		 
- 		 SS('items').style.display = "display"; //show list
+
+ 		 $('#items').style.display = "display"; //show list
 
  		 	for (var i = 0, len=localStorage.length; i < len; i++){
  		 		var makeLi = document.createElement('li');	//create a list item
  		 		var makeBR = document.createElement('br');
  		 		makeLi.appendChild(makeBR);
  		 		var linksLi = document.createElement('li');
- 		 		makeList.appendChild(makeLi);						
+ 		 		makeList.appendChild(makeLi);
  		 		var keyVal = localStorage.key(i);
  		 		var value = localStorage.getItem(keyVal);
  		 		console.log(keyVal);
  		 		var obj = JSON.parse(value); 					//this converts the string back to an object, it's opposite of stringify
  		 		var makeSubList = document.createElement('ul');
  		 		makeLi.appendChild(makeSubList);
- 		 	
+
  		 	//add our pic for each item
  		 		getImage(obj.group[1], makeSubList);
  		 		var newsList = [];
@@ -179,11 +129,11 @@ $(document).ready(function(){
  		 		}
  		 		newsList.sort(sortNumber);
  		 		for (var o in obj){
- 		 			
+
  		 		}
 //***************************************************
 //***************************************************This is where the array is getting out of order???
- 		 	
+
  		 		for (var j = 0; j < newsList.length; j++){
  		 			console.log("The array is: " + newsList);
  		 			var makeSubli = document.createElement('li');
@@ -191,55 +141,22 @@ $(document).ready(function(){
  		 			var optSubText = newsList[j][0]+" "+newsList[j][1];  //separate the label with the value
  		 			console.log(newsList[j][1]);
  		 			makeSubli.innerHTML = optSubText;
- 		 			makeSubli.appendChild(linksLi);	
+ 		 			makeSubli.appendChild(linksLi);
  		 		}
  		 	//create edit/delete buttons for each group of data
  		 	makeItemLinks(localStorage.key(i), linksLi);
  			}
  		}
  	}
- 	
+
  	function localData(){
  		for(var j in json){
  		var id = Math.floor(Math.random()*9999999);
  		localStorage.setItem(id, JSON.stringify(json[j]));
  		}
  		showData();
- 	} 
- 	
- 	function storeData (key){
- 		//if theres no key, create new id
-
- 		console.log("storing the data");
- 		var id;
- 		if(!key){
- 			id = Math.floor(Math.random()*9999999);
- 		}
- 		//if there is a key, set the id to the key to overwrite
- 		else{
- 			id = key;
- 		}
- 		console.log(id);
- 		//gather form field values and store in object
- 		//object props contain array with form label and input val
- 		getRadio();
- 		getCheckBoxes();
- 		var item 				= {};
- 		
- 			  item.group		= ["Age Group: ", SS('groups').value]; 				//drop down box
- 			  item.fname		= ["First Name: ", SS('fName').value]; 				//first name
- 			  item.lname		= ["Last Name: ", SS('lName').value]; 					//last name
- 			  item.bday		= ["Birthday: ", SS('bday').value]; 						//birthday
- 			  item.slider		= ["Age: ", SS('sliderBar').value]; 						//like scale (slider)
- 			  item.allergy		= ["Has Allergy?: ", check1];								//checkbox/allergy
- 			  item.trained	= ["Is Trained?: ", trainedVal];			//radios/attends life group?
- 			  item.comment	= ["Message: ", SS('message').value];					//extra notes
-
- 		//save to local storage: use stringify to convert our obj to string (only strings can be saved)
- 		localStorage.setItem(id, JSON.stringify(item));
- 		alert("Form Submitted");
  	}
- 	
+
  	function noNulls(value){ //if the value is null, change string
  		if (value === ""){
  			return "No response given";
@@ -247,8 +164,8 @@ $(document).ready(function(){
  		else{
  		return value;
  		}
- 	}	
- 	
+ 	}
+
  	function getImage(catName, makeSubList){
  		console.log("Age Group: " + catName);
  		var imageLi = document.createElement('li');
@@ -257,7 +174,7 @@ $(document).ready(function(){
  		var setSource = newImg.setAttribute('src', "images/" + catName + ".png");
  		imageLi.appendChild(newImg);
  	}
- 	
+
  	//create edit/delete links for each stored rating
  	function makeItemLinks(key, linksLi){
  		//add edit single item
@@ -272,7 +189,7 @@ $(document).ready(function(){
 	//add line break
 		var breakTag = document.createElement('br');
 		linksLi.appendChild(breakTag);
- 		
+
  		var deleteLink = document.createElement('a');
  		deleteLink.href = "#";
  		deleteLink.key = key;
@@ -281,7 +198,7 @@ $(document).ready(function(){
  		deleteLink.innerHTML = deleteText;		//add text for link
  		linksLi.appendChild(deleteLink);		//add our button to the bottom of our shown information
  	}
- 	
+
  	function deleteItem(){
  		var ask = confirm("Are you sure you want to delete this child's information?");
  		if(ask){//if the user clicked "ok"
@@ -293,20 +210,20 @@ $(document).ready(function(){
  			alert("Child was not deleted");
  		}
  	}
- 	
+
  	function editForm(){
- 		
+
  		//grab item from local store to populate fields with what's in memory'
  		var value = localStorage.getItem(this.key);
  		var item = JSON.parse(value);
-		toggleControls("off");
+		//toggleControls("off"); // shouldn't need this anymore
  		//populate fields with local storage
- 		SS('groups').value = item.group[1];
- 		SS('fName').value = item.fname[1];
- 		SS('lName').value = item.lname[1];
- 		SS('bday').value = item.bday[1];
- 		SS('sliderBar').value = item.slider[1];
- 		SS('message').value = item.comment[1];
+ 		$('#groups').value = item.group[1];
+ 		$('#fName').value = item.fname[1];
+ 		$('#lName').value = item.lname[1];
+ 		$('#bday').value = item.bday[1];
+ 		$('#sliderBar').value = item.slider[1];
+ 		$('#message').value = item.comment[1];
 
          var radios = document.getElementById('contactForm').trained;
  		for (var i = 0; i < radios.length; i++){
@@ -317,12 +234,12 @@ $(document).ready(function(){
  				radios[i].setAttribute("checked", "checked");
  			}
  		}
- 		
+
  		if(item.allergy[1] == "Yes"){
- 				SS('allergy').setAttribute("checked", "checked");	
+ 				$('#allergy').setAttribute("checked", "checked");
  			}
 
- 			  
+
  		console.log("we're here");
  		//remove the listener from the submit button when in edit mode
  		submitInfo.removeEventListener("click", storeData);
@@ -332,18 +249,6 @@ $(document).ready(function(){
  		var editSubmit = SS('send');
  		//editSubmit.addEventListener("click", validate);
  		editSubmit.key = this.key;
- 	}
- 	
- 	function clearLocal(){
- 		if (localStorage.length === 0){
- 			alert("There is nothing to clear");
- 		}
- 		else{
- 			localStorage.clear();
- 			alert("All Children have been deleted");
- 			window.location.reload();
- 			return false;
- 		}
  	}
  	
 	function sortNumber(a,b){
@@ -357,9 +262,76 @@ $(document).ready(function(){
 
 	//******************************Make some things happen!!
 	createDrop();
-	clearData.addEventListener("click", clearLocal);
-	preview.addEventListener("click", showData);
-    submitInfo.addEventListener("click", storeData);
-	cForm.validate();
-	addItem.addEventListener("click", toggleControls("off"));
+//	addItem.addEventListener("click", toggleControls("off"));  //shouldn't need this anymore
+});
+//***************************Listen for the clear button to be pushed and clear memory
+var clearData = $('#clear');
+clearData.click(function(){
+    if (localStorage.length === 0){
+        alert("There is nothing to clear");
+    }
+    else{
+        localStorage.clear();
+        alert("All Children have been deleted");
+        window.location.reload();
+        return false;
+    }
+});
+//***************************This retrieves the value of the radio
+function getRadio(){
+    var radios = document.getElementById('contactForm').trained;
+    for(var i = 0; i < radios.length; i++){
+        if(radios[i].checked){
+            trainedVal = radios[i].value;
+            console.log("the radio is worth: " + radios[i].value);
+        }
+    }
+};
+//***************************This retrieves the value of the checkboxes
+function getCheckBoxes(){
+    var hasAllergy = $('#allergy');
+    if(hasAllergy.checked){
+        check1 = hasAllergy.value;
+    }
+    else{
+
+        check1 = "No";
+    }
+};
+//***************************Listen for the Add Child button push to storeData
+var submitInfo = $('#send');
+submitInfo.click(function(key){
+    //***************************validate the form before it's sent
+    cForm.validate();
+    if(cForm.valid()){
+        //if theres no key, create new id
+        console.log("storing the data");
+        var id;
+        if(!key){
+            id = Math.floor(Math.random()*9999999);
+        }
+        //if there is a key, set the id to the key to overwrite
+        else{
+            id = key;
+        }
+        console.log(id);
+        //gather form field values and store in object
+        //object props contain array with form label and input val
+        getRadio();
+        getCheckBoxes();
+        var item        = {};
+
+        item.group		= ["Age Group: ", $('#groups').value]; 		//drop down box
+        item.fname		= ["First Name: ", $('#fName').value]; 	    //first name
+        item.lname		= ["Last Name: ", $('#lName').value]; 		//last name
+        item.bday		= ["Birthday: ", $('#bday').value]; 		//birthday
+        item.slider		= ["Age: ", $('#sliderBar').value]; 		//like scale (slider)
+        item.allergy	= ["Has Allergy?: ", check1];			    //checkbox/allergy
+        item.trained	= ["Is Trained?: ", trainedVal];			//radios/attends life group?
+        item.comment	= ["Message: ", $('#message').value];		//extra notes
+
+        //save to local storage: use stringify to convert our obj to string (only strings can be saved)
+        localStorage.setItem(id, JSON.stringify(item));
+        alert("Form Submitted");
+    }
 });
