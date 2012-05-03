@@ -1,7 +1,29 @@
 //*************************Global-ish Vars
 var trainedVal, check1;
 var cForm 				= $('#contactForm');
+//*************************Key functions
+//***************************This retrieves the value of the radio
+function getRadio(){
+    var radios = document.getElementById('contactForm').trained;
+    for(var i = 0; i < radios.length; i++){
+        if(radios[i].checked){
+            trainedVal = radios[i].value;
+            console.log("the radio is worth: " + radios[i].value);
+        }
+    }
+};
+//***************************This retrieves the value of the checkboxes
+function getCheckBoxes(){
+    var hasAllergy = $('#allergy');
+    if(hasAllergy.checked){
+        check1 = hasAllergy.value;
+    }
+    else{
 
+        check1 = "No";
+    }
+};
+//********************************document.ready is right here
 $(document).ready(function(){
 	
 //*************************some variables:
@@ -14,9 +36,8 @@ $(document).ready(function(){
 
 //*************************Awwww Yeah!  Programming ninja right here (responsive disclosure)
 	$('#allergy').bind("change", function() {
-		var allergyBox = $('#messageBlock');
         console.log("box checked");
-        $('#messageBlock').style.display = 'block';
+        $('#messageBlock').fadeIn('slow');
     });
 
 //****************************************************************functions
@@ -24,10 +45,10 @@ $(document).ready(function(){
  //*********************************create select field
  	function createDrop (){
  		var formTag = document.getElementsByTagName("form"); //creates an array of all forms
- 		var selectVid = SS('select');
+ 		var selectVid = $('#select');
  	//var makeSelect = document.createElement('select');
  	//makeSelect.setAttribute("id", "groups");
- 		selectVid.setAttribute("id", "groups");
+ 		//selectVid.setAttribute("id", "groups");
 
  	//populate
  		for (var i = 0, j = vidList.length; i < j; i++){
@@ -35,7 +56,7 @@ $(document).ready(function(){
  			var opText = vidList[i];
  			makeOpt.setAttribute("value", opText);
  			makeOpt.innerHTML = opText;
- 			selectVid.appendChild(makeOpt);
+ 			//selectVid.appendChild(makeOpt);
  		}
  	}
 
@@ -60,29 +81,7 @@ $(document).ready(function(){
 		}
  	}
 
- 	function toggleControls(n){
-
- 		switch(n){
- 			case "on":
- 			SS('contactForm').style.display = "none";
- 			SS('send').style.display = "none";
- 			SS('clear').style.display = "inline";
- 			//SS('seeInfo').style.display = "block";
- 			SS('previewInfo').style.display = "inline";
- 				break;
- 			case "off":
- 			SS('previewInfo').style.display = "none";
- 			SS('contactForm').style.display = "block";
- 			SS('send').style.display = "inline";
- 			SS('clear').style.display = "block";
- 			//SS('addNew').style.display = "none";
- 				break;
- 			default: return false;
- 		}
- 	}
-
  	function showData (){
-<!-- 		toggleControls("on");     -->
  		if (localStorage.length === 0){
  			alert("Loading JSON.");
  			localData();
@@ -118,22 +117,6 @@ $(document).ready(function(){
 
  		 	//add our pic for each item
  		 		getImage(obj.group[1], makeSubList);
- 		 		var newsList = [];
- 		 		for (var n in obj){
- 		 			// var optSubText = obj[n][0];
- 		 			// console.log("optSubText: " + optSubText);
- 		 			// if(optSubText == "Birthday: "){
- 		 				// if
- 		 			// }
- 		 			newsList.push(obj[n]);
- 		 		}
- 		 		newsList.sort(sortNumber);
- 		 		for (var o in obj){
-
- 		 		}
-//***************************************************
-//***************************************************This is where the array is getting out of order???
-
  		 		for (var j = 0; j < newsList.length; j++){
  		 			console.log("The array is: " + newsList);
  		 			var makeSubli = document.createElement('li');
@@ -277,27 +260,6 @@ clearData.click(function(){
         return false;
     }
 });
-//***************************This retrieves the value of the radio
-function getRadio(){
-    var radios = document.getElementById('contactForm').trained;
-    for(var i = 0; i < radios.length; i++){
-        if(radios[i].checked){
-            trainedVal = radios[i].value;
-            console.log("the radio is worth: " + radios[i].value);
-        }
-    }
-};
-//***************************This retrieves the value of the checkboxes
-function getCheckBoxes(){
-    var hasAllergy = $('#allergy');
-    if(hasAllergy.checked){
-        check1 = hasAllergy.value;
-    }
-    else{
-
-        check1 = "No";
-    }
-};
 //***************************Listen for the Add Child button push to storeData
 var submitInfo = $('#send');
 submitInfo.click(function(key){
@@ -335,3 +297,58 @@ submitInfo.click(function(key){
         alert("Form Submitted");
     }
 });
+
+
+
+
+/*
+ function showData (){
+ if (localStorage.length === 0){
+ alert("Loading JSON.");
+ localData();
+ }
+ else{
+ //first get from local storage to browser
+ var makeDiv = $('#previewInfo');
+ //oldDiv.appendChild(makeDiv);
+ makeDiv.setAttribute("id", "items");
+ makeDiv.setAttribute("data-role", "content");
+ var makeList = document.createElement('ul');		//create unordered list
+ makeList.setAttribute("data-role", "listview");
+ makeList.setAttribute("data-inset", "true");
+ makeList.setAttribute("data-filter", "true");
+
+ makeDiv.appendChild(makeList);
+ $('#previewInfo').append(makeDiv);
+
+ $('#items').style.display = "display"; //show list
+
+ for (var i = 0, len=localStorage.length; i < len; i++){
+ var makeLi = document.createElement('li');	//create a list item
+ var makeBR = document.createElement('br');
+ makeLi.appendChild(makeBR);
+ var linksLi = document.createElement('li');
+ makeList.appendChild(makeLi);
+ var keyVal = localStorage.key(i);
+ var value = localStorage.getItem(keyVal);
+ console.log(keyVal);
+ var obj = JSON.parse(value); 					//this converts the string back to an object, it's opposite of stringify
+ var makeSubList = document.createElement('ul');
+ makeLi.appendChild(makeSubList);
+
+ //add our pic for each item
+ getImage(obj.group[1], makeSubList);
+ for (var j = 0; j < newsList.length; j++){
+ console.log("The array is: " + newsList);
+ var makeSubli = document.createElement('li');
+ makeSubList.appendChild(makeSubli);
+ var optSubText = newsList[j][0]+" "+newsList[j][1];  //separate the label with the value
+ console.log(newsList[j][1]);
+ makeSubli.innerHTML = optSubText;
+ makeSubli.appendChild(linksLi);
+ }
+ //create edit/delete buttons for each group of data
+ makeItemLinks(localStorage.key(i), linksLi);
+ }
+ }
+ }*/
