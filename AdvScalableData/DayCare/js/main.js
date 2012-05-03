@@ -45,18 +45,12 @@ $(document).ready(function(){
  //*********************************create select field
  	function createDrop (){
  		var formTag = document.getElementsByTagName("form"); //creates an array of all forms
- 		var selectVid = $('#select');
- 	//var makeSelect = document.createElement('select');
- 	//makeSelect.setAttribute("id", "groups");
- 		//selectVid.setAttribute("id", "groups");
+ 		var list = $('#select');
 
  	//populate
  		for (var i = 0, j = vidList.length; i < j; i++){
- 			var makeOpt = document.createElement('option');
- 			var opText = vidList[i];
- 			makeOpt.setAttribute("value", opText);
- 			makeOpt.innerHTML = opText;
- 			//selectVid.appendChild(makeOpt);
+            var opText = vidList[i];
+            list.append("<option>" + opText + "</option>");
  		}
  	}
 
@@ -88,19 +82,20 @@ $(document).ready(function(){
  		}
  		else{
  		//first get from local storage to browser
- 		 var makeDiv = $('#previewInfo');
- 		 //oldDiv.appendChild(makeDiv);
- 		 makeDiv.setAttribute("id", "items");
- 		 makeDiv.setAttribute("data-role", "content");
- 		 var makeList = document.createElement('ul');		//create unordered list
- 		 makeList.setAttribute("data-role", "listview");
- 		 makeList.setAttribute("data-inset", "true");
- 		 makeList.setAttribute("data-filter", "true");
+ 		    var makeDiv = $('#seeInfo');
+            //oldDiv.appendChild(makeDiv);
+            makeDiv.append("<h2>All Children</h2>");
+            //makeDiv.setAttribute("data-role", "content");
+            var makeList = document.createElement('ul');		//create unordered list
+            makeList.setAttribute("data-role", "listview");
+            makeList.setAttribute("data-inset", "true");
+            makeList.setAttribute("data-filter", "true");
 
- 		 makeDiv.appendChild(makeList);
+ 		 //makeDiv.appendChild(makeList);
  		 $('#previewInfo').append(makeDiv);
 
- 		 $('#items').style.display = "display"; //show list
+ 		    $('#items').fadeIn('fast'); //show list
+
 
  		 	for (var i = 0, len=localStorage.length; i < len; i++){
  		 		var makeLi = document.createElement('li');	//create a list item
@@ -121,8 +116,8 @@ $(document).ready(function(){
  		 			console.log("The array is: " + newsList);
  		 			var makeSubli = document.createElement('li');
  		 			makeSubList.appendChild(makeSubli);
- 		 			var optSubText = newsList[j][0]+" "+newsList[j][1];  //separate the label with the value
- 		 			console.log(newsList[j][1]);
+ 		 			//var optSubText = newsList[j][0]+" "+newsList[j][1];  //separate the label with the value
+ 		 			//console.log(newsList[j][1]);
  		 			makeSubli.innerHTML = optSubText;
  		 			makeSubli.appendChild(linksLi);
  		 		}
@@ -245,6 +240,7 @@ $(document).ready(function(){
 
 	//******************************Make some things happen!!
 	createDrop();
+    showData();
 //	addItem.addEventListener("click", toggleControls("off"));  //shouldn't need this anymore
 });
 //***************************Listen for the clear button to be pushed and clear memory
