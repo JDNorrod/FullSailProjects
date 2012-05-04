@@ -97,36 +97,33 @@ $(document).ready(function(){
  		    //$('#items').fadeIn('fast'); //show list
 
             for (var i = 0, len=localStorage.length; i < len; i++){
+                var makeLi = $("<li></li>");	//create a list item
+                var linksLi = $("<li></li>");	//create a list item
+                makeList.append(makeLi);
+                var keyVal = localStorage.key(i);
+                var value = localStorage.getItem(keyVal);
+                console.log(keyVal);
+                var obj = JSON.parse(value); 					//this converts the string back to an object, it's opposite of stringify
+                var makeSubList = $('<ul></ul>');
+                makeLi.append(makeSubList);
 
- 		 		var makeLi = document.createElement('li');	//create a list item
- 		 		var makeBR = document.createElement('br');
- 		 		makeLi.appendChild(makeBR);
- 		 		var linksLi = document.createElement('li');
- 		 		makeList.appendChild(makeLi);
- 		 		var keyVal = localStorage.key(i);
- 		 		var value = localStorage.getItem(keyVal);
- 		 		console.log(keyVal);
- 		 		var obj = JSON.parse(value); 					//this converts the string back to an object, it's opposite of stringify
- 		 		var makeSubList = document.createElement('ul');
- 		 		makeLi.appendChild(makeSubList);
+                //add our pic for each item
+                getImage(obj.group[1], makeSubList);
 
- 		 	//add our pic for each item
- 		 		getImage(obj.group[1], makeSubList);
- 		 		for (var j = 0; j < newsList.length; j++){
- 		 			console.log("The array is: " + newsList);
- 		 			var makeSubli = document.createElement('li');
- 		 			makeSubList.appendChild(makeSubli);
- 		 			//var optSubText = newsList[j][0]+" "+newsList[j][1];  //separate the label with the value
- 		 			//console.log(newsList[j][1]);
- 		 			makeSubli.innerHTML = optSubText;
- 		 			makeSubli.appendChild(linksLi);
- 		 		}
- 		 	//create edit/delete buttons for each group of data
- 		 	makeItemLinks(localStorage.key(i), linksLi);
- 			}
- 		}
- 	}
+                for (var j in obj){
+                    var makeSubli = $("<li></li>");
+                    makeSubList.append(makeSubli);
+                    var optSubText = obj[j][0]+" "+obj[j][1];  //separate the label with the value
+                    console.log(obj[j][1]);
+                    makeSubli.innerHTML = optSubText;
+                    makeSubli.append(linksLi);
+                }
+                //create edit/delete buttons for each group of data
+                makeItemLinks(localStorage.key(i), linksLi);
 
+ 		    }
+        }
+    }
  	function localData(){
  		for(var j in json){
  		var id = Math.floor(Math.random()*9999999);
@@ -145,18 +142,18 @@ $(document).ready(function(){
  	}
 
  	function getImage(catName, makeSubList){
- 		console.log("Age Group: " + catName);
+ 		/*console.log("Age Group: " + catName);
  		var imageLi = document.createElement('li');
  		makeSubList.appendChild(imageLi); //makeSublist is from showData()
  		var newImg = document.createElement('img');
  		var setSource = newImg.setAttribute('src', "images/" + catName + ".png");
- 		imageLi.appendChild(newImg);
+ 		imageLi.appendChild(newImg);*/
  	}
 
  	//create edit/delete links for each stored rating
  	function makeItemLinks(key, linksLi){
  		//add edit single item
- 		var editLink = document.createElement('a');
+/* 		var editLink = document.createElement('a');
  		editLink.href = "#";
  		editLink.key = key;
  		var editText = "Edit Child";
@@ -175,6 +172,7 @@ $(document).ready(function(){
  		deleteLink.addEventListener("click", deleteItem);
  		deleteLink.innerHTML = deleteText;		//add text for link
  		linksLi.appendChild(deleteLink);		//add our button to the bottom of our shown information
+*/
  	}
 
  	function deleteItem(){
@@ -348,3 +346,35 @@ submitInfo.click(function(key){
  }
  }
  }*/
+
+/*
+ var makeDiv = $("<div></div>");
+ makeDiv.attr("id", "items");
+ var makeList = $("<ul></ul>");
+ makeDiv.append(makeList);
+ $("#previewInfo").append(makeDiv);
+ $("#previewInfo").css("display", "block");
+ for(var i =0, j=localStorage.length; i<j; i++ ){
+ var makeLi = $("<li></li>");
+ var linksLi =$("<li></li>");
+ linksLi.attr("id" , "linksLi");
+ makeList.append(makeLi);
+ var key = localStorage.key(i);
+ var value = localStorage.getItem(key);
+ console.log(value)
+ var object = JSON.parse(value); // opposite of stringify
+ var makeSubList = $("<ul></ul>");
+ makeLi.append(makeSubList);
+ //			getImage(object.groups[1], makeSubList);
+ for( var n in object){
+ console.log(object)
+ var makeSubLi = $("<li><li>");
+ makeSubList.append(makeSubLi);
+ var optSubText = object[n][0] +" " + object[n][1];
+ makeSubLi.innerHTML = optSubText;
+ makeSubList.append(linksLi);
+ }
+ //create edit/delete buttons for each group of data
+ makeItemLinks(localStorage.key(i), linksLi);
+ }
+    */
