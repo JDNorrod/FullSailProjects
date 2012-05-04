@@ -23,7 +23,7 @@ function getCheckBoxes(){
         check1 = "No";
     }
 };
-//********************************document.ready is right here
+//**************************************************************document.ready is right here
 $(document).ready(function(){
 	
 //*************************some variables:
@@ -41,7 +41,26 @@ $(document).ready(function(){
     });
 
 //****************************************************************functions
+    function toggleControls(n){
 
+        switch(n){
+            case "on":
+                $('#contactForm').hide();
+                $('#send').hide();
+                $('#clear').show();
+                $('#seeInfo').show();
+                $('#previewInfo').show();
+                break;
+            case "off":
+                $('#items').hide();
+                $('#contactForm').show();
+                $('#send').show();
+                $('#clear').show();
+                $('#seeInfo').hide();
+                break;
+            default: return false;
+        }
+    }
  //*********************************create select field
  	function createDrop (){
  		var formTag = document.getElementsByTagName("form"); //creates an array of all forms
@@ -76,6 +95,7 @@ $(document).ready(function(){
  	}
 
  	function showData (){
+        toggleControls("on");
  		if (localStorage.length === 0){
  			alert("Loading JSON.");
  			localData();
@@ -183,7 +203,7 @@ $(document).ready(function(){
  	}
 
  	function editForm(){
-
+        toggleControls("off");
  		//grab item from local store to populate fields with what's in memory'
  		var value = localStorage.getItem(this.key);
         console.log("this.key: " + this.key);
@@ -235,7 +255,9 @@ $(document).ready(function(){
 
 	//******************************Make some things happen!!
 	createDrop();
+    preview.bind("click", showData);
     showData();
+    toggleControls("off");
 //	addItem.addEventListener("click", toggleControls("off"));  //shouldn't need this anymore
 });
 //***************************Listen for the clear button to be pushed and clear memory
