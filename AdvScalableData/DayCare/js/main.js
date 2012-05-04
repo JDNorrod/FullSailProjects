@@ -99,7 +99,7 @@ $(document).ready(function(){
                 makeList.append(makeLi);
                 var keyVal = localStorage.key(i);
                 var value = localStorage.getItem(keyVal);
-                console.log(keyVal);
+                //console.log(keyVal);
                 var obj = JSON.parse(value); 					//this converts the string back to an object, it's opposite of stringify
                 var makeSubList = $('<ul></ul>');
                 makeLi.append(makeSubList);
@@ -141,26 +141,32 @@ $(document).ready(function(){
  	//create edit/delete links for each stored rating
  	function makeItemLinks(key, linksLi){
  		//add edit single item
- 		var editLink = $(a);
- 		editLink.href = "#";
- 		editLink.key = key;
- 		var editText = "Edit Child";
- 		editLink.addEventListener("click", editForm); //listen for click
- 		editLink.innerHTML = editText;		//add text for link
- 		linksLi.appendChild(editLink);		//add our button to the bottom of our shown information
+ 		var editLink = $("<a></a>");
+        var breakTag = $("</br>");
+        var editLinkText = "Edit Child";
+ 	    //Set the attributes for oiur link
+        editLink.attr({
+            href: "#infoForm",
+            key: key,
+            id: "editEntry"
+        })
+        //console.log(editLink);
+        editLink.html(editLinkText);		//add text for link
+ 		linksLi.append(editLink);
+        linksLi.append(breakTag);		            //add our button to the bottom of our shown information
+        $('#editEntry').bind("click", editForm(key));           //listen for click
 
-	//add line break
-		var breakTag = document.createElement('br');
-		linksLi.appendChild(breakTag);
-
- 		var deleteLink = document.createElement('a');
- 		deleteLink.href = "#";
- 		deleteLink.key = key;
- 		var deleteText = "Delete Child's Info";
- 		deleteLink.addEventListener("click", deleteItem);
- 		deleteLink.innerHTML = deleteText;		//add text for link
- 		linksLi.appendChild(deleteLink);		//add our button to the bottom of our shown information
-
+        //create the delete item link
+ 		var deleteLink = $("<a></a>");
+        var deleteText = "Delete Child's Info";
+ 		deleteLink.attr({
+             href: "#",
+             key: key,
+             id: "deleteItem"
+        });
+ 		deleteLink.html(deleteText);        //add text for our link
+ 		linksLi.append(deleteLink);		    //add our button to the bottom of our shown information
+        deleteLink.bind("click", deleteItem);
  	}
 
  	function deleteItem(){
@@ -175,13 +181,15 @@ $(document).ready(function(){
  		}
  	}
 
- 	function editForm(){
+ 	function editForm(editkey){
 
  		//grab item from local store to populate fields with what's in memory'
- 		var value = localStorage.getItem(this.key);
+ 		//var value = localStorage.getItem(this.key);
+        console.log("this.key: " + this.key);
  		var item = JSON.parse(value);
 		//toggleControls("off"); // shouldn't need this anymore
  		//populate fields with local storage
+        console.log(item.group[1]);
  		$('#groups').value = item.group[1];
  		$('#fName').value = item.fname[1];
  		$('#lName').value = item.lname[1];
@@ -214,20 +222,10 @@ $(document).ready(function(){
  		//editSubmit.addEventListener("click", validate);
  		editSubmit.key = this.key;
  	}
- 	
-	function sortNumber(a,b){
 
-		if(a[0] === "Birthday: "){
-			console.log("........................" + a[0]);
-			return a[1]-b[1];
-		}
-		return;
-	}
-
-	//******************************Make some things happen!!
+	//******************************Make some things happen by calling the functions
 	createDrop();
     showData();
-//	addItem.addEventListener("click", toggleControls("off"));  //shouldn't need this anymore
 });
 //***************************Listen for the clear button to be pushed and clear memory
 var clearData = $('#clear');
@@ -279,3 +277,4 @@ submitInfo.click(function(key){
         alert("Form Submitted");
     }
 });
+
