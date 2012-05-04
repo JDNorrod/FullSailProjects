@@ -255,9 +255,9 @@ $(document).ready(function(){
 
 	//******************************Make some things happen!!
 	createDrop();
-    preview.bind("click", showData);
     showData();
     toggleControls("off");
+    preview.bind("click", showData);
 //	addItem.addEventListener("click", toggleControls("off"));  //shouldn't need this anymore
 });
 //***************************Listen for the clear button to be pushed and clear memory
