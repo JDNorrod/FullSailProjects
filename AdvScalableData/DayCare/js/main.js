@@ -154,7 +154,7 @@ $(document).ready(function(){
         editLink.html(editLinkText);		//add text for link
  		linksLi.append(editLink);
         linksLi.append(breakTag);		            //add our button to the bottom of our shown information
-        $('#editEntry').bind("click", editForm(key));           //listen for click
+        $('#editEntry').bind("click", editForm);           //listen for click
 
         //create the delete item link
  		var deleteLink = $("<a></a>");
@@ -162,14 +162,15 @@ $(document).ready(function(){
  		deleteLink.attr({
              href: "#",
              key: key,
-             id: "deleteItem"
+             id: "deleteChild"
         });
  		deleteLink.html(deleteText);        //add text for our link
  		linksLi.append(deleteLink);		    //add our button to the bottom of our shown information
-        deleteLink.bind("click", deleteItem);
+        $("#deleteChild").bind("click", deleteItem);
+
  	}
 
- 	function deleteItem(){
+ 	function deleteItem(aKey){
  		var ask = confirm("Are you sure you want to delete this child's information?");
  		if(ask){//if the user clicked "ok"
  			localStorage.removeItem(this.key); //deleteItem has access to key through makeItemLink
@@ -181,10 +182,10 @@ $(document).ready(function(){
  		}
  	}
 
- 	function editForm(editkey){
+ 	function editForm(){
 
  		//grab item from local store to populate fields with what's in memory'
- 		//var value = localStorage.getItem(this.key);
+ 		var value = localStorage.getItem(this.key);
         console.log("this.key: " + this.key);
  		var item = JSON.parse(value);
 		//toggleControls("off"); // shouldn't need this anymore
@@ -223,9 +224,19 @@ $(document).ready(function(){
  		editSubmit.key = this.key;
  	}
 
-	//******************************Make some things happen by calling the functions
+	function sortNumber(a,b){
+
+		if(a[0] === "Birthday: "){
+			console.log("........................" + a[0]);
+			return a[1]-b[1];
+		}
+		return;
+	}
+
+	//******************************Make some things happen!!
 	createDrop();
     showData();
+//	addItem.addEventListener("click", toggleControls("off"));  //shouldn't need this anymore
 });
 //***************************Listen for the clear button to be pushed and clear memory
 var clearData = $('#clear');
@@ -277,4 +288,3 @@ submitInfo.click(function(key){
         alert("Form Submitted");
     }
 });
-
