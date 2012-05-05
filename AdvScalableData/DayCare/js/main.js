@@ -19,15 +19,10 @@ var clearData           = $('#clear');
 //**********************************************************************Key functions
 
 //This retrieves the value of the radio
-function getRadio(){
-    var radios = document.getElementById('contactForm').trained;
-    for(var i = 0; i < radios.length; i++){
-        if(radios[i].checked){
-            trainedVal = radios[i].val();
-            console.log("the radio is worth: " + radios[i].val());
-        }
-    }
-}
+$('#input:radio[name=trained').click(function (){
+    var trainedVal = $(this).val();
+    console.log("trainedVal is: " + trainedVal);
+});
 
 
 //This retrieves the value of the checkboxes
@@ -208,17 +203,17 @@ $('#infoForm').live('pageinit', function(){
  		var editLink = $("<a></a>");
         var breakTag = $("</br>");
         var editLinkText = "Edit Child";
- 	    //Set the attributes for oiur link
+ 	    //Set the attributes for our link
         editLink.attr({
             href: "#infoForm",
             key: key,
-            id: "editEntry"
+            class: "editEntry"
         })
 
         editLink.html(editLinkText);		               //add text for link
  		linksLi.append(editLink);
         linksLi.append(breakTag);		                   //add our button to the bottom of our shown information
-        $('#editEntry').bind("click", editForm);           //listen for click to edit item
+        $('.editEntry').bind("click", editForm(key));           //listen for click to edit item
 
         //create the delete item link
  		var deleteLink = $("<a></a>");                      //anchor tag
@@ -246,28 +241,20 @@ $('#infoForm').live('pageinit', function(){
  		}
  	}
 
- 	function editForm(){
+ 	function editForm(editKey){
         toggleList("off");                                  //bring back the infoForm
- 		var value = localStorage.getItem(this.key);         //grab item from local store to populate fields with what's in memory
-        console.log("this.key: " + this.key);
+ 		var value = localStorage.getItem(editKey);         //grab item from local store to populate fields with what's in memory
+        console.log("value: " + value);
  		var item = JSON.parse(value);                       //Convert from string to object
         console.log(item.group[1]);                         //populate fields with local storage
- 		$('#selector').val() = item.group[1];
- 		$('#fName').val() = item.fname[1];
- 		$('#lName').val() = item.lname[1];
- 		$('#bday').val() = item.bday[1];
- 		$('#sliderBar').val() = item.slider[1];
- 		$('#message').val() = item.comment[1];              //each of these retrieves values for each input
+ 		$('#selector').val(item.group[1]);
+ 		$('#fName').val(item.fname[1]);
+ 		$('#lName').val(item.lname[1]);
+ 		$('#bday').val(item.bday[1]);
+ 		$('#sliderBar').val(item.slider[1]);
+ 		$('#message').val(item.comment[1]);                 //each of these retrieves values for each input
 
-        var radios = $('#contactForm').trained;             //Populate the radio button
- 		for (var i = 0; i < radios.length; i++){
- 			if(radios[i].val() == "Yes" && item.trained[1] == "Yes"){
- 				radios[i].setAttribute("checked", "checked");
- 			}
- 			else if(radios[i].val() == "No" && item.trained[1] == "No"){
- 				radios[i].setAttribute("checked", "checked");
- 			}
- 		}
+
 
  		if(item.allergy[1] == "Yes"){                       //populate the checkbox if selected
  				$('#allergy').setAttribute("checked", "checked");
@@ -279,7 +266,7 @@ $('#infoForm').live('pageinit', function(){
  		$('#send').text = "Save";                           //change the button to read "save"
  		//save the key value established in this function as a property to overwrite info instead of add new
  		var editSubmit = $('#send');
- 		editSubmit.bind("click", validate);
+ 		preview.on("click", validate);
  		editSubmit.key = this.key;
  	}
 
@@ -319,6 +306,7 @@ $('#infoForm').live('pageinit', function(){
             var item        = {};
 
             item.group		= ["Age Group: ", ($("#selector").val())]; 		//drop down box
+            console.log(item.group);
             item.fname		= ["First Name: ", $('#fName').val()]; 	    //first name
             item.lname		= ["Last Name: ", $('#lName').val()]; 		//last name
             item.bday		= ["Birthday: ", $('#bday').val()]; 		//birthday
