@@ -3,7 +3,7 @@
 //May 2012
 
 //*************************some variables:
-var vidList 			= ["Infant", "2-4 Years", "5-7 Years", "8-12 Years"];
+var vidList 			= ["Infant", "2-4 Years", "5-7 Years", "8-12 Years"];      //Values for dropBox
 
 //*************************link and submit events:
 var preview 			= $('#show');
@@ -14,8 +14,11 @@ var trainedVal, check1;
 var cForm 				= $('#contactForm');
 var submitInfo          = $('#send');
 var clearData           = $('#clear');
-//*************************Key functions
-//***************************This retrieves the value of the radio
+
+
+//**********************************************************************Key functions
+
+//This retrieves the value of the radio
 function getRadio(){
     var radios = document.getElementById('contactForm').trained;
     for(var i = 0; i < radios.length; i++){
@@ -24,8 +27,10 @@ function getRadio(){
             console.log("the radio is worth: " + radios[i].val());
         }
     }
-};
-//***************************This retrieves the value of the checkboxes
+}
+
+
+//This retrieves the value of the checkboxes
 function getCheckBoxes(){
     var hasAllergy = $('#allergy');
     if(hasAllergy.checked){
@@ -35,20 +40,50 @@ function getCheckBoxes(){
 
         check1 = "No";
     }
-};
+}
 
 
-//**************************************************************document.ready is right here
-$(document).ready(function(){
+//this helps us to load a page in it's refreshed form
+var toChangePage = function (toPageId) {                            //passes the page ID as argument using e
+    console.log("to page = " + toPageId)
+    $.mobile.changePage("#" + toPageId , {
+        type:"post",
+        data:$("form").serialize(),
+        reloadPage:true
+    });
+}
 
-//*************************Awwww Yeah!  Programming ninja right here (responsive disclosure)
+
+//this will load infoForm when the + is pressed but by refreshing it
+$(".refresher").on('click', function(e){                //When + is pressed in the header on this page only
+    e.preventDefault();                                             //stop the usual process
+    console.log("Moving to PAGE with toChangePage function");
+    toChangePage("infoForm");                                       //changePage loads page with refresh
+});
+
+
+//**************************************************************infoForm.live is right here
+$('#infoForm').live('pageinit', function(){
+          console.log("infoForm is live");
+//*************************List of Bindings:
+
+    //Programming ninja right here (responsive disclosure)
 	$('#allergy').bind("change", function() {
         console.log("box checked");
         $('#messageBlock').fadeIn('slow');
     });
 
+    submitInfo.bind("click", storeData);                        //when send is pressed store data
+    preview.on("click", showData);                              //when See entries pressed show data
+    clearData.bind("click", clearLocal);                        //clear is pressed delete local memory
+
+    //Initialization features:
+    toggleList("off");                                          //Make sure that we see the infoForm
+    createDrop();                                               //populate the drop box
+
+
 //****************************************************************functions
-    function toggleControls(n){
+    function toggleList(n){
 
         switch(n){
             case "on":
@@ -70,7 +105,6 @@ $(document).ready(function(){
     }
  //*********************************create select field
  	function createDrop (){
- 		var formTag = document.getElementsByTagName("form"); //creates an array of all forms
  		var list = $('#select');
 
  	//populate
@@ -102,7 +136,7 @@ $(document).ready(function(){
  	}
 
  	function showData (){
-        toggleControls("on");
+        toggleList("on");
  		if (localStorage.length === 0){
  			alert("Loading JSON.");
  			localData();
@@ -213,10 +247,10 @@ $(document).ready(function(){
  	}
 
  	function editForm(){
-        toggleControls("off");                              //bring back the infoForm
+        toggleList("off");                                  //bring back the infoForm
  		var value = localStorage.getItem(this.key);         //grab item from local store to populate fields with what's in memory
         console.log("this.key: " + this.key);
- 		var item = JSON.parse(value);                 //Convert from string to object
+ 		var item = JSON.parse(value);                       //Convert from string to object
         console.log(item.group[1]);                         //populate fields with local storage
  		$('#groups').val() = item.group[1];
  		$('#fName').val() = item.fname[1];
@@ -242,12 +276,12 @@ $(document).ready(function(){
 
  		console.log("we're here");
  		submitInfo.unbind("click", storeData);              //remove the listener from the submit button when in edit mode
- 		$('#send').text = "Save";                          //change the button to read "save"
+ 		$('#send').text = "Save";                           //change the button to read "save"
  		//save the key value established in this function as a property to overwrite info instead of add new
  		var editSubmit = $('#send');
  		editSubmit.bind("click", validate);
  		editSubmit.key = this.key;
- 	};
+ 	}
 
 
     //***************************Listen for the clear button to be pushed and clear memory
@@ -261,7 +295,7 @@ $(document).ready(function(){
             window.location.reload();
             return false;
         }
-    };
+    }
 //***************************Listen for the Add Child button push to storeData
     function storeData (key){
         //***************************validate the form before it's sent
@@ -277,7 +311,7 @@ $(document).ready(function(){
             else{
                 id = key;
             }
-            console.log(id);
+            console.log(key);
             //gather form field values and store in object
             //object props contain array with form label and input val
             getRadio();
@@ -285,8 +319,8 @@ $(document).ready(function(){
             var item        = {};
 
             item.group		= ["Age Group: ", $('#groups').val()]; 		//drop down box
-            console.log($('#groups').value);
-            console.log($('#groups').val());
+            console.log(item.group);
+            console.log($('#groups option:selected').val());
             item.fname		= ["First Name: ", $('#fName').val()]; 	    //first name
             item.lname		= ["Last Name: ", $('#lName').val()]; 		//last name
             item.bday		= ["Birthday: ", $('#bday').val()]; 		//birthday
@@ -299,16 +333,10 @@ $(document).ready(function(){
             localStorage.setItem(id, JSON.stringify(item));
             alert("Form Submitted");
         }
-    };
-    //******************************Make some things happen!!
-    createDrop();
-    submitInfo.bind("click", storeData);
-    toggleControls("off");
-    preview.bind("click", showData);
-	addItem.bind("click", toggleControls("off"));
-    clearData.bind("click", clearLocal);
-
+    }
 });
+//**************************************************************
+//**************************************************************infoForm.live ends right here
 
 
 
