@@ -103,9 +103,9 @@ $('#infoForm').live('pageinit', function(){
             default: return false;
         }
     }
- //*********************************create select field
+ //*********************************create selector field
  	function createDrop (){
- 		var list = $('#select');
+ 		var list = $('#selector');
 
  	//populate
  		for (var i = 0, j = vidList.length; i < j; i++){
@@ -252,7 +252,7 @@ $('#infoForm').live('pageinit', function(){
         console.log("this.key: " + this.key);
  		var item = JSON.parse(value);                       //Convert from string to object
         console.log(item.group[1]);                         //populate fields with local storage
- 		$('#groups').val() = item.group[1];
+ 		$('#selector').val() = item.group[1];
  		$('#fName').val() = item.fname[1];
  		$('#lName').val() = item.lname[1];
  		$('#bday').val() = item.bday[1];
@@ -318,9 +318,7 @@ $('#infoForm').live('pageinit', function(){
             getCheckBoxes();
             var item        = {};
 
-            item.group		= ["Age Group: ", $('#groups').val()]; 		//drop down box
-            console.log(item.group);
-            console.log($('#groups option:selected').val());
+            item.group		= ["Age Group: ", ($("#selector").val())]; 		//drop down box
             item.fname		= ["First Name: ", $('#fName').val()]; 	    //first name
             item.lname		= ["Last Name: ", $('#lName').val()]; 		//last name
             item.bday		= ["Birthday: ", $('#bday').val()]; 		//birthday
@@ -377,7 +375,7 @@ submitInfo.click(function(key){
         getCheckBoxes();
         var item        = {};
 
-        item.group		= ["Age Group: ", $('#groups').value]; 		//drop down box
+        item.group		= ["Age Group: ", $('#selector').value]; 		//drop down box
         item.fname		= ["First Name: ", $('#fName').value]; 	    //first name
         item.lname		= ["Last Name: ", $('#lName').value]; 		//last name
         item.bday		= ["Birthday: ", $('#bday').value]; 		//birthday
