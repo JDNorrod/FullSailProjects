@@ -20,8 +20,8 @@ function getRadio(){
     var radios = document.getElementById('contactForm').trained;
     for(var i = 0; i < radios.length; i++){
         if(radios[i].checked){
-            trainedVal = radios[i].value;
-            console.log("the radio is worth: " + radios[i].value);
+            trainedVal = radios[i].val();
+            console.log("the radio is worth: " + radios[i].val());
         }
     }
 };
@@ -29,7 +29,7 @@ function getRadio(){
 function getCheckBoxes(){
     var hasAllergy = $('#allergy');
     if(hasAllergy.checked){
-        check1 = hasAllergy.value;
+        check1 = hasAllergy.val();
     }
     else{
 
@@ -93,7 +93,7 @@ $(document).ready(function(){
  	function getCheckBoxes(){
 		var hasAllergy = $('#allergy');
 		if(hasAllergy.checked){
-			check1 = hasAllergy.value;
+			check1 = hasAllergy.val();
 		}
 		else{
 
@@ -218,19 +218,19 @@ $(document).ready(function(){
         console.log("this.key: " + this.key);
  		var item = jQuery.parseJSON(value);                 //Convert from string to object
         console.log(item.group[1]);                         //populate fields with local storage
- 		$('#groups').value = item.group[1];
- 		$('#fName').value = item.fname[1];
- 		$('#lName').value = item.lname[1];
- 		$('#bday').value = item.bday[1];
- 		$('#sliderBar').value = item.slider[1];
- 		$('#message').value = item.comment[1];              //each of these retrieves values for each input
+ 		$('#groups').val() = item.group[1];
+ 		$('#fName').val() = item.fname[1];
+ 		$('#lName').val() = item.lname[1];
+ 		$('#bday').val() = item.bday[1];
+ 		$('#sliderBar').val() = item.slider[1];
+ 		$('#message').val() = item.comment[1];              //each of these retrieves values for each input
 
         var radios = $('#contactForm').trained;             //Populate the radio button
  		for (var i = 0; i < radios.length; i++){
- 			if(radios[i].value == "Yes" && item.trained[1] == "Yes"){
+ 			if(radios[i].val() == "Yes" && item.trained[1] == "Yes"){
  				radios[i].setAttribute("checked", "checked");
  			}
- 			else if(radios[i].value == "No" && item.trained[1] == "No"){
+ 			else if(radios[i].val() == "No" && item.trained[1] == "No"){
  				radios[i].setAttribute("checked", "checked");
  			}
  		}
@@ -242,7 +242,7 @@ $(document).ready(function(){
 
  		console.log("we're here");
  		submitInfo.unbind("click", storeData);              //remove the listener from the submit button when in edit mode
- 		$('#send').value = "Save";                          //change the button to read "save"
+ 		$('#send').text = "Save";                          //change the button to read "save"
  		//save the key value established in this function as a property to overwrite info instead of add new
  		var editSubmit = $('#send');
  		editSubmit.bind("click", validate);
@@ -285,6 +285,8 @@ $(document).ready(function(){
             var item        = {};
 
             item.group		= ["Age Group: ", $('#groups').val()]; 		//drop down box
+            console.log($('#groups').value);
+            console.log($('#groups').val());
             item.fname		= ["First Name: ", $('#fName').val()]; 	    //first name
             item.lname		= ["Last Name: ", $('#lName').val()]; 		//last name
             item.bday		= ["Birthday: ", $('#bday').val()]; 		//birthday
