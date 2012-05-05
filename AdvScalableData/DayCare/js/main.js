@@ -127,7 +127,7 @@ $(document).ready(function(){
                 var keyVal = localStorage.key(i);
                 var value = localStorage.getItem(keyVal);
                 //console.log(keyVal);
-                var obj = jQuery.parseJSON(value); 	//this converts the string back to an object, it's opposite of stringify
+                var obj = JSON.parse(value); 	//this converts the string back to an object, it's opposite of stringify
                 console.log("obj is = " + obj);
                 var makeSubList = $('<ul></ul>');
                 makeLi.append(makeSubList);
@@ -216,7 +216,7 @@ $(document).ready(function(){
         toggleControls("off");                              //bring back the infoForm
  		var value = localStorage.getItem(this.key);         //grab item from local store to populate fields with what's in memory
         console.log("this.key: " + this.key);
- 		var item = jQuery.parseJSON(value);                 //Convert from string to object
+ 		var item = JSON.parse(value);                 //Convert from string to object
         console.log(item.group[1]);                         //populate fields with local storage
  		$('#groups').val() = item.group[1];
  		$('#fName').val() = item.fname[1];
