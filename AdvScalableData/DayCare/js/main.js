@@ -227,7 +227,7 @@ $('#infoForm').live('pageinit', function(){
         console.log("MY key is: " + myKey);
  		deleteLink.html(deleteText);                        //add text for our link
  		linksLi.append(deleteLink);		                    //add our button to the bottom of our shown information
-        //$("#deleteChild").bind("click", deleteItem (myKey));
+        $("#deleteChild").bind("click", deleteItem);
 
  	}
 
