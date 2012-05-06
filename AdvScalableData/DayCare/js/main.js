@@ -214,7 +214,7 @@ $('#infoForm').live('pageinit', function(){
         editLink.html(editLinkText);		               //add text for link
  		linksLi.append(editLink);
         linksLi.append(breakTag);		                   //add our button to the bottom of our shown information
-        $('.editEntry').on("click", editForm(myKey));      //listen for click to edit item
+        $('.editEntry', linksLi).on("click", editForm);      //listen for click to edit item
 
         //create the delete item link
  		var deleteLink = $("<a></a>");                      //anchor tag
@@ -245,11 +245,11 @@ $('#infoForm').live('pageinit', function(){
 
  	var editForm = function(myKey){
 
-        toggleList("off");                                  //bring back the infoForm
+        toggleList("on");                                  //bring back the infoForm
         console.log("this is the broken part: " + myKey);
- 		var value = localStorage.getItem(myKey);         //grab item from local store to populate fields with what's in memory
-        console.log("value: " + value);
+ 		var value = localStorage.getItem(myKey);            //grab item from local store to populate fields with what's in memory
  		var item = JSON.parse(value);                       //Convert from string to object
+        console.log("value: " + item);
         console.log(item.group[1]);                         //populate fields with local storage
  		$('#selector').val(item.group[1]);
  		$('#fName').val(item.fname[1]);
