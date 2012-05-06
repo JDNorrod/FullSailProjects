@@ -73,7 +73,7 @@ $('#infoForm').live('pageinit', function(){
     clearData.bind("click", clearLocal);                        //clear is pressed delete local memory
 
     //Initialization features:
-    toggleList("off");                                          //Make sure that we see the infoForm
+    toggleList("on");                                          //Make sure that we see the infoForm
     createDrop();                                               //populate the drop box
 
 
@@ -81,14 +81,14 @@ $('#infoForm').live('pageinit', function(){
     function toggleList(n){
 
         switch(n){
-            case "on":
+            case "off":
                 $('#contactForm').hide();
                 $('#send').hide();
                 $('#clear').show();
                 $('#seeInfo').show();
                 $('#previewInfo').show();
                 break;
-            case "off":
+            case "on":
                 $('#items').hide();
                 $('#contactForm').show();
                 $('#send').show();
@@ -131,7 +131,7 @@ $('#infoForm').live('pageinit', function(){
  	}
 
  	function showData (){
-        toggleList("on");
+        toggleList("off");
  		if (localStorage.length === 0){
  			alert("Loading JSON.");
  			localData();
@@ -155,7 +155,7 @@ $('#infoForm').live('pageinit', function(){
                 makeList.append(makeLi);
                 var keyVal = localStorage.key(i);
                 var value = localStorage.getItem(keyVal);
-                //console.log(keyVal);
+                console.log("The Value in showData is: " + keyVal);
                 var obj = JSON.parse(value); 	//this converts the string back to an object, it's opposite of stringify
                 console.log("obj is = " + obj);
                 var makeSubList = $('<ul></ul>');
@@ -199,6 +199,7 @@ $('#infoForm').live('pageinit', function(){
 
  	//***************************************create edit/delete links for each stored item
  	function makeItemLinks(key, linksLi){
+        var myKey = key;
  		//add edit single item
  		var editLink = $("<a></a>");
         var breakTag = $("</br>");
@@ -206,33 +207,34 @@ $('#infoForm').live('pageinit', function(){
  	    //Set the attributes for our link
         editLink.attr({
             href: "#infoForm",
-            key: key,
+            key: myKey,
             class: "editEntry"
         })
 
         editLink.html(editLinkText);		               //add text for link
  		linksLi.append(editLink);
         linksLi.append(breakTag);		                   //add our button to the bottom of our shown information
-        $('.editEntry').bind("click", editForm(key));           //listen for click to edit item
+        $('.editEntry').on("click", editForm(myKey));      //listen for click to edit item
 
         //create the delete item link
  		var deleteLink = $("<a></a>");                      //anchor tag
         var deleteText = "Delete Child's Info";             //set tag for anchor to delete info
  		deleteLink.attr({                                   //set attributes for delete anchor
              href: "#",
-             key: key,
+             key: myKey,
              id: "deleteChild"
         });
+        console.log("MY key is: " + myKey);
  		deleteLink.html(deleteText);                        //add text for our link
  		linksLi.append(deleteLink);		                    //add our button to the bottom of our shown information
-        $("#deleteChild").bind("click", deleteItem);
+        //$("#deleteChild").bind("click", deleteItem (myKey));
 
  	}
 
- 	function deleteItem(aKey){
+ 	function deleteItem(myKey){
  		var ask = confirm("Are you sure you want to delete this child's information?");  //pop up confirm
  		if(ask){                                            //if the user clicked "ok"
- 			localStorage.removeItem(this.key);              //deleteItem has access to key through makeItemLink
+ 			localStorage.removeItem(myKey);              //deleteItem has access to key through makeItemLink
  			alert("Child deleted");                         //popup confirmation
  			window.location.reload();                       //reload the window to empty the form
  		}
@@ -241,9 +243,11 @@ $('#infoForm').live('pageinit', function(){
  		}
  	}
 
- 	function editForm(editKey){
+ 	var editForm = function(myKey){
+
         toggleList("off");                                  //bring back the infoForm
- 		var value = localStorage.getItem(editKey);         //grab item from local store to populate fields with what's in memory
+        console.log("this is the broken part: " + myKey);
+ 		var value = localStorage.getItem(myKey);         //grab item from local store to populate fields with what's in memory
         console.log("value: " + value);
  		var item = JSON.parse(value);                       //Convert from string to object
         console.log(item.group[1]);                         //populate fields with local storage
@@ -257,7 +261,7 @@ $('#infoForm').live('pageinit', function(){
 
 
  		if(item.allergy[1] == "Yes"){                       //populate the checkbox if selected
- 				$('#allergy').setAttribute("checked", "checked");
+ 				$('#allergy').attr("checked", "checked");
  			}
 
 
@@ -266,7 +270,12 @@ $('#infoForm').live('pageinit', function(){
  		$('#send').text = "Save";                           //change the button to read "save"
  		//save the key value established in this function as a property to overwrite info instead of add new
  		var editSubmit = $('#send');
- 		preview.on("click", validate);
+ 		editSubmit.on("click", function () {
+             cform.validate();
+             if (cForm.isValid){
+                storeData();
+             }
+         });
  		editSubmit.key = this.key;
  	}
 
