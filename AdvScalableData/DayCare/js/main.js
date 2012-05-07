@@ -106,6 +106,7 @@ $('#infoForm').live('pageinit', function(){
         }
         else{
             $('input:radio[name=trained]')[1].checked = true;
+            $('input:radio[name=trained]').checkboxradio("refresh");
         }
 
     }
