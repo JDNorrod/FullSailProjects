@@ -102,6 +102,7 @@ $('#infoForm').live('pageinit', function(){
         if(myRadio === 'Yes'){
             console.log("set radio to yes");
             $('input:radio[name=trained]:nth(0)').attr('checked', true);
+            $('input:radio[name=trained]').checkboxradio("refresh");
         }
         else{
             $('input:radio[name=trained]')[1].checked = true;
