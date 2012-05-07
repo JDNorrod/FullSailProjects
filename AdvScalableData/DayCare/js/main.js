@@ -7,34 +7,12 @@ var vidList 			= ["Infant", "2-4 Years", "5-7 Years", "8-12 Years"];      //Valu
 
 //*************************link and submit events:
 var preview 			= $('#show');
-var slideVal 			= $('#sliderBar');
-var allergyBox 		    = $('#allergy');
-var addItem             = $('#addItem');
-var trainedVal, check1;
 var cForm 				= $('#contactForm');
 var submitInfo          = $('#send');
 var clearData           = $('#clear');
 
 
 //**********************************************************************Key functions
-
-//this helps us to load a page in it's refreshed form
-var toChangePage = function (toPageId) {                            //passes the page ID as argument using e
-    console.log("to page = " + toPageId)
-    $.mobile.changePage("#" + toPageId , {
-        type:"post",
-        data:$("form").serialize(),
-        reloadPage:true
-    });
-}
-
-
-//this will load infoForm when the + is pressed but by refreshing it
-$(".refresher").on('click', function(e){                //When + is pressed in the header on this page only
-    e.preventDefault();                                             //stop the usual process
-    console.log("Moving to PAGE with toChangePage function");
-    toChangePage("infoForm");                                       //changePage loads page with refresh
-});
 
 
 //**************************************************************infoForm.live is right here
@@ -44,18 +22,18 @@ $('#infoForm').live('pageinit', function(){
 //*************************List of Bindings:
 
     //Programming ninja right here (responsive disclosure)
-	$('#allergy').bind("change", function() {
+	$('#allergy').on("change", function() {
         console.log("box checked");
         $('#messageBlock').fadeIn('slow');
     });
 
-    submitInfo.bind("click", storeData);                        //when send is pressed store data
-    preview.on("click", showData);                              //when See entries pressed show data
-    clearData.bind("click", clearLocal);                        //clear is pressed delete local memory
+    submitInfo.on("click", storeData);                        //when send is pressed store data
+    preview.on("click", showData);                            //when See entries pressed show data
+    clearData.on("click", clearLocal);                        //clear is pressed delete local memory
 
     //Initialization features:
     toggleList("on");                                          //Make sure that we see the infoForm
-    createDrop();                                               //populate the drop box
+    createDrop();                                              //populate the drop box
 
 
 //****************************************************************functions
@@ -160,7 +138,7 @@ $('#infoForm').live('pageinit', function(){
                 var keyVal = localStorage.key(i);
                 var value = localStorage.getItem(keyVal);
                 //console.log("The Value in showData is: " + keyVal);
-                var obj = JSON.parse(value); 	//this converts the string back to an object, it's opposite of stringify
+                var obj = JSON.parse(value); 	                //this converts the string back to an object, it's opposite of stringify
                 //console.log("obj is = " + obj);
                 var makeSubList = $('<ul></ul>');
                 makeLi.append(makeSubList);
@@ -169,7 +147,7 @@ $('#infoForm').live('pageinit', function(){
                 getImage(obj.group[1], makeSubList);
 
                 for (var j in obj){
-                    var optSubText = obj[j][0]+" "+obj[j][1]; //separate the label with the value
+                    var optSubText = obj[j][0]+" "+obj[j][1];                   //separate the label with the value
                     var makeSubli = $("<li></li>");
                     //console.log(obj[j][1]);
                     makeSubli.append(optSubText);
@@ -232,8 +210,8 @@ $('#infoForm').live('pageinit', function(){
         });
  		deleteLink.html(deleteText);                        //add text for our link
  		linksLi.append(deleteLink);		                    //add our button to the bottom of our shown information
-        $('.editEntry', linksLi).on('click', function(){
-             editForm(myKey);
+        $('.deleteChild', linksLi).on('click', function(){
+            deleteItem(myKey);
          });
 
  	}
@@ -302,31 +280,29 @@ $('#infoForm').live('pageinit', function(){
     }
 //***************************Listen for the Add Child button push to storeData
     function storeData (key){
-        //***************************validate the form before it's sent
-        cForm.validate();
+
+        cForm.validate();                                                   //validate the form before it's sent
         if(cForm.valid()){
-            //if theres no key, create new id
             console.log("storing the data");
             var id;
-            if(!key){
+            if(!key){                                                       //if theres no key, create new id
                 id = Math.floor(Math.random()*9999999);
             }
-            //if there is a key, set the id to the key to overwrite
-            else{
+            else{                                                           //if there is a key, set the id to the key to overwrite
                 id = key;
             }
             console.log(key);
             //gather form field values and store in object
             //object props contain array with form label and input val
-            getCheckBoxes(item.allergy);
             var item        = {};
 
+            getCheckBoxes(item.allergy);
             item.group		= ["Age Group: ", ($("#selector").val())]; 		//drop down box
             item.fname		= ["First Name: ", $('#fName').val()]; 	        //first name
             item.lname		= ["Last Name: ", $('#lName').val()]; 	    	//last name
             item.bday		= ["Birthday: ", $('#bday').val()]; 		    //birthday
             item.slider		= ["Age: ", $('#sliderBar').val()]; 		    //like scale (slider)
-            item.allergy	= ["Has Allergy?: ", check1];			        //checkbox/allergy
+            //item.allergy	= ["Has Allergy?: ", check1];			        //checkbox/allergy
             item.trained	= ["Is Trained?: ", getRadio()];			    //radios/attends life group?
             item.comment	= ["Message: ", $('#message').val()];		    //extra notes
 
@@ -336,64 +312,3 @@ $('#infoForm').live('pageinit', function(){
         }
     }
 });
-//**************************************************************
-//**************************************************************infoForm.live ends right here
-
-
-
-/*
-//***************************Listen for the clear button to be pushed and clear memory
-var clearData = $('#clear');
-clearData.click(function(){
-    if (localStorage.length === 0){
-        alert("There is nothing to clear");
-    }
-    else{
-        localStorage.clear();
-        alert("All Children have been deleted");
-        window.location.reload();
-        return false;
-    }
-});
-//***************************Listen for the Add Child button push to storeData
-var submitInfo = $('#send');
-submitInfo.click(function(key){
-    //***************************validate the form before it's sent
-    cForm.validate();
-    if(cForm.valid()){
-        //if theres no key, create new id
-        console.log("storing the data");
-        var id;
-        if(!key){
-            id = Math.floor(Math.random()*9999999);
-        }
-        //if there is a key, set the id to the key to overwrite
-        else{
-            id = key;
-        }
-        console.log(id);
-        //gather form field values and store in object
-        //object props contain array with form label and input val
-        getRadio();
-        getCheckBoxes();
-        var item        = {};
-
-        item.group		= ["Age Group: ", $('#selector').value]; 		//drop down box
-        item.fname		= ["First Name: ", $('#fName').value]; 	    //first name
-        item.lname		= ["Last Name: ", $('#lName').value]; 		//last name
-        item.bday		= ["Birthday: ", $('#bday').value]; 		//birthday
-        item.slider		= ["Age: ", $('#sliderBar').value]; 		//like scale (slider)
-        item.allergy	= ["Has Allergy?: ", check1];			    //checkbox/allergy
-        item.trained	= ["Is Trained?: ", trainedVal];			//radios/attends life group?
-        item.comment	= ["Message: ", $('#message').value];		//extra notes
-
-        //save to local storage: use stringify to convert our obj to string (only strings can be saved)
-        localStorage.setItem(id, JSON.stringify(item));
-        alert("Form Submitted");
-    }
-});
-*/
-
-/*$("#addItem3").click(function{
-   window.location.reload();
-});    */
