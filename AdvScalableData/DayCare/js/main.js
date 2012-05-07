@@ -248,7 +248,7 @@ $('#infoForm').live('pageinit', function(){
  	var editForm = function(myKey){
 
         toggleList("on");                                  //bring back the infoForm
-        console.log("this is the broken part: " + myKey);
+        console.log("this is the broken part: ", myKey);
  		var value = localStorage.getItem(myKey);            //grab item from local store to populate fields with what's in memory
  		var item = JSON.parse(value);                       //Convert from string to object
         console.log("value: " + item);
