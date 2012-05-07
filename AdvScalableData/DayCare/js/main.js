@@ -17,17 +17,6 @@ var clearData           = $('#clear');
 
 
 //**********************************************************************Key functions
-//This retrieves the value of the checkboxes
-function getCheckBoxes(){
-    var hasAllergy = $('#allergy');
-    if(hasAllergy.checked){
-        check1 = hasAllergy.val();
-    }
-    else{
-
-        check1 = "No";
-    }
-}
 
 //this helps us to load a page in it's refreshed form
 var toChangePage = function (toPageId) {                            //passes the page ID as argument using e
@@ -91,6 +80,30 @@ $('#infoForm').live('pageinit', function(){
         }
     }
 
+    //*********************************get checkBox value
+    var getCheckBoxes = function (){
+        console.log("inside of the getCheckBox");
+        console.log($('input:checkbox[name=allergy]:checked').val());
+
+        if($('input:checkbox[name=allergy]:checked').val() === "Yes"){
+            return($('input:checkbox[name=allergy]:checked').val());
+        }
+        else{
+        return("No");
+        }
+    }
+
+    //*********************************get Radio value
+    var setCheckBoxes = function (myBox){
+        console.log("my box is: " + myBox);
+        if(myBox === "Yes"){
+            $('input[name=allergy]').attr('checked', true);                 //set the checkbox
+            $('input[name=allergy]').checkboxradio("refresh");              //refresh the checkbox
+
+            $('#messageBlock').fadeIn('slow');
+        }
+    }
+
     //*********************************get Radio value
     function getRadio (){
         console.log($('input:radio[name=trained]:checked').val());
@@ -102,9 +115,11 @@ $('#infoForm').live('pageinit', function(){
         if(myRadio === 'Yes'){
             console.log("set radio to yes");
             $('input:radio[name=trained]:nth(0)').attr('checked', true);
+            $('input:radio[name=trained]').checkboxradio("refresh");
         }
         else{
             $('input:radio[name=trained]')[1].checked = true;
+            $('input:radio[name=trained]').checkboxradio("refresh");
         }
 
     }
@@ -118,18 +133,6 @@ $('#infoForm').live('pageinit', function(){
             var opText = vidList[i];
             list.append("<option>" + opText + "</option>");
  		}
- 	}
-
-    //*********************************get check box
- 	function getCheckBoxes(){
-		var hasAllergy = $('#allergy');
-		if(hasAllergy.checked){
-			check1 = hasAllergy.val();
-		}
-		else{
-
-		check1 = "No";
-		}
  	}
 //*********************************display items list
  	function showData (){
@@ -266,8 +269,9 @@ $('#infoForm').live('pageinit', function(){
  				$('#allergy').attr("checked", "checked");
  			}
 
-        console.log("The radio will be set to: " + item.trained[1]);
         setRadio(item.trained[1]);                          //set the radio appropriately
+        console.log("The checkbox should be: " + item.allergy[1]);
+        setCheckBoxes(item.allergy[1]);                     //set the checkBox if needed
 
  		submitInfo.unbind("click", storeData);              //remove the listener from the submit button when in edit mode
 
@@ -314,18 +318,17 @@ $('#infoForm').live('pageinit', function(){
             console.log(key);
             //gather form field values and store in object
             //object props contain array with form label and input val
-            getCheckBoxes();
+            getCheckBoxes(item.allergy);
             var item        = {};
 
             item.group		= ["Age Group: ", ($("#selector").val())]; 		//drop down box
-            console.log(item.group);
-            item.fname		= ["First Name: ", $('#fName').val()]; 	    //first name
-            item.lname		= ["Last Name: ", $('#lName').val()]; 		//last name
-            item.bday		= ["Birthday: ", $('#bday').val()]; 		//birthday
-            item.slider		= ["Age: ", $('#sliderBar').val()]; 		//like scale (slider)
-            item.allergy	= ["Has Allergy?: ", check1];			    //checkbox/allergy
-            item.trained	= ["Is Trained?: ", getRadio()];			//radios/attends life group?
-            item.comment	= ["Message: ", $('#message').val()];		//extra notes
+            item.fname		= ["First Name: ", $('#fName').val()]; 	        //first name
+            item.lname		= ["Last Name: ", $('#lName').val()]; 	    	//last name
+            item.bday		= ["Birthday: ", $('#bday').val()]; 		    //birthday
+            item.slider		= ["Age: ", $('#sliderBar').val()]; 		    //like scale (slider)
+            item.allergy	= ["Has Allergy?: ", check1];			        //checkbox/allergy
+            item.trained	= ["Is Trained?: ", getRadio()];			    //radios/attends life group?
+            item.comment	= ["Message: ", $('#message').val()];		    //extra notes
 
             //save to local storage: use stringify to convert our obj to string (only strings can be saved)
             localStorage.setItem(id, JSON.stringify(item));
