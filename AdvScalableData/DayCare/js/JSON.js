@@ -79,4 +79,4 @@ var json = {
 		"trained": ["Is Trained?: ", "Yes"],
 		"comment": ["Message: ", "One of the coolest kids ever!"]
 	}
-}
+};

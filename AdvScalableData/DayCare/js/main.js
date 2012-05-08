@@ -69,7 +69,7 @@ $('#infoForm').live('pageinit', function(){
         else{
         return("No");
         }
-    }
+    };
 
     //*********************************get Radio value
     var setCheckBoxes = function (myBox){
@@ -80,16 +80,16 @@ $('#infoForm').live('pageinit', function(){
 
             $('#messageBlock').fadeIn('slow');
         }
-    }
+    };
 
     //*********************************get Radio value
-    function getRadio (){
+    var getRadio = function (){
         console.log($('input:radio[name=trained]:checked').val());
         return($('input:radio[name=trained]:checked').val());
 
-    }
+    };
     //*********************************set the radio value for edit
-    function setRadio(myRadio){
+    var setRadio = function (myRadio){
         if(myRadio === 'Yes'){
             console.log("set radio to yes");
             $('input:radio[name=trained]:nth(0)').attr('checked', true);
@@ -100,10 +100,10 @@ $('#infoForm').live('pageinit', function(){
             $('input:radio[name=trained]').checkboxradio("refresh");
         }
 
-    }
+    };
 
     //*********************************create selector field
- 	function createDrop (){
+ 	var createDrop = function (){
  		var list = $('#selector');
 
  	//populate
@@ -111,9 +111,9 @@ $('#infoForm').live('pageinit', function(){
             var opText = vidList[i];
             list.append("<option>" + opText + "</option>");
  		}
- 	}
+ 	};
 //*********************************display items list
- 	function showData (){
+ 	var showData = function (){
         toggleList("off");
  		if (localStorage.length === 0){
  			alert("Loading JSON.");
@@ -149,7 +149,7 @@ $('#infoForm').live('pageinit', function(){
                 for (var j in obj){
                     var optSubText = obj[j][0]+" "+obj[j][1];                   //separate the label with the value
                     var makeSubli = $("<li></li>");
-                    //console.log(obj[j][1]);
+                    console.log(obj);
                     makeSubli.append(optSubText);
                     makeSubList.append(makeSubli);
                     makeSubli.append(linksLi);
@@ -159,7 +159,7 @@ $('#infoForm').live('pageinit', function(){
 
  		    }
         }
-    }
+    };
 
     //**************************************This stores the data locally when submit is pressed
     function localData(){
@@ -168,19 +168,20 @@ $('#infoForm').live('pageinit', function(){
  		localStorage.setItem(id, JSON.stringify(json[j]));
  		}
  		showData();
+ 		showData();
  	}
 
     //**************************************This adds an image banner to each item in the info list
- 	function getImage(catName, makeSubList){            //pass in the item selected in the drop box
+ 	var getImage = function (catName, makeSubList){            //pass in the item selected in the drop box
  		var imageLi = $("<li></li>");                   //create a list item for the image
  		makeSubList.append(imageLi);                    //makeSublist is from showData()
  		var newImg = $("<img />");                      //add image tag
  		newImg.attr('src', "images/" + catName + ".png");     //image name matches dropbox selection
  		imageLi.append(newImg);                         //add the image to the list
- 	}
+ 	};
 
  	//***************************************create edit/delete links for each stored item
- 	function makeItemLinks(key, linksLi){
+ 	var makeItemLinks = function (key, linksLi){
         var myKey = key;
  		//add edit single item
  		var editLink = $("<a></a>");
@@ -191,7 +192,7 @@ $('#infoForm').live('pageinit', function(){
             href: "#infoForm",
             key: myKey,
             class: "editEntry"
-        })
+        });
 
         editLink.html(editLinkText);		               //add text for link
  		linksLi.append(editLink);
@@ -214,9 +215,9 @@ $('#infoForm').live('pageinit', function(){
             deleteItem(myKey);
          });
 
- 	}
+ 	};
 
- 	function deleteItem(myKey){
+ 	var deleteItem = function (myKey){
  		var ask = confirm("Are you sure you want to delete this child's information?");  //pop up confirm
  		if(ask){                                            //if the user clicked "ok"
  			localStorage.removeItem(myKey);                 //deleteItem has access to key through makeItemLink
@@ -226,7 +227,7 @@ $('#infoForm').live('pageinit', function(){
  		else{
  			alert("Child was not deleted");                 //popup showing cancel
  		}
- 	}
+ 	};
 
  	var editForm = function(myKey){
 
@@ -263,11 +264,11 @@ $('#infoForm').live('pageinit', function(){
              }
          });
  		editSubmit.key = this.key;
- 	}
+ 	};
 
 
     //***************************Listen for the clear button to be pushed and clear memory
-    function clearLocal (){
+    var clearLocal = function (){
         if (localStorage.length === 0){
             alert("There is nothing to clear");
         }
@@ -277,9 +278,9 @@ $('#infoForm').live('pageinit', function(){
             window.location.reload();
             return false;
         }
-    }
+    };
 //***************************Listen for the Add Child button push to storeData
-    function storeData (key){
+    var storeData = function (key){
 
         cForm.validate();                                                   //validate the form before it's sent
         if(cForm.valid()){
