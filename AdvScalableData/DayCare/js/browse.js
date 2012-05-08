@@ -38,7 +38,7 @@ $('#infants').live('pageinit', function(){
                  }
             }
     });
-    $('#jsonList').reload;
+    $('#jsonList').listview('refresh');
     console.log($('#jsonList'));
 
 
