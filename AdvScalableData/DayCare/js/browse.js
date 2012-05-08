@@ -22,7 +22,8 @@ $('#infants').live('pageinit', function(){
             for(var i = 0, len=resp.request.length; i < len; i++){
                 var item = resp.request[i];
                 console.log('Item is: ', item);
-                 $('#underSix').append($(' ' + '<li><h4>' +
+                 $('#underSix').append($(' ' +
+                    '<li class=​&quot;ui-li ui-li-static ui-body-a&quot;><h4>' +
                     item.lname[1]  +
                     ', ' +
                     item.fname[1] +
@@ -37,5 +38,8 @@ $('#infants').live('pageinit', function(){
                  }
             }
     });
+    $('#jsonList').reload;
+    console.log($('#jsonList'));
+
 
 });
