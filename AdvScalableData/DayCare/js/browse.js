@@ -22,11 +22,10 @@ $('#infants').live('pageinit', function(){
             for(var i = 0, len=resp.request.length; i < len; i++){
                 var item = resp.request[i];
                 console.log('Item is: ', item);
-                 $('#underSix').append($(' ' +
-                    '<li class=​&quot;ui-li ui-li-static ui-body-a&quot;><h4>' +
-                    item.lname[1]  +
-                    ', ' +
-                    item.fname[1] +
+                 $('#underSix').after(' ' +
+                    '<li class="ui-li ui-li-static ui-body-a">' +
+                    '<h4>' + item.lname[1]  +
+                    ', ' + item.fname[1] +
                     '&nbsp;&nbsp;Edit &nbsp;Delete</h4>' +
                     '<p>Age: ' +
                     item.slider[1] +
@@ -34,7 +33,7 @@ $('#infants').live('pageinit', function(){
                     item.bday[1] +
                     '&nbsp;&nbsp;LifeGroup: ' +
                     item.trained[1] +
-                    '</p></li>'));
+                    '</p></li>');
                  }
             }
     });
