@@ -33,7 +33,6 @@ $('#infoForm').live('pageinit', function(){
 
     //Initialization features:
     toggleList("on");                                          //Make sure that we see the infoForm
-    createDrop();                                              //populate the drop box
 
 
 //****************************************************************functions
@@ -312,4 +311,7 @@ $('#infoForm').live('pageinit', function(){
             alert("Form Submitted");
         }
     }
+
+    //populate the drop box
+    createDrop();                                              //populate the drop box
 });
