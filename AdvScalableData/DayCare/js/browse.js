@@ -14,34 +14,35 @@
 //load the data.json
 
 $('#infants').live('pageinit', function(){
-
-    //******************************************** load json
-    $.ajax({
-        url: 'xhr/data.json',                        //this is where my json is located
-        type: 'GET',                                 //What do we want to do?  get or post
-        dataType: 'json',                            //what type of data?  this one is json
-        success: function(resp){                     //if we find the file properly- do this
-            console.log("This is my JSON: ", resp);
-            for(var i = 0, len=resp.request.length; i < len; i++){
-                var item = resp.request[i];
-                console.log('Item is: ', item);
-                 $('#underSix').after(' ' +
-                    '<li class="ui-li ui-li-static ui-body-a">' +
-                    '<h4>' + item.lname[1]  +
-                    ', ' + item.fname[1] +
-                    '</h4>' +
-                    '<p>Age: ' +
-                    item.slider[1] +
-                    '&nbsp;&nbsp;' +
-                    '&nbsp;&nbsp;LifeGroup: ' +
-                    item.trained[1] +
-                    '</p></li>');
-                 }
-            }
+    $('#underSix').on("click", function (){
+        //******************************************** load json
+        $.ajax({
+            url: 'xhr/data.json',                        //this is where my json is located
+            type: 'GET',                                 //What do we want to do?  get or post
+            dataType: 'json',                            //what type of data?  this one is json
+            success: function(resp){                     //if we find the file properly- do this
+                console.log("This is my JSON: ", resp);
+                for(var i = 0, len=resp.request.length; i < len; i++){
+                    var item = resp.request[i];
+                    console.log('Item is: ', item);
+                     $('#underSix').after(' ' +
+                        '<li class="ui-li ui-li-static ui-body-a">' +
+                        '<h4>' + item.lname[1]  +
+                        ', ' + item.fname[1] +
+                        '</h4>' +
+                        '<p>Age: ' +
+                        item.slider[1] +
+                        '&nbsp;&nbsp;' +
+                        '&nbsp;&nbsp;LifeGroup: ' +
+                        item.trained[1] +
+                        '</p></li>');
+                     }
+                }
+        });
+        $('#removeList').remove();
+        $('#jsonList').listview('refresh');
+        console.log($('#jsonList'));
     });
-    $('#removeList').remove();
-    $('#jsonList').listview('refresh');
-    console.log($('#jsonList'));
 
     //******************************************** xml function to add it to the page
 
@@ -70,39 +71,45 @@ $('#infants').live('pageinit', function(){
         });
 
     };
+
+    $('#twoFour').on("click", function (){
     //***************************************** Here is where we retrieve the XML
-    $.ajax({                                    //access the XML information
-        type: "GET",                            //get the info (not post)
-        url: "xhr/data.xml",                    //link to my xml data
-        dataType: "xml",                        //if successful call the parseXML function defined above
-        success: parseXML
-        });
+        $.ajax({                                    //access the XML information
+            type: "GET",                            //get the info (not post)
+            url: "xhr/data.xml",                    //link to my xml data
+            dataType: "xml",                        //if successful call the parseXML function defined above
+            success: parseXML
+            });
+    });
 
 
-    //******************************************** load CSV
-    $.ajax({
-        url: 'xhr/data.csv',                            //this is where my json is located
-        type: 'GET',                                    //What do we want to do?  get or post
-        dataType: 'text',                                //what type of data?  this one is json
-        success: function(csvData){                     //if we find the file properly- do this
-            console.log("This is my CSV: ", csvData);
-            var items = csvData.split("\n");            //split each row up into an array
-            for(var j=1; j < items.length; j++){
-                var row = items[j];
-                var columns = row.split(",");           //split the rows into individual arrays with commas as separators
 
-                console.log('CSV is: ', columns);
-                $('#services').after('' +
-                    '<li class="ui-li ui-li-static ui-body-a">' +
-                    '<p>Service Date: ' + columns[0] + '</p><p>' +
-                    ' Infants: ' + columns[1] +
-                    ' &nbsp;&nbsp; 2-4 Years: ' + columns[2] +
-                    ' &nbsp;&nbsp; 5-7 Years: ' + columns[3] +
-                    ' &nbsp;&nbsp; 8-12 Years: ' + columns[4] +
-                    '</p></li>');
+    $('#services').on("click", function (){
+
+        //******************************************** load CSV
+        $.ajax({
+            url: 'xhr/data.csv',                            //this is where my json is located
+            type: 'GET',                                    //What do we want to do?  get or post
+            dataType: 'text',                                //what type of data?  this one is json
+            success: function(csvData){                     //if we find the file properly- do this
+                console.log("This is my CSV: ", csvData);
+                var items = csvData.split("\n");            //split each row up into an array
+                for(var j=1; j < items.length; j++){
+                    var row = items[j];
+                    var columns = row.split(",");           //split the rows into individual arrays with commas as separators
+
+                    console.log('CSV is: ', columns);
+                    $('#services').after('' +
+                        '<li class="ui-li ui-li-static ui-body-a">' +
+                        '<p>Service Date: ' + columns[0] + '</p><p>' +
+                        ' Infants: ' + columns[1] +
+                        ' &nbsp;&nbsp; 2-4 Years: ' + columns[2] +
+                        ' &nbsp;&nbsp; 5-7 Years: ' + columns[3] +
+                        ' &nbsp;&nbsp; 8-12 Years: ' + columns[4] +
+                        '</p></li>');
+                }
             }
-        }
+        });
     });
     $('#removeList').remove();
-
 });
