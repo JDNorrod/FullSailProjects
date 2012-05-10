@@ -87,12 +87,19 @@ $('#infants').live('pageinit', function(){
         success: function(csvData){                     //if we find the file properly- do this
             console.log("This is my CSV: ", csvData);
             var items = csvData.split("\n");            //split each row up into an array
-            for(var j=0; j < items.length; j++){
+            for(var j=1; j < items.length; j++){
                 var row = items[j];
                 var columns = row.split(",");           //split the rows into individual arrays with commas as separators
 
                 console.log('CSV is: ', columns);
-                $('#underSix').after(' ');
+                $('#services').after('' +
+                    '<li class="ui-li ui-li-static ui-body-a">' +
+                    '<p>Service Date: ' + columns[0] + '</p><p>' +
+                    ' Infants: ' + columns[1] +
+                    ' &nbsp;&nbsp; 2-4 Years: ' + columns[2] +
+                    ' &nbsp;&nbsp; 5-7 Years: ' + columns[3] +
+                    ' &nbsp;&nbsp; 8-12 Years: ' + columns[4] +
+                    '</p></li>');
             }
         }
     });
