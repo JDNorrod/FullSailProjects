@@ -1,4 +1,4 @@
-/*
+ /*
 'entry 3':{
     'group': ['Age Group: ', 'Infant'],
         'fname': ['First Name:', 'Sashi'],
@@ -17,11 +17,11 @@ $('#infants').live('pageinit', function(){
 
     //******************************************** load json
     $.ajax({
-        url: 'xhr/data.json',
-        type: 'GET',
-        dataType: 'json',
-        success: function(resp){
-            console.log(resp);
+        url: 'xhr/data.json',                        //this is where my json is located
+        type: 'GET',                                 //What do we want to do?  get or post
+        dataType: 'json',                            //what type of data?  this one is json
+        success: function(resp){                     //if we find the file properly- do this
+            console.log("This is my JSON: ", resp);
             for(var i = 0, len=resp.request.length; i < len; i++){
                 var item = resp.request[i];
                 console.log('Item is: ', item);
@@ -43,16 +43,16 @@ $('#infants').live('pageinit', function(){
     $('#jsonList').listview('refresh');
     console.log($('#jsonList'));
 
-    //********************************************load XML
+    //******************************************** xml function to add it to the page
 
     var parseXML = function (xml){
         console.log(xml);
-        $(xml).find("item").each(function(){
-            var itemList = {};
+        $(xml).find("item").each(function(){                                //look for each item tag in my xml
+            var itemList = {};                                              //create empty object
             itemList.fname          = $(this).find("fname").text();
             itemList.lname          = $(this).find("lname").text();
             itemList.slider         = $(this).find("slider").text();
-            itemList.trained        = $(this).find("trained").text();
+            itemList.trained        = $(this).find("trained").text();       //fill the object with my values
             console.log(itemList);
 
             $('#twoFour').after(' ' +
@@ -65,18 +65,37 @@ $('#infants').live('pageinit', function(){
                 '&nbsp;&nbsp;' +
                 '&nbsp;&nbsp;LifeGroup: ' +
                 itemList.trained +
-                '</p></li>');
+                '</p></li>');                                              //the above adds certain info to a <ul>
 
         });
 
     };
-
+    //***************************************** Here is where we retrieve the XML
     $.ajax({                                    //access the XML information
-        type: "GET",
-        url: "xhr/data.xml",
-        dataType: "xml",
+        type: "GET",                            //get the info (not post)
+        url: "xhr/data.xml",                    //link to my xml data
+        dataType: "xml",                        //if successful call the parseXML function defined above
         success: parseXML
         });
 
+
+    //******************************************** load CSV
+    $.ajax({
+        url: 'xhr/data.csv',                            //this is where my json is located
+        type: 'GET',                                    //What do we want to do?  get or post
+        dataType: 'text',                                //what type of data?  this one is json
+        success: function(csvData){                     //if we find the file properly- do this
+            console.log("This is my CSV: ", csvData);
+            var items = csvData.split("\n");            //split each row up into an array
+            for(var j=0; j < items.length; j++){
+                var row = items[j];
+                var columns = row.split(",");           //split the rows into individual arrays with commas as separators
+
+                console.log('CSV is: ', columns);
+                $('#underSix').after(' ');
+            }
+        }
+    });
+    $('#removeList').remove();
 
 });

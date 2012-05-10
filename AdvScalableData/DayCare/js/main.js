@@ -3,7 +3,7 @@
 //May 2012
 
 //*************************some variables:
-var vidList 			= ["Infant", "2-4 Years", "5-7 Years", "8-12 Years"];      //Values for dropBox
+var vidList 			= ["Infant", "2-4 Years", "Giovanna Rocks", "8-12 Years"];      //Values for dropBox
 
 //*************************link and submit events:
 var preview 			= $('#show');
