@@ -20,9 +20,9 @@ $('#infants').live('pageinit', function(){
             url: 'xhr/data.json',                        //this is where my json is located
             type: 'GET',                                 //What do we want to do?  get or post
             dataType: 'json',                            //what type of data?  this one is json
-            success: function(resp){                     //if we find the file properly- do this
-                console.log("This is my JSON: ", resp);
-                for(var i = 0, len=resp.request.length; i < len; i++){
+            success: function(resp){                     //if we find the file properly- do this, resp is what I choose to call my data
+                console.log("This is my JSON: ", resp);  //can be named whatever by writing it in the () of the function
+                for(var i = 0, len=resp.request.length; i < len; i++){       //resp.request is the object in my JSON (I labeled it request)
                     var item = resp.request[i];
                     console.log('Item is: ', item);
                      $('#underSix').after(' ' +
