@@ -3,7 +3,7 @@
 //May 2012
 
 //*************************some variables:
-var vidList 			= ["Infant", "2-4 Years", "Giovanna Rocks", "8-12 Years"];      //Values for dropBox
+var vidList 			= ["Infant", "2-4 Years", "5-7 Years", "8-12 Years"];      //Values for dropBox
 
 //*************************link and submit events:
 var preview 			= $('#show');
@@ -27,7 +27,12 @@ $('#infoForm').live('pageinit', function(){
         $('#messageBlock').fadeIn('slow');
     });
 
-    submitInfo.on("click", storeData);                        //when send is pressed store data
+    submitInfo.on("click", function () {
+
+        console.log("we are saving it");
+        storeData();
+
+    });                        //when send is pressed store data
     preview.on("click", showData);                            //when See entries pressed show data
     clearData.on("click", clearLocal);                        //clear is pressed delete local memory
 
@@ -251,14 +256,16 @@ $('#infoForm').live('pageinit', function(){
         console.log("The checkbox should be: " + item.allergy[1]);
         setCheckBoxes(item.allergy[1]);                     //set the checkBox if needed
 
- 		submitInfo.unbind("click", storeData);              //remove the listener from the submit button when in edit mode
+ 		submitInfo.off("click", storeData);              //remove the listener from the submit button when in edit mode
 
         $('#send').text = "Save";                           //change the button to read "save"
  		//save the key value established in this function as a property to overwrite info instead of add new
  		var editSubmit = $('#send');
  		editSubmit.on("click", function () {
              cform.validate();
+             console.log("validating the form");
              if (cForm.isValid){
+                console.log("form is valid");
                 storeData();
              }
          });
@@ -309,6 +316,7 @@ $('#infoForm').live('pageinit', function(){
             //save to local storage: use stringify to convert our obj to string (only strings can be saved)
             localStorage.setItem(id, JSON.stringify(item));
             alert("Form Submitted");
+            //$.mobile.changePage( "#infoForm", {} );
         }
     }
 
