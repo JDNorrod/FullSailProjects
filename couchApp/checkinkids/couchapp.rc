@@ -1,1 +1,1 @@
-{"env":{"staging":{"db":""},"default":{"db":"http:\/\/127.0.0.1:5984\/children"},"production":{"db":""}}}
+{"env":{"staging":{"db":"https:\/\/jdnorrod:password@jdnorrod.cloudant.com\/children"},"default":{"db":"http:\/\/127.0.0.1:5984\/children"},"production":{"db":""}}}
