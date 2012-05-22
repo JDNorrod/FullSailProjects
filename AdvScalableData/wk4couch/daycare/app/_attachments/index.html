@@ -1,4 +1,4 @@
-<!--App_Ajhkklj-->
+<!--Jay Norrod-->
 
 <!doctype html>  
 <html lang="en">
@@ -18,13 +18,13 @@
     
     <!-- StyleSheets under here -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="style.css"/>
     <link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.css" rel="stylesheet" /> 
 	<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
 	<link type="text/css" href="http://dev.jtsage.com/jQM-DateBox/css/demos.css" rel="stylesheet" /> 
     
     <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-    <script src="js/libs/modernizr.custom.min.js"></script>
+    <script src="modernizr.custom.min.js"></script>
 
 </head>
 <body>
@@ -34,14 +34,14 @@
 
     <div data-role="header" data-position="inline" data-theme="a">
         <div class="logo">
-            <img src="images/logo.png" />
+            <img src="logo.png" />
         </div>
          
         <a href="#infoForm" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
     </div>
     <div data-role="content">
         <div id="background">
-            <img src="images/bkg.png"/>
+            <img src="bkg.png"/>
         </div>   
     </div>
         <ul data-role="listview" data-inset="true">
@@ -55,8 +55,7 @@
                 <a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse 2-4 Year Olds</a>
                 <a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse 5-7 Year Olds</a>
                 <a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse 8-12 Year Olds</a>
-                <a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse All</a></div>
-            </li>
+                <a href="#infants" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse All</a></div></li>
         </ul>
         
      </div>
@@ -65,7 +64,7 @@
     
         <div data-role="header" data-position="inline" data-theme="a">
             <div class="logo">
-             <img src="images/logo.png" />
+             <img src="logo.png" />
             </div>
             <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
             <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
@@ -73,22 +72,11 @@
 
         <div data-role="content">
             <ul id="jsonList" data-role='listview'>
-                <li id="kidsList" data-role='list-divider'>Touch for 8-12 Year Olds:</li>
-
-                    <ul id="underSix"><li>
-                        <div data-role="collapsible" data-collapsed="true" data-theme="c">
-                            <h3>Last Name, First Name &nbsp;&nbsp;Age: 0 &nbsp;&nbsp;LifeGroup: Yes</h3>
-                            <a href="#" data-role="button" data-icon="forward" data-theme="c">Edit</a>
-                            <a href="#" data-role="button" data-icon="delete" data-theme="c">delete</a>
-                        </div>
-                    </li>
-                <li id="removeLista">
-                    <div data-role="collapsible" data-collapsed="true" data-theme="c">
-                        <h3>Last Name, First Name &nbsp;&nbsp;Age: 0 &nbsp;&nbsp;LifeGroup: Yes</h3>
-                        <a href="#" data-role="button" data-icon="forward" data-theme="c">Edit</a>
-                        <a href="#" data-role="button" data-icon="delete" data-theme="c">delete</a>
-                    </div>
-                </li></ul>
+                <li id="underSix" data-role='list-divider'>Touch for 8-12 Year Olds:</li>
+                <li id="removeList">
+                    <h4>Last Name, First Name &nbsp;&nbsp;Edit &nbsp;Delete</h4>
+                    <p>Age: 0 &nbsp;&nbsp;Birthday: 2009-02-20 &nbsp;&nbsp;LifeGroup: Yes</p>
+                </li>
                 <li id="twoFour" data-role='list-divider'>Touch for 2-4 Year Olds:</li>
                 <li id="services" data-role='list-divider'>Touch for Service History</li>
             </ul>
@@ -100,7 +88,7 @@
     
     <div data-role="header" data-position="inline" data-theme="a">
         <div class="logo">
-            <img src="images/logo.png" />
+            <img src="logo.png" />
         </div>
          <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
         <a href="#infoForm" id="addItem" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
@@ -108,22 +96,22 @@
         
         <ul id = "allergyList" data-role="listview" data-filter="true" data-theme="a">
             <li>
-                <img src= "images/peanut.png" />
+                <img src= "peanut.png" />
                 <h3>Peanuts</h3>
                 <p>Children may be given snacks from<br /> time to time with Peanut Butter in it.</p>
             </li>
             <li>
-                <img src= "images/milk.png"/>
+                <img src= "milk.png"/>
                 <h3>Milk</h3>
                 <p>Children may be given milk to drink.</p>
             </li>
             <li>
-                <img src= "images/fish.png" />
+                <img src= "fish.png" />
                 <h3>Fish</h3>
                 <p>Teachers sometimes bring in fish to<br /> illustrate certain lesson principles.</p>
             </li>
             <li>
-                <img src= "images/flower.png" />
+                <img src= "flower.png" />
                 <h3>Pollen</h3>
                 <p>Many times the classroom will be<br /> decorated with flowers and children will spend play time outside</p>
             </li>
@@ -135,10 +123,11 @@
     <div data-role="page" id="infoForm" data-theme="a">
             <div data-role="header" data-position="inline" data-theme="a">
         <div class="logo">
-            <img src="images/logo.png" />
+            <img src="logo.png" />
         </div>
-                <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
-                <a href="#infoForm" class="refresher" id="addItem3"  data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+                <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c" data-transition="slidedown"></a>
+                <a href="#infants" id="addItem3"  data-icon="arrow-d" data-iconpos="right" data-theme="c" 
+                	data-transition="slidedown" class="ui-btn-right">Browse</a>
             </div>
             <div data-role="content">
                 <div id="formHeading">
@@ -190,7 +179,6 @@
                     <input type="submit" id="send" value="Add Child" data-icon="arrow-r" data-iconpos="right" data-theme="b"/>
                     <!--<a href="#" id="send" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Send</a>-->
                     <a href="#" id="clear" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Clear</a>
-                    <a href="#infoList" id="show">See All Entries</a>
                 </fieldset>
             </form>
             <form id="seeInfo">
@@ -208,7 +196,7 @@
         <form id="seeInfo">
         <div data-role="header" data-position="inline" data-theme="a">
             <div id="logo6">
-                <img src="images/logo.png" />
+                <img src="logo.png" />
             </div>
             <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
             <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
@@ -227,11 +215,9 @@
         <script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
 		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.js"></script>
 		<script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
-		<script type="text/javascript" src="js/libs/jquery.validate.min.js" ></script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/refresh.js"></script>
-        <script type="text/javascript" src="js/browse.js"></script>
-        <script type="text/javascript" src="js/JSON.js"></script> 
+		<script type="text/javascript" src="jquery.validate.min.js" ></script>
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="browse.js"></script>
 
 </body>
 </html>

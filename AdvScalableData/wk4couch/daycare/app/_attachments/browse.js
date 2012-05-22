@@ -14,53 +14,36 @@
 //load the data.json
 
 $('#infants').live('pageinit', function(){
-    $('#kidsList').on("click", function (){
+	console.log("We are live");
         //******************************************** load json
         $.ajax({
-            url: 'xhr/data.json',                        //this is where my json is located
+            url: '_view/kids',                        	 //this is where my json is located
             type: 'GET',                                 //What do we want to do?  get or post
             dataType: 'json',                            //what type of data?  this one is json
             success: function(resp){                     //if we find the file properly- do this, resp is what I choose to call my data
                 console.log("This is my JSON: ", resp);  //can be named whatever by writing it in the () of the function
-                for(var i = 0, len=resp.request.length; i < len; i++){       //resp.request is the object in my JSON (I labeled it request)
-                    var item = resp.request[i];
-                    console.log('Item is: ', item);
-                     $('#underSix').html(' ' +
-
-                         /*'<li>' +
-                             '<div data-role="collapsible" data-collapsed="true" data-theme="c">' +
-                                 '<h3>Last Name, First Name &nbsp;&nbsp;Age: 0 &nbsp;&nbsp;LifeGroup: Yes</h3>' +
-                                 '<a href="#" data-role="button" data-icon="forward" data-theme="c">Edit</a>' +
-                                 '<a href="#" data-role="button" data-icon="delete" data-theme="c">delete</a>' +
-                             '</div>' +
-                         '</li>');*/
-
-                    '<li class="ui-li ui-li-static ui-body-a">' +
-                            '<div data-role="collapsible" data-collapsed="true" data-theme="c">' +
-                                '<h3>' + item.lname[1]  +
-                                ', ' + item.fname[1] +
-                                '</h3>' +
-
-                                '<p>Age: ' +
-                                 item.slider[1] +
-                                '&nbsp;&nbsp;' +
-                                '&nbsp;&nbsp;LifeGroup: ' +
-                                item.trained[1] +
-                                '</p>' +
-                            '</div>' +
-                     '</li>'
-                );
-
-                     }
-                }
+                $.each(resp.rows, function(index, item){
+                    console.log('Item is: ', item.value.lname);
+                     $('#underSix').after(' ' +
+                        '<li class="ui-li ui-li-static ui-body-a">' +
+                        '<h4>' + item.value.lname[1]  +
+                        ', ' + item.value.fname[1] +
+                        '</h4>' +
+                        '<p>Age: ' +
+                        item.value.age[1] +
+                        '&nbsp;&nbsp;' +
+                        '&nbsp;&nbsp;LifeGroup: ' +
+                        item.value.trained[1] +
+                        '</p></li>');
+                     }); // close $.each
+                }//close Success function
         });
-        //$('#removeList').remove();
+        $('#removeList').remove();
         $('#jsonList').listview('refresh');
         console.log($('#jsonList'));
-    });
 
     //******************************************** xml function to add it to the page
-
+/*
     var parseXML = function (xml){
         console.log(xml);
         $(xml).find("item").each(function(){                                //look for each item tag in my xml
@@ -125,6 +108,6 @@ $('#infants').live('pageinit', function(){
                 }
             }
         });
-    });
-    //$('#removeList').remove();
+    });*/
+    $('#removeList').remove();
 });
