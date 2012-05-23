@@ -14,7 +14,7 @@
 //load the data.json
 
 $('#infants').live('pageinit', function(){
-    $('#kidsList').on("click", function (){
+    console.log($('#underSix'));
         //******************************************** load json
         $.ajax({
             url: 'xhr/data.json',                        //this is where my json is located
@@ -25,17 +25,19 @@ $('#infants').live('pageinit', function(){
                 for(var i = 0, len=resp.request.length; i < len; i++){       //resp.request is the object in my JSON (I labeled it request)
                     var item = resp.request[i];
                     console.log('Item is: ', item);
-                     $('#underSix').html(' ' +
+                    $('#underSix').append('<div data-role="collapsible">' +
+                            '<h3>' + item.lname[1] + ', ' + item.fname[1] + '</h3>' +
+                        '<p>Age: ' +
+                            item.slider[1] +
+                            '&nbsp;&nbsp;' +
+                            '&nbsp;&nbsp;LifeGroup: ' +
+                            item.trained[1] +
+                        '</p>' +
+                        '</div>').trigger('create');
 
-                         /*'<li>' +
-                             '<div data-role="collapsible" data-collapsed="true" data-theme="c">' +
-                                 '<h3>Last Name, First Name &nbsp;&nbsp;Age: 0 &nbsp;&nbsp;LifeGroup: Yes</h3>' +
-                                 '<a href="#" data-role="button" data-icon="forward" data-theme="c">Edit</a>' +
-                                 '<a href="#" data-role="button" data-icon="delete" data-theme="c">delete</a>' +
-                             '</div>' +
-                         '</li>');*/
 
-                    '<li class="ui-li ui-li-static ui-body-a">' +
+
+                    /*'<li class="ui-li ui-li-static ui-body-a" data-theme="c">' +
                             '<div data-role="collapsible" data-collapsed="true" data-theme="c">' +
                                 '<h3>' + item.lname[1]  +
                                 ', ' + item.fname[1] +
@@ -48,16 +50,13 @@ $('#infants').live('pageinit', function(){
                                 item.trained[1] +
                                 '</p>' +
                             '</div>' +
-                     '</li>'
-                );
-
-                     }
+                     '</li>'*/
                 }
+            }
         });
         //$('#removeList').remove();
-        $('#jsonList').listview('refresh');
-        console.log($('#jsonList'));
-    });
+        //$('#underSix').div('refresh');
+        console.log("second: ", $('#jsonList'));
 
     //******************************************** xml function to add it to the page
 
