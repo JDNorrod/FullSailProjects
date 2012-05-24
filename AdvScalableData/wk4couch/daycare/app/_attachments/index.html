@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="style.css"/>
     <link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.css" rel="stylesheet" /> 
 	<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
-	<link type="text/css" href="http://dev.jtsage.com/jQM-DateBox/css/demos.css" rel="stylesheet" /> 
+	<link type="text/css" href="http://dev.jtsage.com/jQM-DateBox/css/demos.css" rel="stylesheet" />
+	<script> type="text/javascript" src="jquery.couch.js"</script> 
     
     <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
     <script src="modernizr.custom.min.js"></script>
@@ -71,15 +72,13 @@
         </div>
 
         <div data-role="content">
-            <ul id="jsonList" data-role='listview'>
-                <li id="underSix" data-role='list-divider'>Touch for 8-12 Year Olds:</li>
-                <li id="removeList">
-                    <h4>Last Name, First Name &nbsp;&nbsp;Edit &nbsp;Delete</h4>
-                    <p>Age: 0 &nbsp;&nbsp;Birthday: 2009-02-20 &nbsp;&nbsp;LifeGroup: Yes</p>
-                </li>
-                <li id="twoFour" data-role='list-divider'>Touch for 2-4 Year Olds:</li>
-                <li id="services" data-role='list-divider'>Touch for Service History</li>
-            </ul>
+            <div id="underSix" data-role="collapsible-set">
+
+                    <div data-role="collapsible" id="remove">
+                        <h3>Section 1</h3>
+                        <p>I'm the collapsible set content for section.&nbsp;&nbsp;<a href="#">Edit</a> &nbsp;&nbsp;<a href="#">Delete</a></p>
+                    </div>
+                </div>
         </div>
    </div>
     <!--Infants page***************************************************-->

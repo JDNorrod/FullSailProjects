@@ -314,7 +314,12 @@ $('#infoForm').live('pageinit', function(){
             item.comment	= ["Message: ", $('#message').val()];		    //extra notes
 
             //save to local storage: use stringify to convert our obj to string (only strings can be saved)
-            localStorage.setItem(id, JSON.stringify(item));
+            //localStorage.setItem(id, JSON.stringify(item));
+            $.ajax({
+                url: 'xhr/data.json',                        //this is where my json is located
+                type: 'GET',                                 //What do we want to do?  get or post
+                dataType: 'json',                            //what type of data?  this one is json
+                success: function(resp){                     //if we find the file properly- do this, resp is what I choose to call my data
             alert("Form Submitted");
             //$.mobile.changePage( "#infoForm", {} );
         }
@@ -322,4 +327,6 @@ $('#infoForm').live('pageinit', function(){
 
     //populate the drop box
     createDrop();                                              //populate the drop box
+
+
 });

@@ -286,24 +286,18 @@ $('#infoForm').live('pageinit', function(){
         }
     };
 //***************************Listen for the Add Child button push to storeData
-    var storeData = function (key){
+    var storeData = function (){
 
         cForm.validate();                                                   //validate the form before it's sent
         if(cForm.valid()){
             console.log("storing the data");
-            var id;
-            if(!key){                                                       //if theres no key, create new id
-                id = Math.floor(Math.random()*9999999);
-            }
-            else{                                                           //if there is a key, set the id to the key to overwrite
-                id = key;
-            }
-            console.log(key);
+            var id = Math.floor(Math.random()*9999999);						//if theres no key, create new id
             //gather form field values and store in object
             //object props contain array with form label and input val
             var item        = {};
 
             getCheckBoxes(item.allergy);
+            item.id			= "child:" + id;
             item.group		= ["Age Group: ", ($("#selector").val())]; 		//drop down box
             item.fname		= ["First Name: ", $('#fName').val()]; 	        //first name
             item.lname		= ["Last Name: ", $('#lName').val()]; 	    	//last name
@@ -312,10 +306,20 @@ $('#infoForm').live('pageinit', function(){
             //item.allergy	= ["Has Allergy?: ", check1];			        //checkbox/allergy
             item.trained	= ["Is Trained?: ", getRadio()];			    //radios/attends life group?
             item.comment	= ["Message: ", $('#message').val()];		    //extra notes
+            console.log("This is what I will post: " + JSON.stringify(item));
 
             //save to local storage: use stringify to convert our obj to string (only strings can be saved)
-            localStorage.setItem(id, JSON.stringify(item));
-            alert("Form Submitted");
+            //localStorage.setItem(id, JSON.stringify(item));
+            $.ajax({
+                url: '_view/kids',                        //this is where my json is located
+                type: 'POST',                                 //What do we want to do?  get or post
+                dataType: 'json',                            //what type of data?  this one is json
+                data: JSON.stringify(item),
+                success: function(resp){                     //if we find the file properly- do this, resp is what I choose to call my data
+                	conosle.log("All your base are belong to us");
+                }
+            //alert("Form Submitted");
+            });
             //$.mobile.changePage( "#infoForm", {} );
         }
     }

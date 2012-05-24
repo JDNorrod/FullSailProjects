@@ -24,8 +24,18 @@ $('#infants').live('pageinit', function(){
                 console.log("This is my JSON: ", resp);  //can be named whatever by writing it in the () of the function
                 $.each(resp.rows, function(index, item){
                     console.log('Item is: ', item.value.lname);
-                     $('#underSix').after(' ' +
-                        '<li class="ui-li ui-li-static ui-body-a">' +
+                     $('#underSix').append('<div data-role="collapsible">' +
+	                    '<h3>' + item.value.lname[1] + ', ' + item.value.fname[1] + '</h3>' +
+	                    '<p>Age: ' +
+	                     	item.value.age[1] +
+	                     	'&nbsp;&nbsp;' +
+	                     	'&nbsp;&nbsp;LifeGroup: ' +
+	                     	item.value.trained[1] +
+	                     	'&nbsp;&nbsp;<a href="#">Edit</a> &nbsp;&nbsp;<a href="#">Delete</a>' +
+	                    '</p>' +
+                 		'</div>').trigger('create');
+	    		 
+                    	/*'<li class="ui-li ui-li-static ui-body-a">' +
                         '<h4>' + item.value.lname[1]  +
                         ', ' + item.value.fname[1] +
                         '</h4>' +
@@ -34,7 +44,8 @@ $('#infants').live('pageinit', function(){
                         '&nbsp;&nbsp;' +
                         '&nbsp;&nbsp;LifeGroup: ' +
                         item.value.trained[1] +
-                        '</p></li>');
+                        '</p></li>');*/
+                     
                      }); // close $.each
                 }//close Success function
         });
