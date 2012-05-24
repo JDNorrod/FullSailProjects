@@ -31,8 +31,8 @@ $('#infants').live('pageinit', function(){
 	                     	'&nbsp;&nbsp;' +
 	                     	'&nbsp;&nbsp;LifeGroup: ' +
 	                     	item.value.trained[1] +
-	                     	'&nbsp;&nbsp;<a href="#" id="' + item.id + '">Edit</a>' + 
-	                     	'&nbsp;&nbsp;<a href="#" id="' + item.id + '">Delete</a>' +
+	                     	'&nbsp;&nbsp;<a href="' + item.id + '">Edit</a>' + 
+	                     	'&nbsp;&nbsp;<a href="#" class="delete" id="' + item.id + '">Delete</a>' +
 	                    '</p>' +
                  		'</div>').trigger('create');
 	    		 
