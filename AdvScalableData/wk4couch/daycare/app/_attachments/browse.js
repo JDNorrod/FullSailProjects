@@ -23,7 +23,7 @@ $('#infants').live('pageinit', function(){
             success: function(resp){                     //if we find the file properly- do this, resp is what I choose to call my data
                 console.log("This is my JSON: ", resp);  //can be named whatever by writing it in the () of the function
                 $.each(resp.rows, function(index, item){
-                    console.log('Item is: ', item.value.lname);
+                    console.log('Item is: ' + item.id);
                      $('#underSix').append('<div data-role="collapsible">' +
 	                    '<h3>' + item.value.lname[1] + ', ' + item.value.fname[1] + '</h3>' +
 	                    '<p>Age: ' +
@@ -31,7 +31,8 @@ $('#infants').live('pageinit', function(){
 	                     	'&nbsp;&nbsp;' +
 	                     	'&nbsp;&nbsp;LifeGroup: ' +
 	                     	item.value.trained[1] +
-	                     	'&nbsp;&nbsp;<a href="#">Edit</a> &nbsp;&nbsp;<a href="#">Delete</a>' +
+	                     	'&nbsp;&nbsp;<a href="#" id="' + item.id + '">Edit</a>' + 
+	                     	'&nbsp;&nbsp;<a href="#" id="' + item.id + '">Delete</a>' +
 	                    '</p>' +
                  		'</div>').trigger('create');
 	    		 

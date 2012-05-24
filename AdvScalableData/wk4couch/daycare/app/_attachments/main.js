@@ -256,7 +256,7 @@ $('#infoForm').live('pageinit', function(){
         console.log("The checkbox should be: " + item.allergy[1]);
         setCheckBoxes(item.allergy[1]);                     //set the checkBox if needed
 
- 		submitInfo.off("click", storeData);              //remove the listener from the submit button when in edit mode
+ 		submitInfo.off("click", storeData);             	 //remove the listener from the submit button when in edit mode
 
         $('#send').text = "Save";                           //change the button to read "save"
  		//save the key value established in this function as a property to overwrite info instead of add new
@@ -297,7 +297,7 @@ $('#infoForm').live('pageinit', function(){
             var item        = {};
 
             getCheckBoxes(item.allergy);
-            item.id			= "child:" + id;
+            //item._id		= "child:" + id;
             item.group		= ["Age Group: ", ($("#selector").val())]; 		//drop down box
             item.fname		= ["First Name: ", $('#fName').val()]; 	        //first name
             item.lname		= ["Last Name: ", $('#lName').val()]; 	    	//last name
@@ -306,21 +306,16 @@ $('#infoForm').live('pageinit', function(){
             //item.allergy	= ["Has Allergy?: ", check1];			        //checkbox/allergy
             item.trained	= ["Is Trained?: ", getRadio()];			    //radios/attends life group?
             item.comment	= ["Message: ", $('#message').val()];		    //extra notes
-            console.log("This is what I will post: " + JSON.stringify(item));
+            console.log("This is what I will post: ", item);
 
-            //save to local storage: use stringify to convert our obj to string (only strings can be saved)
             //localStorage.setItem(id, JSON.stringify(item));
-            $.ajax({
-                url: '_view/kids',                        //this is where my json is located
-                type: 'POST',                                 //What do we want to do?  get or post
-                dataType: 'json',                            //what type of data?  this one is json
-                data: JSON.stringify(item),
-                success: function(resp){                     //if we find the file properly- do this, resp is what I choose to call my data
-                	conosle.log("All your base are belong to us");
-                }
-            //alert("Form Submitted");
+            var saveThis = JSON.stringify(item);
+            $db = $.couch.db('daycare');
+            $db.saveDoc(item, {
+            	success: function(data) {
+            		console.log(status);
+            	}
             });
-            //$.mobile.changePage( "#infoForm", {} );
         }
     }
 
