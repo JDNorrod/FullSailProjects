@@ -150,6 +150,10 @@ $('#editChild').live('pageshow', function(){
             	$('#fname').html(data.fname[1]);
             	$('#age').html(data.slider[1]);
             	$('#trained').html(data.trained[1]);
+            	$('#bday').html(data.bday[1]);
+            	$('#group').html(data.group[1]);
+            	$('#allergy').html(data.allergy[1]);
+            	$('#comment').html(data.comment[1]);
 	         }//close Success function
 	    });
 		console.log("child in view: ", childInView);
