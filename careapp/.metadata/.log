@@ -1,0 +1,67 @@
+!SESSION 2012-05-24 17:33:53.815 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_31
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.javascript.product -product org.eclipse.epp.package.javascript.product -product org.eclipse.epp.package.javascript.product -product org.eclipse.epp.package.javascript.product -keyring /Users/muse/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.javascript.product -product org.eclipse.epp.package.javascript.product -product org.eclipse.epp.package.javascript.product -data /Users/muse/Documents/Full Sail University/Full Sail University Projects/careapp -product org.eclipse.epp.package.javascript.product -keyring /Users/muse/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.ui 4 4 2012-05-24 17:33:56.761
+!MESSAGE Part already exists in page layout: org.eclipse.ui.navigator.ProjectExplorer.
+
+!ENTRY org.eclipse.core.net 1 0 2012-05-24 17:33:57.915
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-05-24 17:38:09.903
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-05-24 17:38:09.903
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:38:09.903
+!MESSAGE Software being installed: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:38:09.903
+!MESSAGE Missing requirement: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762) requires 'org.eclipse.jdt 0.0.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-05-24 17:38:09.911
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-05-24 17:38:09.911
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:38:09.911
+!MESSAGE Software being installed: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:38:09.911
+!MESSAGE Missing requirement: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762) requires 'org.eclipse.jdt 0.0.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-05-24 17:38:49.514
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-05-24 17:38:49.514
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:38:49.514
+!MESSAGE Software being installed: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:38:49.514
+!MESSAGE Missing requirement: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762) requires 'org.eclipse.jdt 0.0.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-05-24 17:38:49.525
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-05-24 17:38:49.525
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:38:49.525
+!MESSAGE Software being installed: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:38:49.525
+!MESSAGE Missing requirement: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762) requires 'org.eclipse.jdt 0.0.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-05-24 17:39:37.035
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-05-24 17:39:37.035
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:39:37.035
+!MESSAGE Software being installed: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:39:37.035
+!MESSAGE Missing requirement: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762) requires 'org.eclipse.jdt 0.0.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2012-05-24 17:39:37.036
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2012-05-24 17:39:37.036
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:39:37.036
+!MESSAGE Software being installed: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 17:39:37.036
+!MESSAGE Missing requirement: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762) requires 'org.eclipse.jdt 0.0.0' but it could not be found
