@@ -117,7 +117,16 @@ $('#infants').live('pageinit', function(){
 //**************************************This is where we make our editable page
 $('#editChild').live('pageshow', function(){
 	console.log("edit.js loaded");					//make sure page loaded right
-
+	
+	var childID = {};
+	
+	var setObject = function(object){				//this will be used to set variables with the object key and rev
+		console.log("set object is: ", object);
+		childID._id = object._id;
+		childID._rev = object._rev;
+		console.log("id: ", childID);
+	}
+	
 	
 	var splitURL = function (){
 		var urlData = document.URL;		//get the url of the page we're on
@@ -145,19 +154,20 @@ $('#editChild').live('pageshow', function(){
 			success: function(data) {
 				$('#getRidOf').remove();
 				childInView = data;
-        		console.log(data);
+				setObject(data);
+        		console.log(childInView);
             	$('#lname').html(data.lname[1]).trigger('create');
             	$('#fname').html(data.fname[1]);
             	$('#age').html(data.slider[1]);
             	$('#trained').html(data.trained[1]);
             	$('#bday').html(data.bday[1]);
             	$('#group').html(data.group[1]);
-            	$('#allergy').html(data.allergy[1]);
+            	//$('#allergy').html(data.allergy[1]);
             	$('#comment').html(data.comment[1]);
 	         }//close Success function
+		//console.log("child in view: ", childInView);
+		//return (childInView);
 	    });
-		console.log("child in view: ", childInView);
-		return (childInView);
     }
     
     var currentChild = loadChild(childToManip);					//current child = the full data of the child
@@ -166,16 +176,21 @@ $('#editChild').live('pageshow', function(){
     //*****************************************
     var deleteChild = function(removeID){
     	//console.log(splitURL());
-    	var idToDelete = data.key[1];										//we need to get the revision before we can delete
-    		console.log("we will remove: ", idToDelete);		//idToDelete must be an array of {id, rev}
-    		$.couch.db('dbkids').removeDoc(idToDelete, {
-    			success: function(data){
-    			console.log("All your base are belong to us");
-    			}
-    		})	
-    	}
-    	$('#remove').on("click", function(){
-    		deleteChild(childToManip);
+    	var idToDelete = {};									//we need to get the revision before we can delete
+    	idToDelete._id = removeID._id;
+    	idToDelete._rev = removeID._rev;
+    	console.log("we will remove: ", idToDelete);			//idToDelete must be an object of {id, rev}
+    	$.couch.db('dbkids').removeDoc(idToDelete, {
+    		success: function(data){
+    		console.log("All your base are belong to us");
+    		}
+    	})	
+    }
+    
+    
+    $('#remove').on("click", function(){						//watch for the delete button to be clicked
+    	console.log("remove this: ", childID);
+    		deleteChild(childID);
     	});
     //*******************************************save the new information	
     	$('#update').on("click", function(){
