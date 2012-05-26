@@ -14,7 +14,6 @@ var clearData           = $('#clear');
 
 //**********************************************************************Key functions
 
-
 //**************************************************************infoForm.live is right here
 $('#infoForm').live('pageinit', function(){
           console.log("infoForm is live");
@@ -113,7 +112,7 @@ $('#infoForm').live('pageinit', function(){
  	//populate
  		for (var i = 0, j = vidList.length; i < j; i++){
             var opText = vidList[i];
-            list.append("<option>" + opText + "</option>");
+            list.append("<option>" + opText + "</option>").trigger('create');
  		}
  	};
 //*********************************display items list
@@ -309,8 +308,8 @@ $('#infoForm').live('pageinit', function(){
             console.log("This is what I will post: ", item);
 
             //localStorage.setItem(id, JSON.stringify(item));
-            var saveThis = JSON.stringify(item);
-            $db = $.couch.db('dbkids');
+            //var saveThis = JSON.stringify(item);
+            //$db = $.couch.db('dbkids');
             $.couch.db('dbkids').saveDoc(item, {
             	success: function(data) {
             		console.log(status);

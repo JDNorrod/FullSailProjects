@@ -15,8 +15,8 @@
 
 $('#infants').live('pageinit', function(){
 	console.log("We are live");
-    
-    
+	$('#underSix').empty();
+
         //******************************************** load json
         $.ajax({
             url: '_view/kids',                        	 //this is where my json is located
@@ -40,98 +40,29 @@ $('#infants').live('pageinit', function(){
                      }); // close $.each
                 }//close Success function
         });
-        $('#removeList').remove();
         console.log($('#jsonList'));
-
-    //******************************************** xml function to add it to the page
-/*
-    var parseXML = function (xml){
-        console.log(xml);
-        $(xml).find("item").each(function(){                                //look for each item tag in my xml
-            var itemList = {};                                              //create empty object
-            itemList.fname          = $(this).find("fname").text();
-            itemList.lname          = $(this).find("lname").text();
-            itemList.slider         = $(this).find("slider").text();
-            itemList.trained        = $(this).find("trained").text();       //fill the object with my values
-            console.log(itemList);
-
-            $('#twoFour').after(' ' +
-                '<li class="ui-li ui-li-static ui-body-a">' +
-                '<h4>' + itemList.lname  +
-                ', ' + itemList.fname +
-                '</h4>' +
-                '<p>Age: ' +
-                itemList.slider +
-                '&nbsp;&nbsp;' +
-                '&nbsp;&nbsp;LifeGroup: ' +
-                itemList.trained +
-                '</p></li>');                                              //the above adds certain info to a <ul>
-
-        });
-
-    };
-
-    $('#twoFour').on("click", function (){
-    //***************************************** Here is where we retrieve the XML
-        $.ajax({                                    //access the XML information
-            type: "GET",                            //get the info (not post)
-            url: "xhr/data.xml",                    //link to my xml data
-            dataType: "xml",                        //if successful call the parseXML function defined above
-            success: parseXML
-            });
-    });
-
-
-
-    $('#services').on("click", function (){
-
-        //******************************************** load CSV
-        $.ajax({
-            url: 'xhr/data.csv',                            //this is where my json is located
-            type: 'GET',                                    //What do we want to do?  get or post
-            dataType: 'text',                                //what type of data?  this one is json
-            success: function(csvData){                     //if we find the file properly- do this
-                console.log("This is my CSV: ", csvData);
-                var items = csvData.split("\n");            //split each row up into an array
-                for(var j=1; j < items.length; j++){
-                    var row = items[j];
-                    var columns = row.split(",");           //split the rows into individual arrays with commas as separators
-
-                    console.log('CSV is: ', columns);
-                    $('#services').after('' +
-                        '<li class="ui-li ui-li-static ui-body-a">' +
-                        '<p>Service Date: ' + columns[0] + '</p><p>' +
-                        ' Infants: ' + columns[1] +
-                        ' &nbsp;&nbsp; 2-4 Years: ' + columns[2] +
-                        ' &nbsp;&nbsp; 5-7 Years: ' + columns[3] +
-                        ' &nbsp;&nbsp; 8-12 Years: ' + columns[4] +
-                        '</p></li>');
-                }
-            }
-        });
-    });*/
-    $('#removeList').remove();
 });
 
 
 //**************************************This is where we make our editable page
 $('#editChild').live('pageshow', function(){
-	console.log("edit.js loaded");					//make sure page loaded right
+	console.log("edit.js loaded");						//make sure page loaded right
 	
-	var childID = {};
+	var childID = {};									//******1.  this will hold the id and rev#
 	
-	var setObject = function(object){				//this will be used to set variables with the object key and rev
+	var setObject = function(object){					//******5b. this will be used to set variables with the object key and rev
 		console.log("set object is: ", object);
 		childID._id = object._id;
 		childID._rev = object._rev;
-		console.log("id: ", childID);
+		console.log("id: ", childID);					//this creates our id and rev object for deleting data (6 at bottom)
 	}
 	
 	
-	var splitURL = function (){
-		var urlData = document.URL;		//get the url of the page we're on
+	
+	var splitURL = function (){							//******2. take the id out of the URL
+		var urlData = document.URL;						//get the url of the page we're on
 		console.log("url is " + urlData);				//check the URL
-		var	urlParts = urlData.split('?');			//divide the url at the ?
+		var	urlParts = urlData.split('?');				//divide the url at the ?
 		var urlVals = urlParts[1].split('&');			//split at the & to get each part of the data	
 		var idVals = {};
 		for (var i in urlVals){
@@ -142,20 +73,18 @@ $('#editChild').live('pageshow', function(){
 		}
 		console.log("successful split");
 		console.log(idVals[key]);
-		return(idVals[key]);
+		return(idVals[key]);							//*****3a return to a variable (below)
 	};
+
+	var childToManip = splitURL();						//*****3b set the id from the URL to this var
 	
-	var childToManip = splitURL();					//get the id of the child from the URL
-	
-    //******************************************** load json for that object
+    //******************************************** 		//*****4. load json for that id from URL
     var loadChild = function (myChild){
-    	var childInView;
 		$.couch.db('dbkids').openDoc(myChild, {
 			success: function(data) {
-				$('#getRidOf').remove();
-				childInView = data;
-				setObject(data);
-        		console.log(childInView);
+				$('#getRidOf').remove();	
+				setObject(data);						//****5a pass the entire object to setObject (2p up)
+        		console.log(data);
             	$('#lname').html(data.lname[1]).trigger('create');
             	$('#fname').html(data.fname[1]);
             	$('#age').html(data.slider[1]);
@@ -165,22 +94,19 @@ $('#editChild').live('pageshow', function(){
             	//$('#allergy').html(data.allergy[1]);
             	$('#comment').html(data.comment[1]);
 	         }//close Success function
-		//console.log("child in view: ", childInView);
-		//return (childInView);
-	    });
-    }
+	    });//close couchdb call
+    }//close loadChild
     
-    var currentChild = loadChild(childToManip);					//current child = the full data of the child
+    loadChild(childToManip);								//current child = the full data of the child
     
     //*******deleteChild function**************
     //*****************************************
-    var deleteChild = function(removeID){
-    	//console.log(splitURL());
+    var deleteChild = function(removeID){						//*****7a. remove id = our id/rev from step one
     	var idToDelete = {};									//we need to get the revision before we can delete
     	idToDelete._id = removeID._id;
-    	idToDelete._rev = removeID._rev;
+    	idToDelete._rev = removeID._rev;						//*****7b create a new object with the data to delete (not necessary but safe)
     	console.log("we will remove: ", idToDelete);			//idToDelete must be an object of {id, rev}
-    	$.couch.db('dbkids').removeDoc(idToDelete, {
+    	$.couch.db('dbkids').removeDoc(idToDelete, {			//*****7c call removeDoc, first argument is the id/rev object; second is success call
     		success: function(data){
     		console.log("All your base are belong to us");
     		}
@@ -188,11 +114,13 @@ $('#editChild').live('pageshow', function(){
     }
     
     
-    $('#remove').on("click", function(){						//watch for the delete button to be clicked
-    	console.log("remove this: ", childID);
-    		deleteChild(childID);
+    $('#remove').on("click", function(){						//******6a.  watch for the delete button to be clicked
+    	console.log("remove this: ", childID);					//double check our id/rev
+    		deleteChild(childID);								//******6b. call delete child and pass the id/rev obj from step 1/5
     		$.mobile.changePage( "index.html#infants", { transition: "slideup"} );
     	});
+   
+    
     //*******************************************save the new information	
     	$('#update').on("click", function(){
             
@@ -203,6 +131,8 @@ $('#editChild').live('pageshow', function(){
             });
     	});
     
+    	
+    	
 	//$('#addHere').editable();
 	$('p.editable').editable();
 	
