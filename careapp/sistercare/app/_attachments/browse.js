@@ -191,6 +191,7 @@ $('#editChild').live('pageshow', function(){
     $('#remove').on("click", function(){						//watch for the delete button to be clicked
     	console.log("remove this: ", childID);
     		deleteChild(childID);
+    		$.mobile.changePage( "index.html#infants", { transition: "slideup"} );
     	});
     //*******************************************save the new information	
     	$('#update').on("click", function(){
