@@ -156,8 +156,8 @@ $('#editChild').live('pageshow', function(){
             	$('#comment').html(data.comment[1]);
 	         }//close Success function
 	    });
-		console.log("child in view: ", data);
-		return (data);
+		console.log("child in view: ", childInView);
+		return (childInView);
     }
     
     var currentChild = loadChild(childToManip);					//current child = the full data of the child
