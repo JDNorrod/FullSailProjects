@@ -101,3 +101,13 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 !MESSAGE Software being installed: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762)
 !SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2012-05-24 19:05:26.541
 !MESSAGE Missing requirement: Android Development Tools 18.0.0.v201203301601-306762 (com.android.ide.eclipse.adt.feature.group 18.0.0.v201203301601-306762) requires 'org.eclipse.jdt 0.0.0' but it could not be found
+!SESSION 2012-05-25 15:55:58.160 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_31
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.javascript.product -keyring /Users/muse/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.javascript.product -keyring /Users/muse/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2012-05-25 15:59:10.177
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

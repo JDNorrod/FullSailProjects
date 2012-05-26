@@ -136,7 +136,7 @@ $('#editChild').live('pageshow', function(){
 		return(idVals[key]);
 	};
 	
-	var childToManip = splitURL();
+	var childToManip = splitURL();					//get the id of the child from the URL
 	
     //******************************************** load json for that object
     var loadChild = function (myChild){
@@ -156,15 +156,19 @@ $('#editChild').live('pageshow', function(){
             	$('#comment').html(data.comment[1]);
 	         }//close Success function
 	    });
-		console.log("child in view: ", childInView);
-		return (childInView);
+		console.log("child in view: ", data);
+		return (data);
     }
-    //*******************************************Remove the child from existence - or maybe just the server    	
-    	var deleteChild = function(removeID){
+    
+    var currentChild = loadChild(childToManip);					//current child = the full data of the child
+    
+    //*******deleteChild function**************
+    //*****************************************
+    var deleteChild = function(removeID){
     	//console.log(splitURL());
-    	//var removeID = (splitURL());
-    		console.log("we will remove: " + removeID);
-    		$.couch.db('dbkids').removeDoc(removeID, {
+    	var idToDelete = data.key[1];										//we need to get the revision before we can delete
+    		console.log("we will remove: ", idToDelete);		//idToDelete must be an array of {id, rev}
+    		$.couch.db('dbkids').removeDoc(idToDelete, {
     			success: function(data){
     			console.log("All your base are belong to us");
     			}
@@ -173,7 +177,6 @@ $('#editChild').live('pageshow', function(){
     	$('#remove').on("click", function(){
     		deleteChild(childToManip);
     	});
-    	var currentChild = loadChild(childToManip);
     //*******************************************save the new information	
     	$('#update').on("click", function(){
             
