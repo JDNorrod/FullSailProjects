@@ -1,0 +1,167 @@
+<!--App_Ajhkklj-->
+
+<!doctype html>  
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    
+    <title>Clique</title>
+    
+    <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Mobile IE needs ClearType for smoothing fonts -->
+    <meta http-equiv="clearType" content="on">
+    
+    <!-- StyleSheets under here -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+    <!--<link rel="stylesheet" href="jqm/jquery.mobile-1.1.0.css" />-->
+    <link rel="stylesheet" href="style.css"/>
+    
+    <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+    <script src="js/modernizr.custom.min.js"></script>
+
+</head>
+<body>
+<!-------------------------------------------------
+	                   Home Page--------------------------------->    
+		<div data-role="page" id="home" data-theme="a">
+		    
+			<!-- emblem goes here-->
+			<div id="background">
+				<img src="resources/clique-01.png"/>
+			</div> 
+			<!--Buttons to other pages-->
+            <div id="homeButtons" data-role="controlgroup" data-theme="c">
+                <a href="#myCliques"   data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right">My Cliques</a>
+				<a href="#messageForm"   data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right" id="goToCheckin">New Clique</a>
+                <a href="#settings" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Settings</a>
+			</div>
+		</div>
+		
+		<!-------------------------------------------------
+                       My Cliques Page---------------------------------->
+    <div data-role="page" id="myCliques" data-theme="a">
+                    <!--Header goes here-->
+            <div data-role="header" data-position="inline" data-theme="a">
+                <div class="logo">
+                    <img src="resources/logo.png" />
+                </div>
+                <a href="#" data-rel="back" data-icon="back" data-iconpos="notext" data-theme="c"></a>
+                <a href="#messageForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+            </div>
+            
+        <div id="spacer">
+        <ul id = "messageList" data-role="listview" data-filter="true" data-inset="true" data-theme="a"></br>
+            <li><a href="details.html">
+                <h5 class="small">Goheen 12</h5>
+                <p class="messageTitle">A clique for the members of Brian and Sarah.</p> <!-- clique info limited to 45 characters-->
+            </a></li>
+            <li><a href="details.html">
+                <h5 class="small">FSO MDVBS</h5>
+                <p class="messageTitle">Students of FS in Mobile Development Program</p>
+            </a></li>
+         </ul>
+         </div>
+    </div>
+	
+<!-------------------------------------------------
+	                   Anouncements Page---------------------------------->
+	<div data-role="page" id="anouncements" data-theme="a">
+        <!--Header goes here-->
+        <div data-role="header" data-position="inline" data-theme="a">
+            <div class="logo">
+                <img src="resources/logo.png" />
+            </div>
+            <a href="#" data-rel="back" data-icon="back" data-iconpos="notext" data-theme="c"></a>
+            <a href="#messageForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+        </div>
+	    <div id="spacer">
+        <ul id = "messageList" data-role="listview" data-filter="true" data-inset="true" data-theme="a"></br>
+            <li><a href="details.html">
+                <p class="small">Brian Goheen</p>
+                <p class="messageTitle">This is my new anouncement title!</p>
+            </a></li>
+            <li><a href="details.html">
+                <p class="small">Sarah Goheen</p>
+                <p class="messageTitle">Hi Sheepies!</p>
+            </a></li>
+         </ul>
+         </div>
+    </div>
+    
+    <!-------------------------------------------------
+                       Details Page---------------------------------->
+    <div data-role="page" id="details" data-theme="a">
+        <!--Header goes here-->
+        <div data-role="header" data-position="inline" data-theme="a">
+            <div class="logo">
+                <img src="resources/logo.png" />
+            </div>
+            <a href="#" data-rel="back" data-icon="back" data-iconpos="notext" data-theme="c"></a>
+            <a href="#messageForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+        </div>
+        
+        <div id="spacer">
+        <ul id = "childrenList" data-role="listview" data-filter="true" data-inset="true" data-theme="a"></br>
+            <li><a href="details.html"/>
+                <p class="small">Brian Goheen</p>
+                <p class="messageTitle">This is my new anouncement title!</p>
+            </li>
+            <li><a href="#">
+                <p class="small">Sarah Goheen</p>
+                <p class="messageTitle">Hi Sheepies!</p>
+            </a></li>
+         </ul>
+         </div>
+    </div>
+<!-------------------------------------------------
+    Settings Page------------------------------------->
+    <div data-role="page" id="settings" data-theme="a">
+        <!--Header goes here-->
+        <div data-role="header" data-position="inline" data-theme="a">
+            <div class="logo">
+                <img src="resources/logo.png" />
+            </div>
+            <a href="#" data-rel="back" data-icon="back" data-iconpos="notext" data-theme="c"></a>
+        </div>
+        <h1>Profile Information</h1>
+
+    </div>
+    
+    <!-------------------------------------------------
+                messageForm Page (new anouncement)---------------------------------->
+    <div data-role="page" id="messageForm" data-theme="a">
+        <!--Header goes here-->
+        <div data-role="header" data-position="inline" data-theme="a">
+            <div class="logo">
+                <img src="resources/logo.png" />
+            </div>
+            <a href="#" data-rel="back" data-icon="back" data-iconpos="notext" data-theme="c"></a>
+        </div>
+        <h3>Create a new Anouncement</h3>
+        <div data-role="fieldcontain" id="anouncementDiv">
+            <label for="titleText">Title: </label>
+            <input class="myInput" type="text" name="titleText" id="titleText" value=""  />
+            
+            <label for="messageText">Message: </label>
+            <textarea class="myInput" name="textarea" id="messageText"></textarea></br>
+            
+            <a data-role="button" id="submitMessage" data-theme="c">Save</a>
+        </div>
+        
+    </div>
+        
+        
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+        <!--<script src="jqm/jquery-1.7.2.min.js"></script>
+        <script src="jqm/jquery.mobile-1.1.0.js"></script>-->
+		<script type="text/javascript" src="js/jquery.validate.min.js" ></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        
+</body>
+</html>

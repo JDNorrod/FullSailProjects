@@ -1,0 +1,45 @@
+<!doctype html>  
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    
+    <title>Anouncement Details</title>
+    
+    <!--  Mobile viewport optimized:  -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Mobile IE needs ClearType for smoothing fonts -->
+    <meta http-equiv="clearType" content="on">
+    
+    <!-- StyleSheets under here--> 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+    <link rel="stylesheet" href="style.css"/>
+    
+    <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+    <script src="js/modernizr.custom.min.js"></script>
+</head>
+<body>
+	<div data-role="page" id="detail" data-theme="a">
+        <h3 class="detail-title">This is my anouncement title!</h3>
+        <ul id = "detailList" data-role="listview" data-inset="true" data-theme="a"></br>
+            <li><img src="resources/blank.png" align="left"/>
+                <h6 class="left">Brian Goheen</h6>
+                <p class="message">This is my new anouncement message! I'm really excited about our guest speaker this weekend, make sure to get all your peeps there to check it out!</p>
+            </li>
+            <li><img src="resources/blank.png" align="right"/>
+                <h6 class="left">Jay Norrod</h6>
+                <p class="message">This is a response to the main anouncement - I'm really excited!</p>
+            </li>
+         </ul>
+	</div>
+	
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.validate.min.js" ></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/jquery.couch.js"></script>
+</body>
+</html>
