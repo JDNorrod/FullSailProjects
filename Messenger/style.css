@@ -19,6 +19,13 @@ h6.left{
 	  width: 90%;
 	  margin-left: 10px;
 }
+#messageInput{
+
+	height:15px;
+}
+#sendMessage{
+
+}
 
 #messageText.ui-input-text{
 	height: 180px;

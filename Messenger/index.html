@@ -60,7 +60,7 @@
                 <h5 class="small">Goheen 12</h5>
                 <p class="messageTitle">A clique for the members of Brian and Sarah.</p> <!-- clique info limited to 45 characters-->
             </a></li>
-            <li><a href="details.html">
+            <li><a href="#details">
                 <h5 class="small">FSO MDVBS</h5>
                 <p class="messageTitle">Students of FS in Mobile Development Program</p>
             </a></li>
@@ -81,11 +81,11 @@
         </div>
 	    <div id="spacer">
         <ul id = "messageList" data-role="listview" data-filter="true" data-inset="true" data-theme="a"></br>
-            <li><a href="details.html">
+            <li><a href="#details">
                 <p class="small">Brian Goheen</p>
                 <p class="messageTitle">This is my new anouncement title!</p>
             </a></li>
-            <li><a href="details.html">
+            <li><a href="#details">
                 <p class="small">Sarah Goheen</p>
                 <p class="messageTitle">Hi Sheepies!</p>
             </a></li>
@@ -96,27 +96,42 @@
     <!-------------------------------------------------
                        Details Page---------------------------------->
     <div data-role="page" id="details" data-theme="a">
-        <!--Header goes here-->
+        <!--Header bar goes here------->
         <div data-role="header" data-position="inline" data-theme="a">
             <div class="logo">
                 <img src="resources/logo.png" />
             </div>
             <a href="#" data-rel="back" data-icon="back" data-iconpos="notext" data-theme="c"></a>
-            <a href="#messageForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+            <a data-icon="plus" data-iconpos="notext" data-theme="c" id="newMessage" class="ui-btn-right"></a>
         </div>
-        
-        <div id="spacer">
-        <ul id = "childrenList" data-role="listview" data-filter="true" data-inset="true" data-theme="a"></br>
-            <li><a href="details.html"/>
-                <p class="small">Brian Goheen</p>
-                <p class="messageTitle">This is my new anouncement title!</p>
+        <!---Page content Goes here:-------->
+        <h3 class="detail-title">This is my anouncement title!</h3>
+        <ul id = "detailList" data-role="listview" data-inset="true" data-theme="a"></br>
+            <li><img src="resources/blank.png" align="left"/>
+                <h6 class="left">Brian Goheen</h6>
+                <p class="message">This is my new anouncement message! I'm really excited about our guest speaker this weekend, make sure to get all your peeps there to check it out!</p>
             </li>
-            <li><a href="#">
-                <p class="small">Sarah Goheen</p>
-                <p class="messageTitle">Hi Sheepies!</p>
-            </a></li>
+            <!---Below this line is replies to the main anouncement---->
+            <li><img src="resources/blank.png"/>
+                <h6 class="left">Jay Norrod</h6>
+                <p class="message">This is a response to the main anouncement - I'm really excited!</p>
+            </li>
+            <li><img src="resources/blank.png"/>
+                <h6 class="left">Brad Buckman</h6>
+                <p class="message">I'm Brad and I'm passionate - #BOOM!</p>
+            </li>
          </ul>
-         </div>
+         <!--Throw a footer bar right here:-------------->
+         <div data-role="footer" data-theme="c">
+             <!--<fieldset class="ui-grid-c">
+                 <div class="ui-block-a">-->
+                    <!--<input type="text" data-mini="true" id="messageInput" value="Response..."/>-->
+                 </div>
+                 <div class="ui-block-d">
+                    <a id="sendMessage" data-mini="true" data-theme="a" data-position="right" data-role="button">Send</a>
+                </div>
+            </fieldset>
+        </div>
     </div>
 <!-------------------------------------------------
     Settings Page------------------------------------->
