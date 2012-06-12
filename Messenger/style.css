@@ -19,12 +19,17 @@ h6.left{
 	  width: 90%;
 	  margin-left: 10px;
 }
-#messageInput{
+#newMessageDiv{padding-top:5px; padding-bottom:5px;}
 
-	height:15px;
+
+#messageInput{
+	margin-top:-30px;
+	margin-left: 2px;
+	width:72%;
 }
 #sendMessage{
-
+	width:20%;
+	margin-left:250px;
 }
 
 #messageText.ui-input-text{
