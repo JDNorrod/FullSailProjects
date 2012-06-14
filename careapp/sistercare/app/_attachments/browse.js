@@ -53,7 +53,7 @@ $('#editChild').live('pageshow', function(){
 	var setObject = function(object){					//******5b. this will be used to set variables with the object key and rev
 		console.log("set object is: ", object);
 		childID._id = object._id;
-		childID._rev = object._rev;
+		//childID._rev = object._rev;
 		console.log("id: ", childID);					//this creates our id and rev object for deleting data (6 at bottom)
 	}
 	
@@ -87,7 +87,7 @@ $('#editChild').live('pageshow', function(){
         		console.log(data);
             	$('#lname').html(data.lname[1]).trigger('create');
             	$('#fname').html(data.fname[1]);
-            	$('#age').html(data.slider[1]);
+            	//$('#age').html(data.slider[1]);
             	$('#trained').html(data.trained[1]);
             	$('#bday').html(data.bday[1]);
             	$('#group').html(data.group[1]);
@@ -118,21 +118,36 @@ $('#editChild').live('pageshow', function(){
     	console.log("remove this: ", childID);					//double check our id/rev
     		deleteChild(childID);								//******6b. call delete child and pass the id/rev obj from step 1/5
     		$.mobile.changePage( "index.html#infants", { transition: "slideup"} );
-    	});
+    });
    
     
     //*******************************************save the new information	
-    	$('#update').on("click", function(){
+    $('#update').on("click", function(){
+    		
+        /*var updateItem = {};
+        updateItem._id = childID._id;
+        updateItem._rev = childID._rev;
+        console.log("item in update is: ", updateItem._id);
+        console.log(updateItem);
+       
+        updateItem.lname = $('#lname').html();
+        updateItem.fname = $('#fname').html();
+        updateItem.age = $('#age').html();
+        updateItem.trained = $('#trained').html();
+        updateItem.bday = $('#bday').html();
+        updateItem.group = $('#group').html();
+        //item.allergy = $('#allergy').html();
+        updateItem.comment = $('#comment').html();
+       
+        $.couch.db('dbkids').saveDoc(updateItem, {                       
+            success: function(data) { 
+            	console.log("All your base are belong to us");
+            	console.log(status);                
+            }//close success
+        });//close couch call*/
             
-    		$.couch.db('dbkids').saveDoc(currentChild, {
-            	success: function(data) {
-            		console.log(data);
-            	}
-            });
-    	});
-    
-    	
-    	
+	});//close update function
+   
 	//$('#addHere').editable();
 	$('p.editable').editable();
 	
