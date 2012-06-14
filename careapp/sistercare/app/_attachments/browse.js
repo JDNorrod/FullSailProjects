@@ -25,13 +25,14 @@ $('#infants').live('pageinit', function(){
             success: function(resp){                     //if we find the file properly- do this, resp is what I choose to call my data
                 console.log("This is my JSON: ", resp);  //can be named whatever by writing it in the () of the function
                 $.each(resp.rows, function(index, item){
-                    console.log('Item is: ' + item.id);
+                    console.log('Item ID is: ' + item.id);
+                    console.log('item is: ', item);
                      $('#underSix').append('<div data-role="collapsible">' +
 	                    '<h3>' + item.value.lname[1] + ', ' + item.value.fname[1] + '</h3>' +
 	                    '<p>Age: ' +
-	                     	item.value.age[1] +
+	                     	//item.value.age[1] +
 	                     	'&nbsp;&nbsp;' +
-	                     	'&nbsp;&nbsp;LifeGroup: ' +
+	                     	'&nbsp;&nbsp;Potty Trained: ' +
 	                     	item.value.trained[1] +
 	                     	'<a data-role="button" href="edit.html?_id=' + item.id + '">Edit/Delete</a>' + 
 	                    '</p>' +
@@ -53,7 +54,7 @@ $('#editChild').live('pageshow', function(){
 	var setObject = function(object){					//******5b. this will be used to set variables with the object key and rev
 		console.log("set object is: ", object);
 		childID._id = object._id;
-		//childID._rev = object._rev;
+		childID._rev = object._rev;
 		console.log("id: ", childID);					//this creates our id and rev object for deleting data (6 at bottom)
 	}
 	
@@ -124,27 +125,28 @@ $('#editChild').live('pageshow', function(){
     //*******************************************save the new information	
     $('#update').on("click", function(){
     		
-        /*var updateItem = {};
+        var updateItem = {};
         updateItem._id = childID._id;
         updateItem._rev = childID._rev;
-        console.log("item in update is: ", updateItem._id);
-        console.log(updateItem);
+        console.log("item in update is: ", childID);
+        console.log("ID is: ", updateItem._id, " rev is: ", updateItem._rev);
+        console.log("item being sent: ", updateItem);
        
-        updateItem.lname = $('#lname').html();
-        updateItem.fname = $('#fname').html();
-        updateItem.age = $('#age').html();
-        updateItem.trained = $('#trained').html();
-        updateItem.bday = $('#bday').html();
-        updateItem.group = $('#group').html();
-        //item.allergy = $('#allergy').html();
-        updateItem.comment = $('#comment').html();
+        updateItem.lname 	= ['Last Name: ', $('#lname').html()];
+        updateItem.fname 	= ['First Name: ', $('#fname').html()];
+        updateItem.age 		= ['Age: ', $('#age').html()];
+        updateItem.trained 	= ['Is Trained?: ', $('#trained').html()];
+        updateItem.bday 	= ['Birthday: ', $('#bday').html()];
+        updateItem.group 	= ['Age Group: ', $('#group').html()];
+        //item.allergy 		= ['Has Allergy?: ', $('#allergy').val()];
+        updateItem.comment 	= ['Message: ', $('#comment').html()];
        
         $.couch.db('dbkids').saveDoc(updateItem, {                       
             success: function(data) { 
             	console.log("All your base are belong to us");
             	console.log(status);                
             }//close success
-        });//close couch call*/
+        });//close couch call
             
 	});//close update function
    
