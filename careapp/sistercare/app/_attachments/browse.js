@@ -144,7 +144,9 @@ $('#editChild').live('pageshow', function(){
         $.couch.db('dbkids').saveDoc(updateItem, {                       
             success: function(data) { 
             	console.log("All your base are belong to us");
-            	console.log(status);                
+            	console.log(status);
+            	$.mobile.changePage( "index.html", { transition: "slidedown"} );
+            	
             }//close success
         });//close couch call
             

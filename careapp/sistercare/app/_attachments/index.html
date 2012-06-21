@@ -71,40 +71,6 @@
         </div>
    </div>
     <!--Infants page***************************************************-->
-    <!--Allergy page***************************************************-->
-    <div data-role="page" id="allergies" data-theme="a">
-    
-    <div data-role="header" data-position="inline" data-theme="a">
-        <div class="logo">
-            <img src="logo.png" />
-       </div>
-         <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
-        <a href="#infoForm" id="addItem" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
-    </div><label><h3>These are some common items your children may encounter in class:</h3></label>
-        
-        <ul id = "allergyList" data-role="listview" data-filter="true" data-theme="a">
-            <li>
-                <img src= "peanut.png" />
-                <h3>Peanuts</h3>
-                <p>Children may be given snacks from<br /> time to time with Peanut Butter in it.</p>
-            </li>
-            <li>
-                <img src= "milk.png"/>
-                <h3>Milk</h3>
-                <p>Children may be given milk to drink.</p>
-            </li>
-            <li>
-                <img src= "fish.png" />
-                <h3>Fish</h3>
-                <p>Teachers sometimes bring in fish to<br /> illustrate certain lesson principles.</p>
-            </li>
-            <li>
-                <img src= "flower.png" />
-                <h3>Pollen</h3>
-                <p>Many times the classroom will be<br /> decorated with flowers and children will spend play time outside</p>
-            </li>
-         </ul>
-    </div>
 
    <!--infoForm page***************************************************-->
    
@@ -129,7 +95,7 @@
                     <h4>* Indicates a required field</h4>
                 <div data-role="fieldcontain">
                     <label for="selector">What age group is the child?</label><select id ="selector" data-theme="c">
-<!--                        <label for ="group"></label><br>-->
+
                 </select><br>
                 </div>
                 <div id="childAge" data-role="fieldContain">   
@@ -164,8 +130,6 @@
                     </div>
                 </div>
                     <input type="submit" id="send" value="Add Child" data-icon="arrow-r" data-iconpos="right" data-theme="b"/>
-                    <!--<a href="#" id="send" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">Send</a>-->
-                    <a href="#" id="clear" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Clear</a>
                 </fieldset>
             </form>
             <form id="seeInfo">
@@ -178,24 +142,6 @@
         </div>
     </div>
     
-<!--Future expansion:
-    <div data-role="page" id="infoList">
-        <form id="seeInfo">
-        <div data-role="header" data-position="inline" data-theme="a">
-            <div id="logo6">
-                <img src="logo.png" />
-            </div>
-            <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
-            <a href="#infoForm"   data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
-        </div>
-        <div data-role="content">
-            <div class="showIt" id="previewInfo" data-role="fieldcontain">
-
-            </div>
-        </div>
-        </form>
-    </div>
-    -->
         <!--<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>-->
         <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
