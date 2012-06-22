@@ -1,15 +1,4 @@
- /*
-'entry 3':{
-    'group': ['Age Group: ', 'Infant'],
-        'fname': ['First Name:', 'Sashi'],
-        'lname': ['Last Name:', 'Norrod'],
-        'bday': ['Birthday: ', '2007-08-21'],
-        'slider': ['Age: ', '1'],
-        'allergy': ['Has Allergy?: ', 'No'],
-        'trained': ['Is Trained?:', 'No'],
-        'comment': ['Message: ', 'One of the coolest kids ever!']
-},
-*/
+
 //this will load the data.json on the infants browsing page
 //load the data.json
 
@@ -34,7 +23,7 @@ $('#infants').live('pageinit', function(){
 	                     	'&nbsp;&nbsp;' +
 	                     	'&nbsp;&nbsp;Potty Trained: ' +
 	                     	item.value.trained[1] +
-	                     	'<a data-role="button" href="edit.html?_id=' + item.id + '">Edit/Delete</a>' + 
+	                     	'<a data-role="button" data-ajax="false" href="edit.html?_id=' + item.id + '">Edit/Delete</a>' + 
 	                    '</p>' +
                  		'</div>').trigger('create');
                      
@@ -47,6 +36,7 @@ $('#infants').live('pageinit', function(){
 
 //**************************************This is where we make our editable page
 $('#editChild').live('pageshow', function(){
+	//window.location.reload(true);
 	console.log("edit.js loaded");						//make sure page loaded right
 	
 	var childID = {};									//******1.  this will hold the id and rev#
@@ -83,7 +73,7 @@ $('#editChild').live('pageshow', function(){
     var loadChild = function (myChild){
 		$.couch.db('dbkids').openDoc(myChild, {
 			success: function(data) {
-				$('#getRidOf').remove();	
+				
 				setObject(data);						//****5a pass the entire object to setObject (2p up)
         		console.log(data);
             	$('#lname').html(data.lname[1]).trigger('create');

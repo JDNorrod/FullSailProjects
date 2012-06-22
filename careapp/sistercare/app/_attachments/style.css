@@ -3,8 +3,10 @@
 }
 
 p.editable{
-	text-align: center;
+	margin-top: -20px;
+	margin-left: 130px;
 }
+
 
 label.error{
 	display:block; 
