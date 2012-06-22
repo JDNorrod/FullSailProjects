@@ -2,7 +2,7 @@
 //this will load the data.json on the infants browsing page
 //load the data.json
 
-$('#infants').live('pageinit', function(){
+$('#browse').live('pageinit', function(){
 	console.log("We are live");
 	$('#underSix').empty();
 
@@ -108,7 +108,7 @@ $('#editChild').live('pageshow', function(){
     $('#remove').on("click", function(){						//******6a.  watch for the delete button to be clicked
     	console.log("remove this: ", childID);					//double check our id/rev
     		deleteChild(childID);								//******6b. call delete child and pass the id/rev obj from step 1/5
-    		$.mobile.changePage( "index.html#infants", { transition: "slideup"} );
+    		$.mobile.changePage( "index.html#browse", { transition: "slideup"} );
     });
    
     

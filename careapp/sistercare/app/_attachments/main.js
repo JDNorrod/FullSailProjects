@@ -23,10 +23,10 @@ $('#infoForm').live('pageinit', function(){
         console.log("box checked");
         $('#messageBlock').fadeIn('slow');
     });
-
-    submitInfo.on("click", function () {
-
-        console.log("we are saving it");
+	
+	submitInfo.on("click", function (event) {		
+        event.preventDefault();
+		console.log("we are saving it");
         storeData();
 
     });                   
@@ -119,6 +119,7 @@ $('#infoForm').live('pageinit', function(){
             $.couch.db('dbkids').saveDoc(item, {
             	success: function(data) {
             		console.log(status);
+            		$.mobile.changePage('#browse');
             	}
             });
         }
