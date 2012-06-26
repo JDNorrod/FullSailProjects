@@ -1,0 +1,121 @@
+#homeButtons{
+	margin-top: -30px;
+}
+
+#spacer{
+	margin-top: 30px;
+}
+
+h6.left{
+	margin-left: -40px;
+	margin-top: 17px;
+}
+
+#anouncementDiv{
+	margin-top: -40px;
+}
+
+.myInput.ui-input-text { 
+	  width: 90%;
+	  margin-left: 10px;
+}
+#newMessageDiv{padding-top:5px; padding-bottom:5px;}
+
+
+#messageInput{
+	margin-top:-30px;
+	margin-left: 2px;
+	width:72%;
+}
+#sendMessage{
+	width:20%;
+	margin-left:250px;
+}
+
+#messageText.ui-input-text{
+	height: 180px;
+}
+
+#detailList{
+	margin-top: -30px;
+	
+}
+
+p.message{
+	margin-left: -90px;
+	white-space: normal;
+}
+
+#labelText{
+	text-align: center;
+}
+
+p.editable{
+	text-align: center;
+}
+
+label.error{
+	display:block; 
+	margin:10px 0px;
+	color:red;
+}
+
+#background{
+	text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
+}
+
+#formHeading{
+	text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
+}
+
+#addItem3{
+	margin-top: -3px;
+	margin-bottom: 4px;
+}
+
+.logo{
+	text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+
+#coming .ui-grid-d .ui-bar{
+	padding-right:40px;
+}
+
+#errorLink{display:none;}
+
+#messageBlock{
+	display:none;
+	}
+	
+h3.checked{
+	color:#CC0000;
+	margin-left:0 auto;
+	margin-right:0 auto;
+	}
+	
+h3{
+	color: #FF6633;
+	text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
+	}
+	
+h1{
+	color: #FF6633;
+}
+
+h4{
+    color: #FF6633;
+}
+
+h5{
+    color: #FF6633;
+}
