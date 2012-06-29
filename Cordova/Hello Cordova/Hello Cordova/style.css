@@ -1,0 +1,35 @@
+#background{
+	text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
+}
+
+.logo{
+	text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+
+	
+h3{
+	color: #FF6633;
+	text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
+}
+
+.header{
+	height:20px;
+}
+.ui-grid-a{
+	padding-top: 54px;
+}
+label{
+
+	font-size: 14px;
+}
+a{
+		text-align: center;
+}
