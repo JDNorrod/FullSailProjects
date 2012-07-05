@@ -14,7 +14,7 @@ var clearData           = $('#clear');
 
 //**************************************************************infoForm.live is right here
 $('#infoForm').live('pageinit', function(){
-    console.log("infoForm is live");
+          console.log("infoForm is live");
 
 //*************************List of Bindings:
 
@@ -22,7 +22,16 @@ $('#infoForm').live('pageinit', function(){
 	$('#allergy').on("change", function() {
         console.log("box checked");
         $('#messageBlock').fadeIn('slow');
-    });	                  
+    });
+	
+	submitInfo.on("click", function (event) {		
+        event.preventDefault();
+		console.log("we are saving it");
+        storeData();
+
+    });                   
+
+
 
 //****************************************************************functions
 
@@ -82,7 +91,6 @@ $('#infoForm').live('pageinit', function(){
  	};
 
 //***************************Listen for the Add Child button push to storeData
-//    var storeData = function (){
     var storeData = function (){
 
         cForm.validate();                                                   //validate the form before it's sent
@@ -115,19 +123,6 @@ $('#infoForm').live('pageinit', function(){
             });
         }
     }
-    
-    function onConfirm(){
-        storeData();
-    }
-                    
-    submitInfo.on("click", function (event) {
-                  event.preventDefault();
-                  navigator.notification.alert(
-                            'Child Added',                                  //Message
-                            onConfirm,                                      //callback
-                            'Success',                                      //title
-                            'Okay');                                        //buttonName
-    }); 
 
     //populate the drop box
     createDrop();                                              //populate the drop box
