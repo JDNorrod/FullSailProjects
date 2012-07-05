@@ -35,13 +35,13 @@
 			<!--Buttons to other pages-->
             <div id="homeButtons" data-role="controlgroup" data-theme="c">
                 <a href="#myCliques" data-ajax="false" data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right">My Cliques</a>
-				<a href="#addClique" data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right" id="goToNewCliq">New Clique</a>
+				<a href="#addClique" data-ajax="false" data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right" id="goToNewCliq">New Clique</a>
                 <a href="#settings" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Settings</a>
 			</div>
 		</div>
 		
-		<!-------------------------------------------------
-                       My Cliques Page---------------------------------->
+<!-------------------------------------------------
+	My Cliques Page---------------------------------->
     <div data-role="page" id="myCliques" data-theme="a">
                     <!--Header goes here-->
             <div data-role="header" data-position="inline" data-theme="a">
@@ -53,7 +53,7 @@
             </div>
             
         <div id="spacer">
-        <ul id = "messageList" data-role="listview" data-filter="true" data-inset="true" data-theme="a"></br>
+        <ul id = "messageList" data-role="listview" data-filter="false" data-inset="true" data-theme="a">
             <li><a href="#anouncements">
                 <h5 class="small">Goheen 12</h5>
                 <p class="messageTitle">A clique for the members of Brian and Sarah.</p> <!-- clique info limited to 45 characters-->
@@ -91,8 +91,8 @@
          </div>
     </div>
     
-    <!-------------------------------------------------
-                       Details Page---------------------------------->
+<!-------------------------------------------------
+	Details Page---------------------------------->
     <div data-role="page" id="details" data-theme="a">
         <!--Header bar goes here------->
         <div data-role="header" data-position="inline" data-theme="a">
@@ -139,8 +139,8 @@
 
     </div>
     
-    <!-------------------------------------------------
-                messageForm Page (new anouncement)---------------------------------->
+<!-------------------------------------------------
+	messageForm Page (new anouncement)---------------------------------->
     <div data-role="page" id="messageForm" data-theme="a">
         <!--Header goes here-->
         <div data-role="header" data-position="inline" data-theme="a">
@@ -182,7 +182,7 @@
             <div data-role="fieldcontain">
                 <fieldset data-role="controlgroup">
 					<label for="cliqPrivate">Is your clique private?</label>
-                    <input type="checkbox" name="cliqPrivate" id="cliqPrivate" value="true" data-theme="c"/>
+                    <input type="checkbox" name="cliqPrivate" id="cliqPrivate" value="Private" data-theme="c"/>
                 </fieldset>
             </div>
             

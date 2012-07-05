@@ -14,7 +14,7 @@ var clearData           = $('#clear');
 
 //**************************************************************infoForm.live is right here
 $('#infoForm').live('pageinit', function(){
-          console.log("infoForm is live");
+    console.log("infoForm is live");
 
 //*************************List of Bindings:
 
@@ -82,6 +82,7 @@ $('#infoForm').live('pageinit', function(){
     //*********************************create selector field
  	var createDrop = function (){
  		var list = $('#selector');
+        navigator.notification.alert('It worked', 'Test', 'Okay');
 
  	//populate
  		for (var i = 0, j = vidList.length; i < j; i++){

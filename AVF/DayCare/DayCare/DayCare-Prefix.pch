@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'DayCare' target in the 'DayCare' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif

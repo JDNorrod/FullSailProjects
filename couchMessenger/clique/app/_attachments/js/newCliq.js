@@ -6,6 +6,9 @@ Is probably a good idea to store username in local so each page has easy access 
 this info - possibly on login pull down latest info (cliqs, pic, etc..) to local
 ____________________________________________________*/
 
+var userName = "JDNorrod";
+var dbUser   = "user_jdnorrod"
+
 /***************************adjustName Function  	*/
 var adjustName = function (name){
 	var lowerCaseName 	= name.toLowerCase();								//convert to lowercase for db saving
@@ -18,7 +21,7 @@ var adjustName = function (name){
 	}//close for
 	dbName = "cliq_" + dbName;
 	console.log("dbName: " + dbName);
-	return(dbName);															//return proper db name
+	return(dbName);															//return lowercase db name no spaces
 };//close adjustName
 
 var setCliqInfo = function (info){											//pass in the newCliq information (from createCliq)
@@ -29,12 +32,23 @@ var setCliqInfo = function (info){											//pass in the newCliq information (
 			$.mobile.changePage('#myCliques');								//return to the mycliq page
 		}//close success
 	})//close couchdb call
-	$.couch.db('user_jdnorrod').saveDoc(info, {
+	$.couch.db('user_jdnorrod').saveDoc(info, {								//add the cliq to user profile
 		success: function(sent){
 			console.log("cliq added to user prof");
 		}
 	})
 }//close setCliqInfo
+
+var getCheckBox = function (){
+    console.log($('input:checkbox[name=cliqPrivate]:checked').val());			//console log checked or not
+
+    if($('input:checkbox[name=cliqPrivate]:checked').val() === "Private"){			//if checked return value (private)
+        return($('input:checkbox[name=cliqPrivate]:checked').val());
+    }
+    else{																	//if not check return public
+    return("Public");
+    }
+};
 
 
 /***************************CreateCliq Function  	*/
@@ -44,7 +58,7 @@ var createCliq = function (){
 	newCliq.name 		= $("#cliqName").val();
 	newCliq.adjName		= adjustName(newCliq.name);							//adjust name for couchdb purposes
 	newCliq.creator		= "userName";
-	newCliq.access 		= $("#cliqPrivate").val();
+	newCliq.access 		= getCheckBox();									//check whether private or public
 	newCliq.about 		= $("#cliqAbout").val();
 	
 	console.log("Cliq created: ", newCliq);									
@@ -84,15 +98,24 @@ $('#addClique').on('pageinit', function(){
             </a></li>
 //******----------------------------------------*/
 
-$('#mycliques).on(pageinit', function(){
-	$('a').on("click", function(event){
-		event.preventDefault();
-		//pull in local												//When page loads, get list of all cliqs user is part of
-		//find array of cliqs user is in
-		//format list to above html and display as anchors
-	});
-});
-//******----------------------------------------
+$('#myCliques').on('pageinit', function(){
+	console.log("my cliq page loaded");
+	$.couch.db('user_jdnorrod').view("app/cliqs", {									//on page load retrieve users cliqs from user prof
+		success: function(data){
+			console.log("It worked you're a freaking genius ", data);
+			$('#messageList').empty();												//first empty the html of it's frame
+			$.each(data.rows, function(index, item){								//divide the rows of the object
+				console.log(item.value.name, " ", item.value.about);
+				$('#messageList').append('' + 
+					'<li><a href="#anouncements?_id=' + item.value.adjName + '">' + //opening list item and anchor
+					'<h5 class="small">' + item.value.name + '</h5>' +				//cliq name
+					'<p class="messageTitle">' + item.value.about + '</p>' +		//clique info limited to 45 characters
+					'</a></li>').listview("refresh");//close append
+			})//close .each
+			
+		}//close sucess
+	})//close couch call
+});//close page
 
 
 
