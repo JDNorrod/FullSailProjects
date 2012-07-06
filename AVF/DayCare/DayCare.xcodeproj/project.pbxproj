@@ -37,7 +37,7 @@
 		C442ECD715A6247900DA90E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C442ECD615A6247900DA90E3 /* AppDelegate.m */; };
 		C442ECDA15A6247900DA90E3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C442ECD915A6247900DA90E3 /* MainViewController.m */; };
 		C442ECDC15A6247900DA90E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C442ECDB15A6247900DA90E3 /* MainViewController.xib */; };
-		C442ECEE15A628C200DA90E3 /* www in Resources */ = {isa = PBXBuildFile; fileRef = C442ECED15A628C200DA90E3 /* www */; };
+		C442ECF215A7552E00DA90E3 /* www in Resources */ = {isa = PBXBuildFile; fileRef = C442ECF115A7552E00DA90E3 /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +78,7 @@
 		C442ECDB15A6247900DA90E3 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = Classes/MainViewController.xib; sourceTree = "<group>"; };
 		C442ECDE15A6247900DA90E3 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		C442ECDF15A6247900DA90E3 /* verify.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = verify.sh; sourceTree = "<group>"; };
-		C442ECED15A628C200DA90E3 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		C442ECF115A7552E00DA90E3 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +153,7 @@
 		C442ECA815A6247900DA90E3 /* DayCare */ = {
 			isa = PBXGroup;
 			children = (
-				C442ECED15A628C200DA90E3 /* www */,
+				C442ECF115A7552E00DA90E3 /* www */,
 				C442ECB115A6247900DA90E3 /* Cordova.framework */,
 				C442ECB315A6247900DA90E3 /* Resources */,
 				C442ECD415A6247900DA90E3 /* Classes */,
@@ -330,7 +330,7 @@
 				C442ECD115A6247900DA90E3 /* Capture.bundle in Resources */,
 				C442ECD315A6247900DA90E3 /* Cordova.plist in Resources */,
 				C442ECDC15A6247900DA90E3 /* MainViewController.xib in Resources */,
-				C442ECEE15A628C200DA90E3 /* www in Resources */,
+				C442ECF215A7552E00DA90E3 /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

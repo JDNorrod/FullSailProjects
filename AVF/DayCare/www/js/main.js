@@ -14,7 +14,7 @@ var clearData           = $('#clear');
 
 //**************************************************************infoForm.live is right here
 $('#infoForm').live('pageinit', function(){
-          console.log("infoForm is live");
+    console.log("infoForm is live");
 
 //*************************List of Bindings:
 
@@ -22,16 +22,7 @@ $('#infoForm').live('pageinit', function(){
 	$('#allergy').on("change", function() {
         console.log("box checked");
         $('#messageBlock').fadeIn('slow');
-    });
-	
-	submitInfo.on("click", function (event) {		
-        event.preventDefault();
-		console.log("we are saving it");
-        storeData();
-
-    });                   
-
-
+    });	                  
 
 //****************************************************************functions
 
@@ -89,8 +80,14 @@ $('#infoForm').live('pageinit', function(){
             list.append("<option>" + opText + "</option>").trigger('refresh');
  		}
  	};
+                    
+                    
+    function onConfirm(){
+         $.mobile.changePage('#browse');
+    }
 
 //***************************Listen for the Add Child button push to storeData
+//    var storeData = function (){
     var storeData = function (){
 
         cForm.validate();                                                   //validate the form before it's sent
@@ -118,11 +115,20 @@ $('#infoForm').live('pageinit', function(){
             $.couch.db('dbkids').saveDoc(item, {
             	success: function(data) {
             		console.log(status);
-            		$.mobile.changePage('#browse');
-            	}
-            });
-        }
-    }
+                    navigator.notification.alert(
+                            'Child Added',                                  //Message
+                            onConfirm,                                      //callback
+                            'Success',                                      //title
+                            'Okay');                                        //buttonName
+                }//close success
+            });//close couch
+        }//close if form valid
+    }//close storeData
+                    
+    submitInfo.on("click", function (event) {
+        event.preventDefault();
+        storeData();
+    });          
 
     //populate the drop box
     createDrop();                                              //populate the drop box

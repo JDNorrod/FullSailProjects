@@ -80,6 +80,11 @@ $('#infoForm').live('pageinit', function(){
             list.append("<option>" + opText + "</option>").trigger('refresh');
  		}
  	};
+                    
+                    
+    function onConfirm(){
+         $.mobile.changePage('#browse');
+    }
 
 //***************************Listen for the Add Child button push to storeData
 //    var storeData = function (){
@@ -110,24 +115,20 @@ $('#infoForm').live('pageinit', function(){
             $.couch.db('dbkids').saveDoc(item, {
             	success: function(data) {
             		console.log(status);
-            		$.mobile.changePage('#browse');
-            	}
-            });
-        }
-    }
-    
-    function onConfirm(){
-        storeData();
-    }
-                    
-    submitInfo.on("click", function (event) {
-                  event.preventDefault();
-                  navigator.notification.alert(
+                    navigator.notification.alert(
                             'Child Added',                                  //Message
                             onConfirm,                                      //callback
                             'Success',                                      //title
                             'Okay');                                        //buttonName
-    }); 
+                }//close success
+            });//close couch
+        }//close if form valid
+    }//close storeData
+                    
+    submitInfo.on("click", function (event) {
+        event.preventDefault();
+        storeData();
+    });          
 
     //populate the drop box
     createDrop();                                              //populate the drop box
