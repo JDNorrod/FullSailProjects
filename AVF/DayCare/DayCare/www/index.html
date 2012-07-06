@@ -46,39 +46,20 @@
             <div data-role="header" data-position="inline" data-theme="a">
                 <div class="logo">
                     <img src="resources/logo.png" />
-                </div>
+                </div><!--close logo-->
                 
                 <a href="#infoForm" data-ajax="false" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
-            </div>
+            </div><!--close header-->
             <div data-role="content">
                 <div id="background">
                     <img src="resources/bkg.png"/>
-                </div>   
+                </div><!--close background-->   
                 <div data-role="controlgroup">
                     <a href="#infoForm"   data-ajax="false" data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right">Add a New Child</a>
                     <a href="#browse" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse Children</a>
-                     <a href="#geo"   data-ajax="false" data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right">Location Check In</a>
-                </div>  
-            </div>
-        </div>
-        <!-- This will be the geo page-->
-        <div data-role="page" id="geo" data-theme="a">
-            <!--header-->
-            <div data-role="header" data-position="inline" data-theme="a">
-                <div class="logo">
-                    <img src="resources/logo.png" />
-                </div>
-                
-                <a href="#infoForm" data-ajax="false" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
-            </div>
-            <!--End header-->
-            <div data-role="content">
-                <div id="background">
-                    <img src="resources/bkg.png"/>
-                </div>  
-                    <a href="#" id="getGeo" data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right">Check Position</a>
-            </div>
-        </div>
+                </div><!--close controlGroup-->  
+            </div><!--close content-->
+        </div><!-- close home page-->
         <!--Browse page***************************************************-->
         <div data-role="page" id="browse" data-add-back-btn="true" data-theme="a">
             
@@ -117,7 +98,7 @@
                 <div id="formHeading">
                     <h1>Add A New Child</h1>
                 </div>
-                <form action="" id="contactForm">
+                <form id="contactForm">
                     <br />
                     
                     <fieldset>
@@ -174,7 +155,7 @@
         <script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
         <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.js"></script>
         <script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
-        <script type="text/javascript" src="jquery.validate.min.js" ></script>
+        <script type="text/javascript" src="js/jquery.validate.min.js" ></script>
         <!--<script src="/_utils/script/json2.js"></script>
          <script src="/_utils/script/jquery.couch.js?0.8.0"></script> -->
         <script type="text/javascript" src="js/features.js"></script>

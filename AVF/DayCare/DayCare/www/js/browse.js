@@ -13,7 +13,6 @@ var geoSuccess = function (position) {
 
 $('#browse').live('pageinit', function(){
 	console.log("We are live");
-    navigator.getCurrentPosition(geoSuccess); 
 	$('#underSix').empty();
 
         //******************************************** load json

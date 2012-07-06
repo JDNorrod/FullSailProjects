@@ -9,15 +9,6 @@ var cForm 				= $('#contactForm');
 var submitInfo          = $('#send');
 var clearData           = $('#clear');
 
-
-$('#geo').live('pageinit', function(){
-    console.log("geo page");
-    var getLocation = $("#getGeo");
-               getLocation.on("click", function(){
-                               
-    }
-});
-
 //**************************************************************infoForm.live is right here
 $('#infoForm').live('pageinit', function(){
     console.log("infoForm is live");
