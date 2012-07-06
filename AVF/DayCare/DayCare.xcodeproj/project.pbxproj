@@ -38,6 +38,7 @@
 		C442ECDA15A6247900DA90E3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C442ECD915A6247900DA90E3 /* MainViewController.m */; };
 		C442ECDC15A6247900DA90E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C442ECDB15A6247900DA90E3 /* MainViewController.xib */; };
 		C442ECF215A7552E00DA90E3 /* www in Resources */ = {isa = PBXBuildFile; fileRef = C442ECF115A7552E00DA90E3 /* www */; };
+		C442ECF315A75C6100DA90E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C442EC9C15A6247900DA90E3 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C442ECF315A75C6100DA90E3 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +436,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -454,6 +457,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -477,6 +481,7 @@
 					"DEBUG=1,",
 					"CORDOVA_FRAMEWORK=1",
 				);
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "DayCare/DayCare-Info.plist";
 				OTHER_LDFLAGS = (
 					"-weak_framework",
@@ -506,6 +511,7 @@
 					"NDEBUG=1,",
 					"CORDOVA_FRAMEWORK=1",
 				);
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "DayCare/DayCare-Info.plist";
 				OTHER_LDFLAGS = (
 					"-weak_framework",
@@ -542,6 +548,7 @@
 				C442ECE415A6247900DA90E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

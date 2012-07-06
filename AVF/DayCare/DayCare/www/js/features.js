@@ -17,5 +17,5 @@ var geoError = function (error){
 
 $('#geo').live('pageshow', function(){
     console.log("features are live");
-    navigator.getCurrentPosition(geoSuccess, geoError);          
+    navigator.geolocation.getCurrentPosition(geoSuccess, geoError);          
 });//close home page
