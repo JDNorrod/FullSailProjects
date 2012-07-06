@@ -11,7 +11,7 @@ var geoSuccess = function (position) {                               //successfu
                 'Heading: '           + position.coords.heading           + '\n' +
                 'Speed: '             + position.coords.speed             + '\n' +
                 'Timestamp: '         + position.timestamp                + '\n');
-    return;
+    //return;
 };//close geoSuccess
    
 
@@ -25,5 +25,5 @@ var geoError = function (error){                                     //geolocati
 var runGeo = function (){
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);     //get geolocation
     console.log("returning: " + myLocation.coords.latitude);
-    return(myLocation);
+    return myLocation;
 };

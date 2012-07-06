@@ -10,7 +10,13 @@ var submitInfo          = $('#send');
 var clearData           = $('#clear');
 
 
-//**********************************************************************Key functions
+$('#geo').live('pageinit', function(){
+    console.log("geo page");
+    var getLocation = $("#getGeo");
+               getLocation.on("click", function(){
+                               
+    }
+});
 
 //**************************************************************infoForm.live is right here
 $('#infoForm').live('pageinit', function(){
@@ -132,10 +138,4 @@ $('#infoForm').live('pageinit', function(){
 
     //populate the drop box
     createDrop();                                              //populate the drop box
-});
-
-$('#geo').live('pageinit', function(){
-    console.log("geo page");
-    var myLocation = runGeo();
-    console.log("you are: " + myLocation);
 });
