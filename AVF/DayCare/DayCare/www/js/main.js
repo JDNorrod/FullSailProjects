@@ -133,3 +133,9 @@ $('#infoForm').live('pageinit', function(){
     //populate the drop box
     createDrop();                                              //populate the drop box
 });
+
+$('#geo').live('pageinit', function(){
+    console.log("geo page");
+    var myLocation = runGeo();
+    console.log("you are: " + myLocation);
+});
