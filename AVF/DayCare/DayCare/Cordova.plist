@@ -22,9 +22,10 @@
 	<false/>
 	<key>ExternalHosts</key>
 	<array>
+		<string>*</string>
 		<string>*.gstatic.com</string>
 		<string>*.google.com</string>
-		<string>*.gooleapis.com</string>
+		<string>*.googleapis.com</string>
 		<string>*.cloudant.com</string>
 		<string>*.jtsage.com</string>
 		<string>*.jquery.com</string>
