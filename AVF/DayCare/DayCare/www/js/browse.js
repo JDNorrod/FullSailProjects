@@ -151,3 +151,21 @@ $('#editChild').live('pageshow', function(){
 	$('p.editable').editable();
 	
 });
+
+$('#location').on('pageshow', function(){
+  console.log("location page");
+                  
+  var popUp = function (){
+      navigator.notification.alert(
+           'At Location',                                  //Message
+           onConfirm,                                      //callback
+           'Success',                                      //title
+           'Okay');                                        //buttonName
+  };
+                  
+  $('#getLocation').on("click", function(){
+        console.log("clicked");
+
+    });
+    
+});

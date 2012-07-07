@@ -1,4 +1,13 @@
-
+var geoSuccess = function (position) {
+    console.log('Latitude: '        + position.coords.latitude          + '\n' +
+                'Longitude: '         + position.coords.longitude         + '\n' +
+                'Altitude: '          + position.coords.altitude          + '\n' +
+                'Accuracy: '          + position.coords.accuracy          + '\n' +
+                'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+                'Heading: '           + position.coords.heading           + '\n' +
+                'Speed: '             + position.coords.speed             + '\n' +
+                'Timestamp: '         + position.timestamp                + '\n');
+};
 //this will load the data.json on the infants browsing page
 //load the data.json
 
@@ -141,4 +150,22 @@ $('#editChild').live('pageshow', function(){
 	//$('#addHere').editable();
 	$('p.editable').editable();
 	
+});
+
+$('#location').on('pageshow', function(){
+  console.log("location page");
+                  
+  var popUp = function (){
+      navigator.notification.alert(
+           'At Location',                                  //Message
+           onConfirm,                                      //callback
+           'Success',                                      //title
+           'Okay');                                        //buttonName
+  };
+                  
+  $('#getLocation').on("click", function(){
+        console.log("clicked");
+
+    });
+    
 });

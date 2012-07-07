@@ -9,8 +9,9 @@ var cForm 				= $('#contactForm');
 var submitInfo          = $('#send');
 var clearData           = $('#clear');
 
-
-//**********************************************************************Key functions
+function onConfirm(){
+    $.mobile.changePage('#browse');
+}
 
 //**************************************************************infoForm.live is right here
 $('#infoForm').live('pageinit', function(){
@@ -23,8 +24,6 @@ $('#infoForm').live('pageinit', function(){
         console.log("box checked");
         $('#messageBlock').fadeIn('slow');
     });	                  
-
-//****************************************************************functions
 
     //*********************************get checkBox value
     var getCheckBoxes = function (){
@@ -80,14 +79,8 @@ $('#infoForm').live('pageinit', function(){
             list.append("<option>" + opText + "</option>").trigger('refresh');
  		}
  	};
-                    
-                    
-    function onConfirm(){
-         $.mobile.changePage('#browse');
-    }
 
 //***************************Listen for the Add Child button push to storeData
-//    var storeData = function (){
     var storeData = function (){
 
         cForm.validate();                                                   //validate the form before it's sent

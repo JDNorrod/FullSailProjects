@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C425F43015A8AB1400F7BE46 /* www in Resources */ = {isa = PBXBuildFile; fileRef = C425F42F15A8AB1400F7BE46 /* www */; };
 		C442EC8F15A6247900DA90E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C442EC8E15A6247900DA90E3 /* Foundation.framework */; };
 		C442EC9115A6247900DA90E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C442EC9015A6247900DA90E3 /* UIKit.framework */; };
 		C442EC9315A6247900DA90E3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C442EC9215A6247900DA90E3 /* CoreGraphics.framework */; };
@@ -37,11 +38,10 @@
 		C442ECD715A6247900DA90E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C442ECD615A6247900DA90E3 /* AppDelegate.m */; };
 		C442ECDA15A6247900DA90E3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C442ECD915A6247900DA90E3 /* MainViewController.m */; };
 		C442ECDC15A6247900DA90E3 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C442ECDB15A6247900DA90E3 /* MainViewController.xib */; };
-		C442ECF215A7552E00DA90E3 /* www in Resources */ = {isa = PBXBuildFile; fileRef = C442ECF115A7552E00DA90E3 /* www */; };
-		C442ECF315A75C6100DA90E3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C442EC9C15A6247900DA90E3 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C425F42F15A8AB1400F7BE46 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		C442EC8A15A6247900DA90E3 /* DayCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C442EC8E15A6247900DA90E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C442EC9015A6247900DA90E3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -79,7 +79,6 @@
 		C442ECDB15A6247900DA90E3 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = Classes/MainViewController.xib; sourceTree = "<group>"; };
 		C442ECDE15A6247900DA90E3 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		C442ECDF15A6247900DA90E3 /* verify.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = verify.sh; sourceTree = "<group>"; };
-		C442ECF115A7552E00DA90E3 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C442ECF315A75C6100DA90E3 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +153,7 @@
 		C442ECA815A6247900DA90E3 /* DayCare */ = {
 			isa = PBXGroup;
 			children = (
-				C442ECF115A7552E00DA90E3 /* www */,
+				C425F42F15A8AB1400F7BE46 /* www */,
 				C442ECB115A6247900DA90E3 /* Cordova.framework */,
 				C442ECB315A6247900DA90E3 /* Resources */,
 				C442ECD415A6247900DA90E3 /* Classes */,
@@ -332,7 +330,7 @@
 				C442ECD115A6247900DA90E3 /* Capture.bundle in Resources */,
 				C442ECD315A6247900DA90E3 /* Cordova.plist in Resources */,
 				C442ECDC15A6247900DA90E3 /* MainViewController.xib in Resources */,
-				C442ECF215A7552E00DA90E3 /* www in Resources */,
+				C425F43015A8AB1400F7BE46 /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

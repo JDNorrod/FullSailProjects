@@ -62,3 +62,10 @@ h1{
 h4{
     color: #FF6633;
 }
+#map_canvas.html{height: 100%}
+#map_canvas.body{height: 100%;
+ 	margin: 0; 
+ 	padding: 0
+ }
+ #map_canvas{height: 100%}
+
