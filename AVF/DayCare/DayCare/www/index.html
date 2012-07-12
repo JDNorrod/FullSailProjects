@@ -19,28 +19,54 @@
                 <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
                 <script src="js/modernizr.custom.min.js"></script>
                 <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
-                <script type="text/javascript">
-                    
-                    function onBodyLoad()
-                    {		   
-                        document.addEventListener("deviceready", onDeviceReady, false);
-                    }
-                    
-                    /* When this function is called, Cordova has been initialized and is ready to roll */
-                    /* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
-                     see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
-                     for more details -jm */
-                    function onDeviceReady()
-                    {
-                        // do your thing!
-                        //navigator.notification.alert("Cordova is working")
-                    }
-                    
-        </script>
-    </head>
-    <body onload="onBodyLoad()">
+                </head>
+    <body>
         
-        <!-- This will be the home page-->
+        <!--Demo page***************************************************-->
+        <div data-role="page" id="demo" data-theme="a">
+            <div id="demoBackgroundContent">
+                <img src="resources/mdv_logo.png"></img>
+            </div>
+            
+            <div class="content" id="iosContent">
+                <h3 class="iosText">iOS Content</h3>
+                <img class="icon" src="resources/apple.png"/>
+                <div id="buttonLinks" class="buttonLinks">
+                    <a href="geo.html"><span class="smallButton" id="iosGeoLink">Geo</span></a></br>
+                    <a href="#infoForm"><span class="smallButton" id="iosNotLink">Notifications</span></a>
+                </div>
+            </div>
+            
+            <div class="content" id="androidContent">
+                <h3 class="androidText">Android Content</h3> 
+                <img class="icon" src="resources/google_android.png"/>
+                <div id="buttonLinks" class="buttonLinks">
+                    <a href="geo.html"><span class="smallButton" id="iosGeoLink">Geo</span></a></br>
+                    <a href="#infoForm"><span class="smallButton" id="iosNotLink">Notifications</span></a>
+                </div>
+            </div>
+            
+            <div class="content" id="videoContent">
+                <h3>Video Content</h3>
+            </div>
+            
+            <div class="content" id="researchContent">
+                <h3>Research Content</h3>
+            </div>
+            
+            <!--footer-->    
+            <div data-role="footer" data-position="fixed">
+                <span class="button" id="ios"><div class="innerDiv"><label class="iosText">iOS</label></div></span>
+                <span class="button"><div class="innerDiv">Original CRUD</div></span>
+                <span class="button" id="android"><div class="innerDiv"><label class="androidText">Android</label></div></span>
+                <span class="button" id="video"><div class="innerDiv">Videos</div></span>
+                <span class="button"><div class="innerDiv">Revised CRUD</div></span>
+                <span class="button" id="research"><div class="innerDiv">Research</div></span>
+            </div><!--close footer-->
+        </div><!--close demo page-->
+        
+        
+        <!--Home page***************************************************-->
         <div data-role="page" id="home" data-theme="a">
             
             <div data-role="header" data-position="inline" data-theme="a">
@@ -51,13 +77,14 @@
                 <a href="#infoForm" data-ajax="false" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
             </div><!--close header-->
             <div data-role="content">
-                <div id="background">
+                <div class="background" id="background">
                     <img src="resources/bkg.png"/>
                 </div><!--close background-->   
                 <div data-role="controlgroup">
                     <a href="#infoForm"   data-ajax="false" data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right">Add a New Child</a>
                     <a href="#browse" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse Children</a>
-                    <a href="#location" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Location Check-in</a>
+                    <a href="geo.html" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Location Check-in</a>
+                    <a href="#demo" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Return to Demo</a>
                 </div><!--close controlGroup-->  
             </div><!--close content-->
         </div><!-- close home page-->
@@ -79,24 +106,6 @@
                         <h3>Section 1</h3>
                         <p>I'm the collapsible set content for section.&nbsp;&nbsp;<a href="#">Edit</a> &nbsp;&nbsp;<a href="#">Delete</a></p>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!--end browse page***************************************************-->
-        <!--geo page***************************************************-->
-        <div data-role="page" id="location" data-add-back-btn="true" data-theme="a">
-            
-            <div data-role="header" data-position="inline" data-theme="a">
-                <div class="logo">
-                    <img src="resources/logo.png" />
-                </div>
-                <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
-                <a href="#infoForm" data-ajax="false"  data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
-            </div>
-            
-            <div data-role="content">
-                <div id="buttons">
-                    <a href="#" data-role="button" id="getLocation" data-icon="delete">Check-In</a>
                 </div>
             </div>
         </div>
@@ -175,13 +184,9 @@
         <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.js"></script>
         <script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
         <script type="text/javascript" src="js/jquery.validate.min.js" ></script>
-        <!--<script src="/_utils/script/json2.js"></script>
-         <script src="/_utils/script/jquery.couch.js?0.8.0"></script> -->
-        <script type="text/javascript" src="js/features.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/demo.js"></script>
         <script type="text/javascript" src="js/browse.js"></script>
-        <script type="text/javascript" src="js/jquery.couch.js"></script>
-        <script type="text/javascript" src="cordova-1.8.1.js"></script>
         
     </body>
 </html>
