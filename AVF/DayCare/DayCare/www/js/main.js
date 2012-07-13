@@ -39,21 +39,9 @@ $('#infoForm').live('pageinit', function(){
     };
 
     //*********************************get Radio value
-    var setCheckBoxes = function (myBox){
-        console.log("my box is: " + myBox);
-        if(myBox === "Yes"){
-            $('input[name=allergy]').attr('checked', true);                 //set the checkbox
-            $('input[name=allergy]').checkboxradio("refresh");              //refresh the checkbox
-
-            $('#messageBlock').fadeIn('slow');
-        }
-    };
-
-    //*********************************get Radio value
     var getRadio = function (){
         console.log($('input:radio[name=trained]:checked').val());
-        return($('input:radio[name=trained]:checked').val());
-
+            return($('input:radio[name=trained]:checked').val());
     };
     //*********************************set the radio value for edit
     var setRadio = function (myRadio){
@@ -90,19 +78,22 @@ $('#infoForm').live('pageinit', function(){
             //gather form field values and store in object
             //object props contain array with form label and input val
             var item        = {'_id':'child:' + id};
-
-            getCheckBoxes(item.allergy);
-            //item._id		= "child:" + id;
             item.group		= ["Age Group: ", ($("#selector").val())]; 		//drop down box
             item.fname		= ["First Name: ", $('#fName').val()]; 	        //first name
             item.lname		= ["Last Name: ", $('#lName').val()]; 	    	//last name
             item.bday		= ["Birthday: ", $('#bday').val()]; 		    //birthday
-            //item.allergy	= ["Has Allergy?: ", check1];			        //checkbox/allergy
             item.trained	= ["Is Trained?: ", getRadio()];			    //radios/attends life group?
+            item.allergy    = ["Has Allergy?: ", getCheckBoxes()];          //checkbox/allergy
             item.comment	= ["Message: ", $('#message').val()];		    //extra notes
             console.log("This is what I will post: ", item);
 
-            localStorage.setItem(id, JSON.stringify(item));
+            window.localStorage.setItem(id, JSON.stringify(item));
+            navigator.notification.alert(                                   //phoneGap notification
+                                         'Child Added',                     //Message
+                                         onConfirm,                         //callback
+                                         'Success',                         //title
+                                         'Okay');                           //buttonName
+            
             //var saveThis = JSON.stringify(item);
             //$db = $.couch.db('dbkids');
 /*            $.couch.db('dbkids').saveDoc(item, {
@@ -115,6 +106,7 @@ $('#infoForm').live('pageinit', function(){
                             'Okay');                                        //buttonName
                 }//close success
             });//close couch        */
+                    
         }//close if form valid
     }//close storeData
                     

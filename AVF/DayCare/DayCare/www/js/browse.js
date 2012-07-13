@@ -15,7 +15,7 @@ $('#browse').live('pageinit', function(){
 	console.log("We are live");
 	$('#underSix').empty();
 
-        //******************************************** load json
+        /******************************************** load json
         $.ajax({
             url: '_view/kids',                        	 //this is where my json is located
             type: 'GET',                                 //What do we want to do?  get or post
@@ -36,7 +36,16 @@ $('#browse').live('pageinit', function(){
                      
                      }); // close $.each
                 }//close Success function
-        });
+        });*/
+                  for(var i = 0; i < window.localStorage.length; i++){
+                  var storageKey = window.localStorage.key(i);                          //retrieve all keys in local
+                  console.log(storageKey);
+                  var theData = window.localStorage.getItem(storageKey);
+                  var object = JSON.parse(theData);
+                  console.log("data: ", object);
+                  $('#underSix').append('<div data-role="collapsible">' +
+                                        '<h3>' + object.fname[1] + '</h3>').trigger('create');
+                  }
         console.log($('#jsonList'));
 });
 
@@ -78,7 +87,10 @@ $('#editChild').live('pageshow', function(){
 	
     //******************************************** 		//*****4. load json for that id from URL
     var loadChild = function (myChild){
-		$.couch.db('dbkids').openDoc(myChild, {
+    var data = window.localStorage.getItem(myChild);
+    console.log("loaded: ", data);
+
+        /*$.couch.db('dbkids').openDoc(myChild, {
 			success: function(data) {
 				
 				setObject(data);						//****5a pass the entire object to setObject (2p up)
@@ -91,7 +103,7 @@ $('#editChild').live('pageshow', function(){
             	//$('#allergy').html(data.allergy[1]);
             	$('#comment').html(data.comment[1]);
 	         }//close Success function
-	    });//close couchdb call
+	    });//close couchdb call*/
     }//close loadChild
     
     loadChild(childToManip);								//current child = the full data of the child
@@ -136,14 +148,16 @@ $('#editChild').live('pageshow', function(){
         //item.allergy 		= ['Has Allergy?: ', $('#allergy').val()];
         updateItem.comment 	= ['Message: ', $('#comment').html()];
        
-        $.couch.db('dbkids').saveDoc(updateItem, {                       
+/*        $.couch.db('dbkids').saveDoc(updateItem, {                       
             success: function(data) { 
             	console.log("All your base are belong to us");
             	console.log(status);
             	$.mobile.changePage( "index.html", { transition: "slidedown"} );
             	
             }//close success
-        });//close couch call
+        });//close couch call   */
+                    
+        window.localStorage.setItem(updateItem._id, updateItem);
             
 	});//close update function
    
