@@ -118,3 +118,4 @@ $('#infoForm').live('pageinit', function(){
     //populate the drop box
     createDrop();                                              //populate the drop box
 });
+
