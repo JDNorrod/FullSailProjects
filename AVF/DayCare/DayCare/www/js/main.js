@@ -102,10 +102,10 @@ $('#infoForm').live('pageinit', function(){
             item.comment	= ["Message: ", $('#message').val()];		    //extra notes
             console.log("This is what I will post: ", item);
 
-            //localStorage.setItem(id, JSON.stringify(item));
+            localStorage.setItem(id, JSON.stringify(item));
             //var saveThis = JSON.stringify(item);
             //$db = $.couch.db('dbkids');
-            $.couch.db('dbkids').saveDoc(item, {
+/*            $.couch.db('dbkids').saveDoc(item, {
             	success: function(data) {
             		console.log(status);
                     navigator.notification.alert(
@@ -114,7 +114,7 @@ $('#infoForm').live('pageinit', function(){
                             'Success',                                      //title
                             'Okay');                                        //buttonName
                 }//close success
-            });//close couch
+            });//close couch        */
         }//close if form valid
     }//close storeData
                     
