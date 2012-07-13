@@ -9,13 +9,15 @@ h4{
 	padding: 0px;
 }
 
-
 #demoBackgroundContent{
+    text-align: center;
+	margin-left:0 auto;
+	margin-right:0 auto;
 	position=fixed;	
 }
 
 .blue{
-	color: #39C !important;
+	color: #39E !important;
 	text-align: center;
 	margin-left:0 auto;
 	margin-right:0 auto;
