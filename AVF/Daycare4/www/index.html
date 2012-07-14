@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title></title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="utf-8">
+            <!-- Mobile IE needs ClearType for smoothing fonts -->
+            <meta http-equiv="clearType" content="on">
+                
+                <!-- StyleSheets under here -->
+                <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+                <link rel="stylesheet" href="style.css"/>
+                <link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.css" rel="stylesheet" /> 
+                <link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
+                <link type="text/css" href="http://dev.jtsage.com/jQM-DateBox/css/demos.css" rel="stylesheet" /> 
+                <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+                
+                <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+                <script src="js/modernizr.custom.min.js"></script>
+                <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
+                <script src="http://vjs.zencdn.net/c/video.js"></script>
+    </head>
+    <body>
+        
+        <!--Demo page***************************************************-->
+        <div data-role="page" id="demo" data-theme="a">
+            <div id="demoBackgroundContent">
+                <img src="resources/mdv_logo.png"></img>
+            </div>
+            
+            <div class="content" id="iosContent">
+                <h3 class="iosText">iOS Content</h3>
+                <img class="icon" src="resources/apple.png"/>
+                <div id="buttonLinks" class="buttonLinks">
+                    <a href="geoPage.html" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a></br>
+                    <a href="#infoForm" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a>
+                </div>
+            </div>
+            
+            <div class="content" id="androidContent">
+                <h3 class="androidText">Android Content</h3> 
+                <img class="icon" src="resources/google_android.png"/>
+                <div id="buttonLinks" class="buttonLinks">
+                    <a href="geoPage.html" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a></br>
+                    <a href="#infoForm" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a>
+                </div>
+            </div>
+            
+            <div class="content" id="videoContent">
+                <h3 class="blue">Video Content</h3>
+                <h4>Week 1</h4>
+                <video id="my_video_1" class="video-js vjs-default-skin" controls
+                    preload="auto" width="320" height="132">
+                    <source src="resources/AVFwk1.mp4" type='video/mp4'>
+                    <source src="resources/AVFwk1.webm" type='video/webm; codecs="vp8, vorbis"'>
+                </video>
+                <video id="my_video_2" class="video-js vjs-default-skin" controls
+                    preload="auto" width="320" height="132">
+                    <source src="resources/AVFwk1.mp4" type='video/mp4'>
+                        <source src="resources/AVFwk1.webm" type='video/webm; codecs="vp8, vorbis"'>
+                </video>
+            </div>
+            
+            <div class="content" id="researchContent">
+                <h3 class="blue">Research Content</h3>
+            </div>
+            
+            <!--footer-->    
+            <div data-role="footer" data-position="fixed">
+                <span class="button" id="ios"><div class="innerDiv"><label class="iosText">iOS</label></div></span>
+                <span class="button" id="cloudant"><a href="http://jdnorrod.cloudant.com/dbkids/_design/app/index.html">
+                <div class="innerDiv">Original CRUD</div></a></span>
+                <span class="button" id="android"><div class="innerDiv"><label class="androidText">Android</label></div></span>
+                <span class="button" id="video"><div class="innerDiv">Videos</div></span>
+                <span class="button" id="ghPage"><a href="#home"><div class="innerDiv">Revised CRUD</div></a></span>
+                <span class="button" id="research"><div class="innerDiv">Research</div></span>
+            </div><!--close footer-->
+        </div><!--close demo page-->
+        
+        
+        <!--Home page***************************************************-->
+        <div data-role="page" id="home" data-theme="a">
+            
+            <div data-role="header" data-position="inline" data-theme="a">
+                <div class="logo">
+                    <img src="resources/logo.png" />
+                </div><!--close logo-->
+                
+                <a href="#infoForm" data-ajax="false" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+            </div><!--close header-->
+            <div data-role="content">
+                <div class="background" id="background">
+                    <img src="resources/bkg.png"/>
+                </div><!--close background-->   
+                <div data-role="controlgroup">
+                    <a href="#infoForm"   data-ajax="false" data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right">Add a New Child</a>
+                    <a href="#browse" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse Children</a>
+                    <a href="geoPage.html" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Location Check-in</a>
+                    <a href="#demo" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Return to Demo</a>
+                </div><!--close controlGroup-->  
+            </div><!--close content-->
+        </div><!-- close home page-->
+        <!--Browse page***************************************************-->
+        <div data-role="page" id="browse" data-add-back-btn="true" data-theme="a">
+            
+            <div data-role="header" data-position="inline" data-theme="a">
+                <div class="logo">
+                    <img src="resources/logo.png" />
+                </div>
+                <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
+                <a href="#infoForm" data-ajax="false"  data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+            </div>
+            
+            <div data-role="content">
+                <div id="underSix" data-role="collapsible-set">
+                    
+                    <div data-role="collapsible" id="getRidOf">
+                        <h3>Section 1</h3>
+                        <p>I'm the collapsible set content for section.&nbsp;&nbsp;<a href="#">Edit</a> &nbsp;&nbsp;<a href="#">Delete</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end browse page***************************************************-->
+        
+        <!--infoForm page***************************************************-->
+        
+        <div data-role="page" id="infoForm" data-theme="a">
+            <div data-role="header" data-position="inline" data-theme="a">
+                <div class="logo">
+                    <img src="resources/logo.png" />
+                </div>
+                <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c" data-transition="slidedown"></a>
+                <a href="#browse" id="addItem3"  data-icon="arrow-d" data-iconpos="notext" class="ui-btn-right" data-theme="c" 
+                    data-transition="slidedown" class="ui-btn-right">Browse</a>
+            </div>
+            <div data-role="content">
+                <div id="formHeading">
+                    <h1>Add A New Child</h1>
+                </div>
+                <form id="contactForm">
+                    <br />
+                    
+                    <fieldset>
+                        <legend>Please Fill out the Following info:</legend>
+                        <h4>* Indicates a required field</h4>
+                        <div data-role="fieldcontain">
+                            <label for="selector">What age group is the child?</label><select id ="selector" data-theme="c">
+                                
+                            </select><br>
+                        </div>
+                        <label for="fName"> *First Name</label><input id = "fName" type="text" name="fName" placeholder="Joe" class="required" data-theme="c"/><br>
+                        <label for="lName"> *Last Name</label><input id = "lName" type="text" name="lName" placeholder="Burns" class="required" data-theme="c"/><br>
+                        
+                        <!--<label for="bday">*Birthday (YYYYMMDD)</label><input id = "bday" type="date" name="bday" class="required date()"  data-theme="c"/><br />-->
+                        <label for="bday">Birthday (YYYY-MM-DD)</label>
+                        
+                        <input name="mydate" id="bday" type="date" data-role="datebox" data-options='{"mode": "flipbox"}'>
+                            
+                            
+                            <div data-role="fieldcontain">
+                                <fieldset data-role="controlgroup">
+                                    <legend>Potty Trained?</legend>
+                                    <input id="radios1" type="radio" name="trained" value="Yes" class="required" data-theme="c"/>
+                                    <label for="radios1">Yes</label>
+                                    <input id="radios2" type="radio" name="trained" value="No" data-theme="c"/>
+                                    <label for="radios2">Not Yet</label>
+                                </fieldset>
+                            </div>
+                            
+                            <div data-role="fieldcontain">
+                                <label for="allergy">Does your child have allergies? <br />(Please specify below)</label>
+                                <input type="checkbox" name="allergy" id="allergy" value="Yes" data-theme="c"/>
+                                <div id="messageBlock">
+                                    <label for="message"><br />Comments:<br /></label>
+                                    <textarea name="message" id="message" data-theme="c">Allergic to...</textarea><br />
+                                </div>
+                            </div>
+                            <input type="submit" id="send" value="Add Child" data-icon="arrow-r" data-iconpos="right" data-theme="b"/>
+                            </fieldset>
+                </form>
+                <form id="seeInfo">
+                    <div data-role="content">
+                        <div class="showIt" id="previewInfo" data-role="fieldcontain">
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!--<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>-->
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+        <script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
+        <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.js"></script>
+        <script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
+        <script type="text/javascript" src="js/jquery.validate.min.js" ></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/demo.js"></script>
+        <script type="text/javascript" src="js/browse.js"></script>
+        
+    </body>
+</html>
