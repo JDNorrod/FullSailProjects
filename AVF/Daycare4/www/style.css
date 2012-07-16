@@ -129,6 +129,8 @@ h3{
 	}
 h1{
 	color: #FF6633;
+    padding: 0px auto;
+    margin: 0px auto;
 }
 
 html{height: 100%}

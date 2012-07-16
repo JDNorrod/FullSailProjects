@@ -1,3 +1,5 @@
+var watchId = null;
+
 
 function onBodyLoad()
 {   
@@ -11,10 +13,12 @@ function geoSuccess(position) {
     var long    = position.coords.longitude;
     
     var myOptions = {
-    center: new google.maps.LatLng(lat, long),
-    zoom: 18,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+        center: new google.maps.LatLng(lat, long),
+        zoom: 18,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
     };
+    
+    
     var myLatlng    = new google.maps.LatLng(lat,long);
     var map         = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
     var marker      = new google.maps.Marker({
@@ -30,6 +34,12 @@ function geoError(error){
 
 function onDeviceReady()
 {
-    navigator.geolocation.watchPosition(geoSuccess, geoError);
+    var geoOpts = { enableHighAccuracy: true; };
+    watchId     = navigator.geolocation.watchPosition(geoSuccess, geoError, geoOpts);
 
+}
+
+$('#leaveGeo').bind("click", function(){
+    console.log("watch cleared");
+    navigator.geolocation.clearWatch(watchId);
 }

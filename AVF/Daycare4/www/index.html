@@ -22,6 +22,7 @@
                 <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
                 <script src="http://vjs.zencdn.net/c/video.js"></script>
     </head>
+    
     <body>
         
         <!--Demo page***************************************************-->
@@ -141,17 +142,16 @@
                     <fieldset>
                         <legend>Please Fill out the Following info:</legend>
                         <h4>* Indicates a required field</h4>
+                        <div id="myImage">
+                            <button id="takePic">Take Picture</button><!--Button to access camera, replace with picture -->
+                        </div>
                         <div data-role="fieldcontain">
                             <label for="selector">What age group is the child?</label><select id ="selector" data-theme="c">
-                                
-                            </select><br>
+                            </select>
                         </div>
-                        <label for="fName"> *First Name</label><input id = "fName" type="text" name="fName" placeholder="Joe" class="required" data-theme="c"/><br>
-                        <label for="lName"> *Last Name</label><input id = "lName" type="text" name="lName" placeholder="Burns" class="required" data-theme="c"/><br>
-                        
-                        <!--<label for="bday">*Birthday (YYYYMMDD)</label><input id = "bday" type="date" name="bday" class="required date()"  data-theme="c"/><br />-->
+                        <label for="fName"> *First Name</label><input id = "fName" type="text" name="fName" placeholder="Joe" class="required" data-theme="c"/>
+                        <label for="lName"> *Last Name</label><input id = "lName" type="text" name="lName" placeholder="Burns" class="required" data-theme="c"/>
                         <label for="bday">Birthday (YYYY-MM-DD)</label>
-                        
                         <input name="mydate" id="bday" type="date" data-role="datebox" data-options='{"mode": "flipbox"}'>
                             
                             
@@ -174,7 +174,7 @@
                                 </div>
                             </div>
                             <input type="submit" id="send" value="Add Child" data-icon="arrow-r" data-iconpos="right" data-theme="b"/>
-                            </fieldset>
+                    </fieldset>
                 </form>
                 <form id="seeInfo">
                     <div data-role="content">
@@ -194,6 +194,7 @@
         <script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
         <script type="text/javascript" src="js/jquery.validate.min.js" ></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/camera.js"></script>
         <script type="text/javascript" src="js/demo.js"></script>
         <script type="text/javascript" src="js/browse.js"></script>
         
