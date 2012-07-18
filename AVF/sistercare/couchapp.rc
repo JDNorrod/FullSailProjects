@@ -1,1 +1,6 @@
-{"env":{"staging":{"db":"https:\/\/hereetestralseedingetura:EOLeMo7mfxBtYqXG2jGdJTXF@jdnorrod.cloudant.com\/dbkids"},"default":{"db":"http:\/\/127.0.0.1:5984\/dbkids"},"production":{"db":""}}}
+{"env":{
+	"staging":{	
+		"db":"https:\/\/hereetestralseedingetura:EOLeMo7mfxBtYqXG2jGdJTXF@jdnorrod.cloudant.com\/dbkids"},
+		"default":{"db":"http:\/\/127.0.0.1:5984\/dbkids"},"production":{"db":""}
+	}
+}

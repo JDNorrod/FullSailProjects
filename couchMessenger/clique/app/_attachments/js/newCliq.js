@@ -6,8 +6,9 @@ Is probably a good idea to store username in local so each page has easy access 
 this info - possibly on login pull down latest info (cliqs, pic, etc..) to local
 ____________________________________________________*/
 
-var userName = "JDNorrod";
-var dbUser   = "user_jdnorrod"
+var userName = 'jdnorrod:78926346780739';
+var userUpdate= {"_id": "jdnorrod:78926346780739", "_rev": "d75ecc506db35b58d04bdd6f2e64d9c0"}
+var userdb   = 'cliqusers';
 
 /***************************adjustName Function  	*/
 var adjustName = function (name){
@@ -15,7 +16,7 @@ var adjustName = function (name){
 	console.log("lower: " + lowerCaseName);
 	var dbName = lowerCaseName;
 	
-	for(var i = 0; i < lowerCaseName.split(" ").length; i++){				//find out how many spaces (length is one more than amount of spaces)
+	for(var i = 0; i < lowerCaseName.split(" ").length-1; i++){				//find out how many spaces (length is one more than amount of spaces)
 		dbName = dbName.replace(" ", "_");									//4 every space, change to _
 		console.log("for: ", dbName);
 	}//close for
@@ -24,25 +25,40 @@ var adjustName = function (name){
 	return(dbName);															//return lowercase db name no spaces
 };//close adjustName
 
+var addCliqToUser = function(cliqInfo){
+	var userData;
+	$.couch.db(userdb).openDoc(userName, {								//first retrieve current list of cliqs
+		success: function(data){
+			var array = [data.hosted_cliqs];
+			array.push(cliqInfo);
+			data.hosted_cliqs = array;
+			userData = data;
+			console.log("user retrieved: ", data);	
+		}
+	})
+	
+	$.couch.db(userdb).saveDoc(userName, {								//add the cliq to user profile
+		success: function(sent){
+			console.log("cliq added to user prof");
+		}
+	})
+}
+
 var setCliqInfo = function (info){											//pass in the newCliq information (from createCliq)
 	console.log("set cliq called: ", info);
 	$.couch.db(info.adjName).saveDoc(info, {								//create new doc under cliq name for cliq info
 		success: function(sent){											//_id format for cliq info is cliq:randomNumber
 			console.log("sent: ", sent);
+			addCliqToUser(info);											//add info to user profile
 			$.mobile.changePage('#myCliques');								//return to the mycliq page
 		}//close success
 	})//close couchdb call
-	$.couch.db('user_jdnorrod').saveDoc(info, {								//add the cliq to user profile
-		success: function(sent){
-			console.log("cliq added to user prof");
-		}
-	})
 }//close setCliqInfo
 
 var getCheckBox = function (){
-    console.log($('input:checkbox[name=cliqPrivate]:checked').val());			//console log checked or not
+    console.log($('input:checkbox[name=cliqPrivate]:checked').val());		//console log checked or not
 
-    if($('input:checkbox[name=cliqPrivate]:checked').val() === "Private"){			//if checked return value (private)
+    if($('input:checkbox[name=cliqPrivate]:checked').val() === "Private"){	//if checked return value (private)
         return($('input:checkbox[name=cliqPrivate]:checked').val());
     }
     else{																	//if not check return public
