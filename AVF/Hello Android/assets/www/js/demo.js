@@ -1,9 +1,9 @@
 $('#demo').live('pageshow', function(){
-    console.log('demo.js loaded');                                  //make sure page loaded right
+    //console.log('demo.js loaded');                                  //make sure page loaded right
                 
     var toggleDisplay = function (showMe) {
     var showId = '#' + showMe + 'Content';
-    console.log(showId);
+    //console.log(showId);
     $('#demoBackgroundContent').hide();
         $('.content').hide();                               //hide all to start
         $(showId).show();                                   //show selected category (initial state is background)
@@ -13,7 +13,7 @@ $('#demo').live('pageshow', function(){
     
                 
     $('.button').bind('click', function(event){                     //watch for a button press
-        console.log('clicked: ' + $(this).attr('id'));
+        //console.log('clicked: ' + $(this).attr('id'));
         var clicked = $(this).attr('id');
         
         if((clicked == 'cloudant') || (clicked == 'ghPage')){
@@ -27,6 +27,25 @@ $('#demo').live('pageshow', function(){
         else{
             toggleDisplay(clicked);                          //send id of clicked button to toggle display
         }
+    });
+                
+    $('#network').bind("click", function(){                 //check the network connection    	
+        var checkConnection = function() {
+            var networkState = navigator.network.connection.type;
+                    
+            var states = {};
+                states[Connection.UNKNOWN]  = 'Unknown connection';
+                states[Connection.ETHERNET] = 'Ethernet connection';
+                states[Connection.WIFI]     = 'WiFi connection';
+                states[Connection.CELL_2G]  = 'Cell 2G connection';
+                states[Connection.CELL_3G]  = 'Cell 3G connection';
+                states[Connection.CELL_4G]  = 'Cell 4G connection';
+                states[Connection.NONE]     = 'No network connection';
+                       
+            alert('You are currently using: ' + states[networkState]);
+                       }
+            checkConnection();
+        
     });
     
     $('#researchContent').append(' ' + '<h4 class="blue">1. What are some of the ways that you could change your HTML on your Demo app to be more accessible? (Remember, you can use the Section tag with jQuery, for instance)</h4>' + 

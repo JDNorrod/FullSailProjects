@@ -115,7 +115,6 @@ $('#infoForm').live('pageinit', function(){
             //localStorage.setItem(id, JSON.stringify(item));
             //var saveThis = JSON.stringify(item);
             //$db = $.couch.db('dbkids');
-            $.couch.urlPrefix = "https:\/\/hereetestralseedingetura:EOLeMo7mfxBtYqXG2jGdJTXF@jdnorrod.cloudant.com"
             $.couch.db('dbkids').saveDoc(item, {
             	success: function(data) {
             		console.log(status);

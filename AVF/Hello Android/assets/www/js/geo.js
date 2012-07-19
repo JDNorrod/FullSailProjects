@@ -1,5 +1,5 @@
 function onBodyLoad()
-{	console.log("onbodyload geo.js");	
+{	
     document.addEventListener("deviceready", onDeviceReady, false);
 }
 
@@ -9,7 +9,6 @@ function runConfirm(){
 
 function onDeviceReady()
 {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);                       //run geo from phoneGap
     
     function onSuccess(position){                                                       //successful gps retrieval
         var myPos   = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -21,32 +20,14 @@ function onDeviceReady()
                'Accuracy: '          + position.coords.accuracy          + '\n' +
                'Timestamp: '         + new Date(position.timestamp)      + '\n',
                 runConfirm,                      			                	//callback
-                'No Map for Android',                         	           	//title
+                'No Map for Android',                         	       	    	//title
                 'Okay');             			            	               	//buttonName
-        console.log("All your base are belong to us");
-        
-        var myOptions = {                                                               //google map setup
-        center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),//center on position
-        zoom: 18,                                                                   //zoom in close
-        mapTypeId: google.maps.MapTypeId.ROADMAP                                    //define map type
-        };
-        
-        var map     = new google.maps.Map(document.getElementById("map_canvas"), myOptions);    //create the map and append
-        var myPoint = new google.maps.Marker({
-                                             position: myPos,
-                                             map: map,
-                                             title: "You"
-                                             });
-        var dayCare = new google.maps.Marker({
-                                             position: homePos,
-                                             map: map,
-                                             animation: google.maps.Animation.BOUNCE,
-                                             title: "Destination"
-                                             });
-    }
+        //console.log("All your base are belong to us");
+    }//close on success;
     function onError(error) {
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
+    
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);                       //run geo from phoneGap
 }
-//onBodyLoad();
