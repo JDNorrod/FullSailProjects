@@ -1,0 +1,160 @@
+<!--Jay Norrod-->
+
+<!doctype html>  
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    
+    <title>Destiny Kids</title>
+    
+    <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Mobile IE needs ClearType for smoothing fonts -->
+    <meta http-equiv="clearType" content="on">
+        
+    <script type="text/javascript" src="cordova-1.9.0.js"></script>
+    
+    <!-- StyleSheets under here -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+    <link rel="stylesheet" href="style.css"/>
+    <link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.css" rel="stylesheet" /> 
+	<link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
+	<link type="text/css" href="http://dev.jtsage.com/jQM-DateBox/css/demos.css" rel="stylesheet" /> 
+    
+    <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+    <script src="js/modernizr.custom.min.js"></script>
+
+</head>
+<body>
+
+    <!-- This will be the home page-->
+    <div data-role="page" id="home" data-theme="a">
+
+	    <div data-role="header" data-position="inline" data-theme="a">
+	        <div class="logo">
+	            <img src="resources/logo.png" />
+	        </div>
+	         
+	        <a href="#infoForm" data-ajax="false" data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+	    </div>
+	    <div data-role="content">
+	        <div class="background">
+	            <img src="resources/bkg.png"/>
+	        </div>   
+	        <div data-role="controlgroup">
+				<a href="#infoForm"   data-ajax="false" data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right">Add a New Child</a>
+				<a href="#browse" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse Children</a>
+                <a href="index.html" rel="external" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Return to Demo</a>
+			</div>  
+	   	</div>
+    </div>
+    <!--Browse page***************************************************-->
+    <div data-role="page" id="browse" data-add-back-btn="true" data-theme="a">
+    
+        <div data-role="header" data-position="inline" data-theme="a">
+            <div class="logo">
+             <img src="resources/logo.png" />
+            </div>
+            <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c"></a>
+            <a href="#infoForm" data-ajax="false"  data-icon="plus" data-iconpos="notext" data-theme="c" class="ui-btn-right"></a>
+        </div>
+
+        <div data-role="content">
+            <div id="underSix" data-role="collapsible-set">
+
+                    <div data-role="collapsible" id="getRidOf">
+                        <h3>Section 1</h3>
+                        <p>I'm the collapsible set content for section.&nbsp;&nbsp;<a href="#">Edit</a> &nbsp;&nbsp;<a href="#">Delete</a></p>
+                    </div>
+                </div>
+        </div>
+   </div>
+    <!--browse page***************************************************-->
+
+   <!--infoForm page***************************************************-->
+   
+    <div data-role="page" id="infoForm" data-theme="a">
+            <div data-role="header" data-position="inline" data-theme="a">
+        <div class="logo">
+            <img src="resources/logo.png" />
+        </div>
+                <a href="#home" data-icon="home" data-iconpos="notext" data-theme="c" data-transition="slidedown"></a>
+                <a href="#browse" id="addItem3"  data-icon="arrow-d" data-iconpos="notext" class="ui-btn-right" data-theme="c" 
+                	data-transition="slidedown" class="ui-btn-right">Browse</a>
+            </div>
+            <div data-role="content">
+                <div id="formHeading">
+                    <h1>Add A New Child</h1>
+            </div>
+                <form action="" id="contactForm">
+                    <br />
+            
+                    <fieldset>
+                    <legend>Please Fill out the Following info:</legend>
+                    <h4>* Indicates a required field</h4>
+                <div data-role="fieldcontain">
+                    <label for="selector">What age group is the child?</label><select id ="selector" data-theme="c">
+
+                </select><br>
+                </div>
+                <div id="childAge" data-role="fieldContain">   
+                    <label for="sliderBar">Please select the child's age:</label><br />
+                    <input type="range" id="sliderBar" min="0" max="12" step="1" value="6" data-theme="c"><br>
+                </div>
+                    <label for="fName"> *First Name</label><input id = "fName" type="text" name="fName" placeholder="Joe" class="required" data-theme="c"/><br>
+                    <label for="lName"> *Last Name</label><input id = "lName" type="text" name="lName" placeholder="Burns" class="required" data-theme="c"/><br>
+                    
+                    <!--<label for="bday">*Birthday (YYYYMMDD)</label><input id = "bday" type="date" name="bday" class="required date()"  data-theme="c"/><br />-->
+                    <label for="bday">Birthday (YYYY-MM-DD)</label>
+
+                    <input name="mydate" id="bday" type="date" data-role="datebox" data-options='{"mode": "flipbox"}'>
+
+    
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <legend>Potty Trained?</legend>
+                        <input id="radios1" type="radio" name="trained" value="Yes" class="required" data-theme="c"/>
+                        <label for="radios1">Yes</label>
+                        <input id="radios2" type="radio" name="trained" value="No" data-theme="c"/>
+                        <label for="radios2">Not Yet</label>
+                    </fieldset>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label for="allergy">Does your child have allergies? <br />(Please specify below)</label>
+                    <input type="checkbox" name="allergy" id="allergy" value="Yes" data-theme="c"/>
+                    <div id="messageBlock">
+                        <label for="message"><br />Comments:<br /></label>
+                        <textarea name="message" id="message" data-theme="c">Allergic to...</textarea><br />
+                    </div>
+                </div>
+                    <input type="submit" id="send" value="Add Child" data-icon="arrow-r" data-iconpos="right" data-theme="b"/>
+                </fieldset>
+            </form>
+            <form id="seeInfo">
+                <div data-role="content">
+                    <div class="showIt" id="previewInfo" data-role="fieldcontain">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+        <script type="text/javascript" src="http://dev.jtsage.com/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
+		<script type="text/javascript" src="js/jquery.validate.min.js" ></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/jquery.couch.js"></script>
+        <script type="text/javascript" src="js/browse.js"></script>
+        <script type="text/javascript" src="js/jquery.couch.js"></script>
+
+</body>
+</html>

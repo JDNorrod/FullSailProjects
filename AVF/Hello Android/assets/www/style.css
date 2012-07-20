@@ -16,6 +16,10 @@ h4{
 	position=fixed;	
 }
 
+.buttonLinks.a{
+	width: 30% !important;
+}
+
 .blue{
 	color: #39E !important;
 	text-align: center;
@@ -56,8 +60,8 @@ h4{
     float: left;
 }
 
-.buttonLink{
-    width: 40%;
+.buttonLink .a{
+    width: 40% !important;
 }
 .iosText{
     color: white;
@@ -129,6 +133,8 @@ h3{
 	}
 h1{
 	color: #FF6633;
+    padding: 0px auto;
+    margin: 0px auto;
 }
 
 html{height: 100%}
@@ -138,8 +144,6 @@ body{height: 100%;
  	padding: 0px;
     background-color: black;
 }
- 
-
  
 #map_canvas{
     height: 90%;
