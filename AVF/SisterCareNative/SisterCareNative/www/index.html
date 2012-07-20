@@ -16,12 +16,12 @@
                 <link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet" /> 
                 <link type="text/css" href="http://dev.jtsage.com/jQM-DateBox/css/demos.css" rel="stylesheet" /> 
                 <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
-                
-                <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-                <script src="js/modernizr.custom.min.js"></script>
-                <script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
-                <script src="http://vjs.zencdn.net/c/video.js"></script>
-    </head>
+                    
+                    <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+                    <script src="js/modernizr.custom.min.js"></script>
+                    <script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
+                    <script src="http://vjs.zencdn.net/c/video.js"></script>
+                    </head>
     
     <body>
         
@@ -33,21 +33,23 @@
             
             <div class="content" id="iosContent">
                 <h3 class="iosText">iOS Content</h3>
-                <img class="icon" id="myImage" src="resources/apple.png"/>
-                <div id="buttonLinks" class="buttonLinks">
-                    <a href="geoPage.html" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a></br>
-                    <a href="appIndex.html#infoForm" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a></br>
-                    <a id="camera" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Camera</a></br>
-                    <a id="network" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Network</a>
+                <img class="OSicon" id="myImage" src="resources/apple.png"/>
+                <div id="buttonLinks" class="buttonLinks" data-role="controlgroup" data-inline="true">
+                    <a href="geoPage.html" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a>
+                    <a href="appIndex.html#infoForm" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a>
+                    <a class="iosCamera" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Camera</a>
+                    <a class="network" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Network</a>
                 </div>
             </div>
             
             <div class="content" id="androidContent">
                 <h3 class="androidText">Android Content</h3> 
-                <img class="icon" src="resources/google_android.png"/>
-                <div id="buttonLinks" class="buttonLinks">
-                    <a href="geoPage.html" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a></br>
-                    <a href="appIndex.html#infoForm" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a>
+                <img src="resources/google_android.png" id="myAndImage" class="OSicon"/>
+                <div id="buttonLinks" class="buttonLinks" data-inline="true" data-role="controlgroup">
+                    <a href="geoPage.html" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a>
+                    <a href="appIndex.html#infoForm" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a>
+                    <a class="network" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Network</a>
+                    <a id="andCamera" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Camera</a>
                 </div>
             </div>
             
@@ -56,8 +58,8 @@
                 <h4>Week 1</h4>
                 <video id="my_video_1" class="video-js vjs-default-skin" controls
                     preload="auto" width="320" height="132">
-                    <source src="resources/AVFproj2.mp4" type='video/mp4'>
-                    <source src="resources/AVFproj2.webm" type='video/webm; codecs="vp8, vorbis"'>
+                    <source src="https://dl.dropbox.com/u/92852909/AVFwk3.mp4" type='video/mp4'>
+                    <source src="http://dl.dropbox.com/u/92852909/AVFwk3.webm" type='video/webm; codecs="vp8, vorbis"'>
                 </video>
             </div>
             
@@ -69,7 +71,7 @@
             <div data-role="footer" data-position="fixed">
                 <span class="button" id="ios"><div class="innerDiv"><label class="iosText">iOS</label></div></span>
                 <span class="button" id="cloudant"><a href="http://jdnorrod.cloudant.com/dbkids/_design/app/index.html">
-                <div class="innerDiv">Original CRUD</div></a></span>
+                    <div class="innerDiv">Original CRUD</div></a></span>
                 <span class="button" id="android"><div class="innerDiv"><label class="androidText">Android</label></div></span>
                 <span class="button" id="video"><div class="innerDiv">Videos</div></span>
                 <span class="button" id="ghPage"><a rel="external" href="appIndex.html"><div class="innerDiv">Revised CRUD</div></a></span>

@@ -44,4 +44,5 @@ homebutton.addEventListener("click", function(){
                             
     console.log("watch cleared");
     navigator.geolocation.clearWatch(watchId);
+//    $.mobile.changePage('index.html');
 });
