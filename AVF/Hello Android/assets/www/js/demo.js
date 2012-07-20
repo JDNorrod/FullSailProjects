@@ -29,7 +29,7 @@ $('#demo').live('pageshow', function(){
         }
     });
                 
-    $('#network').bind("click", function(){                 //check the network connection    	
+    $('.network').bind('click', function(){                 //check the network connection    	
         var checkConnection = function() {
             var networkState = navigator.network.connection.type;
                     
@@ -48,26 +48,42 @@ $('#demo').live('pageshow', function(){
         
     });
     
-    $('#researchContent').append(' ' + '<h4 class="blue">1. What are some of the ways that you could change your HTML on your Demo app to be more accessible? (Remember, you can use the Section tag with jQuery, for instance)</h4>' + 
-        '<p>Some of the ways to make HTML for accessible are quite easy: ' + 
-        '</br>-Use “Alt” in all images and videos to describe textually what the media is providing to users who can see it.' + 
-        '</br>-Make sure that your page is viewable even without CSS.  If CSS is the only reason your page can be viewed – your page is NOT accessible to a lot of people!' + 
-        '</br>-Most developers know to use web-safe colors, but are you using colors safe for the color blind?  Your page may look great with all these wonderful colors that most people can read, but will a color blind person be able to read it?</p>' + 
-        
-        '<h4 class="blue">2. Visit a video service on the web (like YouTube) and search for "Screen Reader Demo" and "Mobile Screen Reader" - what are some of the common frustrations (or common support mechanisms) that you see among the examples that are given - how could you fix them (or use them)?</h4>' + 
-        
-        '<p>Job Access with Speech (JAWS) is a program for reading screens to a user.  I would say one of the biggest drawbacks across the board is price and finesse.  These readers can be quite expensive, JAWS being close to $1,000.  In regards to operation and usability, the speech on most of these programs is very hard on the ears.  They are monotonous and hard to listen to for a very long time.  Companies will spend countless dollars and manpower trying to make a great visual interface for their application but the majority of these screen readers have a very rough voice talking to the user.' + 
-        
-        '</br>Really the best way to get around the rough interface of the screen reader is to spend the time making sure that users can quickly and proficiently utilize your application.  Imagine having to navigate a new website by ear and the links to all the pages are scattered in a counter-intuitive manner.  I would give up and go to another site.  Structure can help the user to quickly use your site/application with out too much pain of the annoying voice screaming at them.</p>' + 
-        
-        
-        '<h4 class="blue">3.  Devices: Please list two devices (and some of their features) that are made specifically to support Accessibility: </h4>' + 
-        '<p>The iPhone is not specifically engineered to be a device for the impaired but it grows closer to it every day.  With voice activated features and Siri, the iphone is able to dictate to the user or receive instruction from the user.  If the user is looking for a certain app, they’ll be able to open it via verbal instruction or, setup their iPhone to tell them which app they are opening when it opens.' + 
-        
-        '</br>The Clarity Alert Master is a device for the hearing impaired which alerts users to certain activity they would otherwise be unaware of.  Whenever there’s a knock at the door, someone rings the doorbell, the phone rings or the alarm clock goes off – this piece of equipment notifies the user via vibration or visual alerts.  There is a base station and a remote station which can be setup so that a flash of light will be seen to alert that someone is at the door, or the phone is ringing; and there’s a vibration mode to wake the user out of sleep at the appropriate time.  Accessibility is all about overcoming obstacles and this one does it.</p>' +
-        
-        '<h4 class="blue">4.  Mobile Apps: Please list two apps (either Android or iOS, or both) that are made specifically to support Accessibility: </h4>' + 
-        '<p>The LookTel Money reader is a pretty unique application made by Ipplex that helps those who are vision impaired.  The user holds a form of currency up to the camera on the phone and LookTel will analyze and tell the user verbally what form of currency they are holding and what amount.  Come to think of it, next time I go out of country – I may download the app myself!' + 
-        
-        '</br>BuzzCards, a great application for the hearing impaired, stores lists of commonly used phrases, words and terms so that they can be used in a hurry.  I would venture to say that just because a person is hearing impaired does not mean they don’t like coffee – and I’d also be willing to be very few starbucks employees understand sign language.  This is no problem for BuzzCards users.  Just open the app, find your card where you’ve stored your order and show it to the attendant!</p>');
+    $('#researchContent').append(' ' + 
+    		'<h4>App-Store Giants</h4>' + 
+    		'<p>Undeniably the top selling category across all stores and all devices is the games category.  Narrowing it down to puzzles, action etc... is a bit more difficult. Regardless, games have been dominating the mobile market over the years with the U.S, U.K and Japan having the tendency to generate the most revenue in the stores (and remarkably so); the trophy goes to the category of games for each of them.</p>' + 
+    		'<p>Over the years, games have predominately held the most amount of top ten in the markets.  The USA and UK has held many social media applications in the coveted top ten lists, most notably of which being Face Book; supposedly having the most downloads of all time.  Japan leans towards placing entertainment higher than social media, but not with much distinction.</p>' + 
+    		'<p>Looking at the market over the years is proof of one undeniable thing that people want in their device; a micro break.  A clear majority of top applications can be played or used for a short amount of time.  Playing a quick round of poker, trying to beat that one level or checking in at a certain location to let friends know what is for lunch.  People are looking for a quick fix, you will stand a much better chance at topping the charts with a micro-break type game.</p>' +
+    		'<p>Specifically looking at the Japanese/Asian market, the most successful applications are those, which had a successful level of localization.  I believe personally that the Asian market is more willing than any other to consider games that have not been localized with Americans being the least willing to tolerate anything foreign.  On the contrary, those games that are successfully localized seem to become incredibly popular.</p>' +
+
+    		'<h4>Talking OS</h4>' +
+    		'<p>Speaking overall, as of July 2, 2012 - 64% of Android users are using Gingerbread version 2.3.X.  A stunning statistic being the current release of Ice Cream Sandwich is at 4.0.X .  When compared to the fact that well over 90% of iOS users are on the most recent release, it must be noted that just about every iOS device is capable of being upgraded to the newest OS.  Android devices have differing hardware capabilities which, limit many users from upgrading, while still providing a cheaper option to access the smartphone hysteria.</p>' +
+    		'<p>In Developing for the Android OS, consideration has to be made both for current customer base and future usage.  It would make no sense to build an application that targets OS 2.3.X if the phones that operate on 2.3.X are likely to become deprecated over the next year.  On the contrary, targeting the more recent OS can result in such a small base of audience the application may never have a chance to come to a true fruition.</p>' +
+
+    		'Carrier Limitations</h4>' + 
+    		'<p>Currently, approximately 2% of mobile users consume more than 2GB of data per month whereas an amazing 65% use less than 200 megabytes per month.  Adjustments to data plans have been made to accommodate this meaning that a majority of users will be capped at 200MB and paying average $15-20 to do so.  Data intensive applications have so far been put to the wayside but with 4G capability rolling out over the country, I would be willing to be we will see a rise in data consumption as the masses see the potential of such incredible speeds.  Movie applications will no longer need as long to buffer, face time chats will be done anywhere and everywhere and mobile hotspots will likely see increases as users realize their phone can serve as a data source in a bind.</p>' +
+
+    		'<h4>The Bottom Line</h4>' +
+    		'<p>Taking all things into consideration, it is tempting to say we should go right now and develop a game, deploy it to iOS and Android 2.3+ for the US and UK (since localization is a little blurry between the two) and possibly work on localization for Japan at a later date.  If we want to be in the top we are going to be in the top it would make sense that a game will most likely get us there right?</p>' + 
+    		'<p>The problem is, that while the majority of the chart toppers are games, the majority of the applications in the stores are also games.  A person would stand a much better chance at topping a category with less applications and in result gain more attention. It may take 3,000 downloads per day in order to be in the top ten for games, but it may only take 500 per day in a category like productivity.  If you can gain a spotlight in a lesser category, you will still achieve high results; sure we are not making $1 million a month like we dream of, but maybe with a bit more revenue we can move on to stage 2.</p>' +
+    		'<p>Stage 2: One thing that can be ascertained by the most remarkable app store downloads is a little thing called legacy.  Angry Birds outer space broke incredible records on its release due to the hype of the already existing game.  Tetris has continued to be a popular game on any platform for over twenty years.  These legendary titles have a power to draw the masses based on a name.  Develop a small name, using a less than chart topping app and you may be able to propel yourself into the number one spot.  Think of it as drafting up to the competition like racers do.</p>' +
+    		
+    		
+    		'<ul><li>(2010 UK) http://www.netimperative.com/news/2010/october/data-most-downloaded-mobile-apps-by-sector</li>' + 
+
+    		'<li>(uk top)http://appherald.co.uk/iphone/top-grossing-iphone-app/</li>' +
+
+    		'<li>(usa top)http://www.gabor-nagy.com/top300.html</li>' +
+
+    		'<li>(top 10 all)http://www.apple.com/euro/itunes/charts/apps/top10appstorepaid.html</li>' +
+
+    		'<li>(2011 all)http://www.huffingtonpost.com/2011/12/23/most-popular-apps-2011_n_1167623.html</li>' +
+
+    		'<li>(Angry Birds)http://www.digitaltrends.com/mobile/simply-amazing-angry-birds-space-sets-new-record-with-50-million-downloads-in-35-days/</li>' +
+
+    		'<li>(Asia analytics)http://techcrunch.com/2011/06/21/distimo-china-now-the-second-largest-iphone-app-market-after-the-u-s/</li>' +
+
+    		'<li>(Android OS current)http://developer.android.com/about/dashboards/index.html</li>' +
+
+    		'<li>(Data plans)http://www.smartmoney.com/spend/technology/understanding-new-data-plan-pricing/</li></ul>');
+
 });

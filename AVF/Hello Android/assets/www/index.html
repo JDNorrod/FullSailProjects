@@ -33,22 +33,23 @@
             
             <div class="content" id="iosContent">
                 <h3 class="iosText">iOS Content</h3>
-                <img class="icon" id="myImage" src="resources/apple.png"/>
-                <div id="buttonLinks" class="buttonLinks">
-                    <a href="geoPage.html" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a></br>
-                    <a href="appIndex.html#infoForm" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a></br>
-                    <a id="camera" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Camera</a></br>
-                    <a id="iOSnetwork" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Network</a>
+                <img class="OSicon" id="myImage" src="resources/apple.png"/>
+                <div id="buttonLinks" class="buttonLinks" data-role="controlgroup" data-inline="true">
+                    <a href="geoPage.html" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a>
+                    <a href="appIndex.html#infoForm" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a>
+                    <a class="iosCamera" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Camera</a>
+                    <a class="network" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Network</a>
                 </div>
             </div>
             
             <div class="content" id="androidContent">
                 <h3 class="androidText">Android Content</h3> 
-                <img class="icon" src="resources/google_android.png"/>
-                <div id="buttonLinks" class="buttonLinks">
-                    <a href="geoPage.html" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a></br>
-                    <a href="appIndex.html#infoForm" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a>
-                    <a id="network" data-role="button" data-inline="true" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Network</a>
+                <img src="resources/google_android.png" id="myAndImage" class="OSicon"/>
+                <div id="buttonLinks" class="buttonLinks" data-inline="true" data-role="controlgroup">
+                    <a href="geoPage.html" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a>
+                    <a href="appIndex.html#infoForm" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a>
+                    <a class="network" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Network</a>
+                    <a id="andCamera" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Camera</a>
                 </div>
             </div>
             
