@@ -31,28 +31,29 @@
                 <img src="resources/mdv_logo.png"></img>
             </div>
             
+            <!--ios section-->
             <div class="content" id="iosContent">
                 <h3 class="iosText">iOS Content</h3>
                 <img class="OSicon" id="myImage" src="resources/apple.png"/>
                 <div id="buttonLinks" class="buttonLinks" data-role="controlgroup" data-inline="true">
-                    <a href="geoPage.html" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a>
-                    <a href="appIndex.html#infoForm" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a>
-                    <a class="iosCamera" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Camera</a>
-                    <a class="network" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Network</a>
+                    <a href="geoPage.html" data-ajax="false" class="white">Geo Location</a>
+                    <a href="appIndex.html#infoForm" data-ajax="false" class="white">Notifications</a>
+                    <a data-ajax="false" class="white">Camera</a>
+                    <a data-ajax="false" class="white iosCamera">Network</a>
                 </div>
             </div>
-            
+            <!--Android section-->            
             <div class="content" id="androidContent">
                 <h3 class="androidText">Android Content</h3> 
                 <img src="resources/google_android.png" id="myAndImage" class="OSicon"/>
                 <div id="buttonLinks" class="buttonLinks" data-inline="true" data-role="controlgroup">
-                    <a href="geoPage.html" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Geo Location</a>
-                    <a href="appIndex.html#infoForm" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Notifications</a>
-                    <a class="network" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Network</a>
-                    <a id="andCamera" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Camera</a>
+                    <a class="green" href="geoPage.html">Geo Location</a>
+                    <a class="green" href="appIndex.html#infoForm">Notifications</a>
+                    <a class="network green">Network</a>
+                    <a class="green" id="andCamera">Camera</a>
                 </div>
             </div>
-            
+            <!--Video section-->
             <div class="content" id="videoContent">
                 <h3 class="blue">Video Content</h3>
                 <h4>Week 1</h4>
@@ -62,17 +63,17 @@
                     <source src="http://dl.dropbox.com/u/92852909/AVFwk3.webm" type='video/webm; codecs="vp8, vorbis"'>
                 </video>
             </div>
-            
+            <!--Android section-->
             <div class="content" id="researchContent">
                 <h3 class="blue">Research Content</h3>
             </div>
             
             <!--footer-->    
-            <div data-role="footer" data-position="fixed">
-                <span class="button" id="ios"><div class="innerDiv"><label class="iosText">iOS</label></div></span>
-                <span class="button" id="cloudant"><a href="http://jdnorrod.cloudant.com/dbkids/_design/app/index.html">
-                    <div class="innerDiv">Original CRUD</div></a></span>
-                <span class="button" id="android"><div class="innerDiv"><label class="androidText">Android</label></div></span>
+            <div data-role="footer" data-position="fixed" class="footer">
+                    <span class="button" id="ios"><div class="innerDiv"><label class="iosText">iOS</label></div></span>
+                    <span class="button" id="cloudant"><a href="http://jdnorrod.cloudant.com/dbkids/_design/app/index.html">
+                        <div class="innerDiv">Original CRUD</div></a></span>
+                    <span class="button" id="android"><div class="innerDiv"><label class="androidText">Android</label></div></span>
                 <span class="button" id="video"><div class="innerDiv">Videos</div></span>
                 <span class="button" id="ghPage"><a rel="external" href="appIndex.html"><div class="innerDiv">Revised CRUD</div></a></span>
                 <span class="button" id="research"><div class="innerDiv">Research</div></span>
