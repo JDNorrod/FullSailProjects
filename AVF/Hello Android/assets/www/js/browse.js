@@ -18,16 +18,16 @@ $('#browse').live('pageinit', function(){
                          $.each(resp.rows, function(index, item){
                                 //console.log('Item ID is: ' + item.id);
                                 //console.log('item is: ', item);
-                                $('#underSix').append('<div data-role="collapsible">' +
-                                                      '<h3>' + item.value.lname[1] + ', ' + item.value.fname[1] + '</h3>' +
-                                                      '<p>Age: ' +
+                                $('#underSix').append(' ' + '<li><a data-role="button" src="external" data-ajax="false" href="edit.html?_id=' + item.id +           
+                                                      '">' +
+                                                      '<h3 class="left">' + item.value.lname[1] + ', ' + item.value.fname[1] + '</h3>' +
+                                                      '<p class="pLarge">Age: ' +
                                                       //item.value.age[1] +
                                                       '&nbsp;&nbsp;' +
                                                       '&nbsp;&nbsp;Potty Trained: ' +
                                                       item.value.trained[1] +
-                                                      '<a data-role="button" src="external" data-ajax="false" href="edit.html?_id=' + item.id + '">Edit/Delete</a>' + 
                                                       '</p>' +
-                                                      '</div>').trigger('create');
+                                                      '</a></li>').listview('refresh');
                                 
                                 }); // close $.each
                          }//close Success function

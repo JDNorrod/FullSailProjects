@@ -44,7 +44,7 @@ $('#editChild').live('pageshow', function(){
                                                   //console.log(data);
                                                   $('#lname').html(data.lname[1]).trigger('create');
                                                   $('#fname').html(data.fname[1]);
-                                                  //$('#age').html(data.slider[1]);
+                                                  //$('#age').html(data.age[1]);
                                                   $('#trained').html(data.trained[1]);
                                                   $('#bday').html(data.bday[1]);
                                                   $('#group').html(data.group[1]);
