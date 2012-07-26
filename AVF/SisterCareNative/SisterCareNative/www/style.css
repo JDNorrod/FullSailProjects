@@ -1,3 +1,18 @@
+#tabletEdit{
+    display: none;
+    float: right;
+    width: 50%;
+    overflow: hidden;
+}
+#underSix{
+    float: left;
+    overflow: scroll;
+}
+#tabletSpace{
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
 h4{
     color: #FF6633;
 }
