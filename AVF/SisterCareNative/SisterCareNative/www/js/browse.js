@@ -2,8 +2,12 @@
 //this will load the data.json on the infants browsing page
 //load the data.json
 
-$('#browse').live('pageinit', function(){
-       // alert("We are live");
+$('#browse').live('pageinit', function(event){
+        var page = $(event.target);
+        page.trigger("refresh");
+        $.couch.urlPrefix = 'https:\/\/hereetestralseedingetura:EOLeMo7mfxBtYqXG2jGdJTXF@jdnorrod.cloudant.com';  //set prefix for db
+        
+        $.mobile.ajaxLinksEnabled = false;
         $('#underSix').empty();
           
         //check the screen size and adjust if tablet or greater
@@ -17,7 +21,15 @@ $('#browse').live('pageinit', function(){
             $('#underSix').height(windowHeight);
             $('#underSix').width('50%');
         }
-          
+
+          var enterDefault = function (value){
+            if (value == null || value == undefined){
+                return "Enter Text";
+            }
+            else{
+                return value;
+            }
+          }   
           //******************************************** load json
         $.ajax({
             url: 'https:\/\/hereetestralseedingetura:EOLeMo7mfxBtYqXG2jGdJTXF@jdnorrod.cloudant.com\/dbkids\/_design\/app\/_view\/kids',           
@@ -45,12 +57,7 @@ $('#browse').live('pageinit', function(){
                     else{
                        trained = item.value.trained[1];
                     }
-//                    if(item.value.age[1] == ""){
-//                       age = "unknown";
-//                    }
-//                    else{
-//                       age = item.value.age[1];
-//                    }
+
                     $('#underSix').append(' ' + '<li id=' + item.id + '><a class="childLink" data-role="button" src="external" id="' + item.id + '" data-ajax="false" href=' +        
                                             editURL + '>' +
                                             '<h3 class="left">' + item.value.lname[1] + ', ' + item.value.fname[1] + '</h3>' +
@@ -64,17 +71,20 @@ $('#browse').live('pageinit', function(){
                        if(tablet){
                        $('.childLink').on("click", function(event){
                         event.preventDefault();
-                                          alert(this.id);
+                                          
+                                          //alert(this.id);
                                           var idToPass = this.id;
-                                           //console.log(data);
+                                           ////console.log(data);
                                            $('#lname').html(item.value.lname[1]).trigger('create');
                                            $('#fname').html(item.value.fname[1]);
-                                           //$('#age').html(data.age[1]);
+                                           $('#age').html(item.value.age[1]);
                                            $('#trained').html(item.value.trained[1]);
                                            $('#bday').html(item.value.bday[1]);
-                                           $('#group').html(item.value.group[1]);
+//                                           $('#group').html(item.value.group[1]);
                                            //$('#allergy').html(data.allergy[1]);
                                            $('#comment').html(item.value.comment[1]);
+                                           $('#editID').html(this.id);
+                                           
                         //var selectedChild = this.attr('id');
                         //loadChildTablet(selectedChild);
                         });
@@ -82,6 +92,56 @@ $('#browse').live('pageinit', function(){
                 }); // close $.each
             }//close Success function
         });//close ajax
-});
+                  
+    $('#editUpdate').on("click", function(){
+                      
+        var updateItem = {};
+        updateItem._id = $('#editID').html();
+        //console.log(updateItem._id);
+                        
+        var setRev = function(rev){
+            updateItem._rev = rev;
+                        //console.log("setRev: ", updateItem._rev);
+        }
+                        
+        if(updateItem._id != null){
+            $.couch.db('dbkids').openDoc(updateItem._id, {                         //get revision
+                success: function(data) {
+                    //console.log("data: ", data);
+                    setRev(data._rev);
+                    //console.log("rev: ", updateItem._rev);
+                }//close Success function
+            });//close couchdb call
+            //alert("saving: " + updateItem._id + "\n" + updateItem._rev);
+        } 
+                        
+        if(updateItem._id == null){                                          
+            var idNum              = Math.floor(Math.random()*9999999);		//if theres no key, create new id
+            updateItem._id         = 'child:' + idNum;
+            alert("assigned: " + updateItem._id);
+        }
+                    
+        updateItem.lname        = ['Last Name: ', $('#lname').html()];
+        updateItem.fname        = ['First Name: ', $('#fname').html()];
+        updateItem.age          = ['Age: ', $('#age').html()];
+        updateItem.trained      = ['Is Trained?: ', $('#trained').html()];
+        updateItem.bday         = ['Birthday: ', $('#bday').html()];
+        updateItem.group        = ['Age Group: ', $('#group').html()];
+        //item.allergy          = ['Has Allergy?: ', $('#allergy').val()];
+        updateItem.comment      = ['Message: ', $('#comment').html()];
+
+        //console.log("saving", updateItem);
+        $.couch.db('dbkids').saveDoc(updateItem, {                       
+            success: function(data) { 
+                //console.log("All your base are belong to us");
+                //console.log(data);
+                ////console.log(status);
+                $.mobile.changePage( "appIndex.html#browse", { transition: "slidedown", reloadPage: true});
+                                                
+            }//close success
+        });//close couch call                  
+    });//close update function
+    $('p.editable').editable();             //make the page editable
+});//close page
 
 
