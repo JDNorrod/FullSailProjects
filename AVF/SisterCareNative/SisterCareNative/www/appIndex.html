@@ -47,7 +47,7 @@
 	        </div>   
 	        <div data-role="controlgroup">
 				<a href="#infoForm"   data-ajax="false" data-role="button" data-icon="arrow-r" data-theme="c" data-iconpos="right">Add a New Child</a>
-				<a href="#browse" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse Children</a>
+				<a href="#browse" data-role="button" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="c">Browse Children</a>
                 <a href="index.html" rel="external" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="c">Return to Demo</a>
 			</div>  
 	   	</div>
@@ -70,6 +70,26 @@
                         <p>I'm the collapsible set content for section.&nbsp;&nbsp;<a href="#">Edit</a> &nbsp;&nbsp;<a href="#">Delete</a></p>
                     </div>
             </ul>
+        <form id="tabletEdit">
+            <h3>Select a child from the list to edit their information</h3>
+            <div id="tabletSpace">
+                <label>Last Name: </label><p id="lname" class="editable">Click to enter last name</p>
+                <label>First Name: </label><p id="fname" class="editable">Click to enter first name</p>
+                <label>Age: </label><p id="age" class="editable">Click to enter age</p>
+                <label>Age Group: </label><p id="group" class="editable">Click to enter group</p>
+                <label>Birthday: </label><p id="bday" class="editable">Click to enter birthday</p>
+                <label>Potty Trained?:  </label><p id="trained" class="editable">Click to enter Potty Trained</p>
+                <label>Allergies?  Y/N: </label><p id="allergy" class="editable">Click to enter Allergy</p>
+                <label>Comments: </label><p id="comment" class="editable">Click to enter comments</p>
+                <p id="editID" class="hidden"></p>
+                <hr/>		
+            </div>
+            <div data-role="controlgroup">
+                <input type="submit" id="editUpdate" value="Save" data-ajax="false" data-icon="arrow-r" data-iconpos="right" data-theme="b"/>
+                <input type="button" id="remove" value="Delete" data-icon="arrow-r" data-iconpos="right" data-theme="e"/>
+                <h4>*To add a new child, fill in the information and click save.</h4>
+            </div>
+        </form>
    </div>
     <!--browse page***************************************************-->
 
@@ -150,6 +170,7 @@
 		<script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js"></script>
 		<script type="text/javascript" src="js/jquery.validate.min.js" ></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/jquery.editable-1.3.3.js" ></script>
         <script type="text/javascript" src="js/jquery.couch.js"></script>
         <script type="text/javascript" src="js/browse.js"></script>
         <script type="text/javascript" src="js/jquery.couch.js"></script>

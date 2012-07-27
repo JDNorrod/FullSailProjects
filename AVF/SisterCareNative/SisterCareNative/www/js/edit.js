@@ -1,10 +1,9 @@
-//**************************************This is where we make our editable page
 
 
 $('#editChild').live('pageshow', function(){
                      //alert("it's working");
                      //console.log("edit.js loaded");						//make sure page loaded right
-                     
+                    $.couch.urlPrefix = 'https:\/\/hereetestralseedingetura:EOLeMo7mfxBtYqXG2jGdJTXF@jdnorrod.cloudant.com';  //set prefix for db                     
                      var childID = {};									//******1.  this will hold the id and rev#
                      
                      var setObject = function(object){					//******5b. this will be used to set variables with the object key and rev
@@ -111,5 +110,4 @@ $('#editChild').live('pageshow', function(){
                      
                      //$('#addHere').editable();
                      $('p.editable').editable();
-                     
-                     });
+});

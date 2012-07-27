@@ -1,5 +1,8 @@
 //Jonathan Norrod
-
+$.ajaxSetup ({
+             // Disable caching of AJAX responses
+             cache: false
+});
 //*************************some variables:
 var vidList 			= ["Infant", "2-4 Years", "5-7 Years", "8-12 Years"];      //Values for dropBox
 
